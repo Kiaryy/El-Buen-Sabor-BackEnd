@@ -1,8 +1,9 @@
 package com.example.demo.controller;
 
-import com.example.demo.DTO.request.PlatoRequestDTO;
-import com.example.demo.models.PlatoJpa;
-import com.example.demo.service.PlatosService;
+import com.example.demo.DTO.request.UsuarioRequestDTO;
+import com.example.demo.models.UsuarioJpa;
+import com.example.demo.service.UsuarioService;
+
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,24 +15,24 @@ import java.util.List;
 
 @RestController
 @AllArgsConstructor // with lombok
-public class PlatoController {
+public class UsuarioController {
 
-    private final PlatosService platosService;
+    private final UsuarioService usuarioService;
     // Without lombok
     /*
     public PlatoController(PlatosService platosService){
         this.platosService = platosService;
     }
     */
-    @GetMapping("/platos/findAll")
-    List<PlatoJpa> findAll(){
-        return platosService.getAllPlatos();
+    @GetMapping("/usuarios/findAll")
+    List<UsuarioJpa> findAll(){
+        return usuarioService.getAllUsuarios();
     }
 
 
-    @PostMapping("/platos/add")
-    public ResponseEntity<String> addPlatos(@RequestBody PlatoRequestDTO platoDTO){
+    @PostMapping("/usuarios/add")
+    public ResponseEntity<String> addUsuarios(@RequestBody UsuarioRequestDTO usuarioDTO){
 
-        return ResponseEntity.ok(platosService.addPlatos(platoDTO));
+        return ResponseEntity.ok(usuarioService.addUsuarios(usuarioDTO));
     }
 }

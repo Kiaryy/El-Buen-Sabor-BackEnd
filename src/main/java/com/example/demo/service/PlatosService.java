@@ -1,32 +1,27 @@
 package com.example.demo.service;
 
 import com.example.demo.DTO.request.PlatoRequestDTO;
-import com.example.demo.models.Plato;
 import com.example.demo.models.PlatoJpa;
 import com.example.demo.models.enums.Tipo;
 import com.example.demo.repository.PlatoJpaRepository;
-import com.example.demo.repository.PlatoRepository;
-import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.swing.*;
 import java.util.List;
 @Service
 public class PlatosService {
-
-    private  PlatoRepository platoRepository;
-
-    public PlatosService(PlatoRepository platoRepository) {
-        this.platoRepository = platoRepository;
-    }
-
-    //JPA repository
     @Autowired
     private PlatoJpaRepository platoJpaRepository;
 
-    public List<Plato> getAllPlatos() {
-       return platoRepository.findAll();
+
+    public PlatosService(PlatoJpaRepository platoJpaRepository) {
+        this.platoJpaRepository = platoJpaRepository;
+    }
+
+    //JPA repository
+
+    public List<PlatoJpa> getAllPlatos() {
+        return platoJpaRepository.findAll();
     }
 
     public String addPlatos(PlatoRequestDTO platoDTO) {
@@ -38,9 +33,10 @@ public class PlatosService {
                 .type(Tipo.BEBIDA)
                 .stock(platoDTO.stock())
                 .avaliable(true)
+                .img(platoDTO.img())
                 .build();
         // Here we save in dataBase
-       platoJpaRepository.save(plato);
+        platoJpaRepository.save(plato);
         return "Plato agregado";
     }
 }

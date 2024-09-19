@@ -6,7 +6,6 @@ import com.example.demo.DTO.request.PlatoRequestDTO;
 import com.example.demo.models.Plato;
 import com.example.demo.models.enums.Tipo;
 import jakarta.annotation.PostConstruct;
-import jakarta.persistence.PostLoad;
 import org.springframework.stereotype.Repository;
 
 @Repository
@@ -18,259 +17,234 @@ public class PlatoRepository {
     @PostConstruct
     public void init(){
         //      ------------Empanadas------------
-        platos.add(new Plato("Empanada de Carne Cortada a Cuchillo"
-            , "Docena de Empanadas de Carne Cortada a Cuchillo"
+        platos.add(new Plato("Empanada de Carne"
+            , "Empanada rellena con carne picada sazonada, cebolla, pimiento rojo y especias, todo cocido a la perfección. La masa, dorada y crujiente, encierra el relleno jugoso y sabroso, ofreciendo una experiencia clásica y reconfortante en cada bocado. Ideal como aperitivo o plato principal. Se vende por docena."
             , Tipo.EMPANADA
             , 2500D
             , 25
-            , true));
+            , true
+            , "IMAGENES BUEN SABOR/MENU/empandas-carne.webp"));
         platos.add(new Plato("Empanada de Jamon y Queso"
-            , "Docena de Empanadas de Jamon y Queso"
+            , "Empanada rellena con una mezcla suave de jamón cocido y queso derretido, envuelta en una masa dorada y crujiente. El jamón y el queso se funden juntos, creando un interior jugoso y sabroso, perfecto como aperitivo o bocadillo. Se vende por docena."
             , Tipo.EMPANADA
             , 2500D
             , 25
-            , true));
-        platos.add(new Plato("Empanada de Carne Tradicional"
-            , "Relleno de carne de res sazonada con cebolla, pimientos, huevo duro y aceitunas, envuelta en una masa crujiente al horno."
+            , true
+            , "IMAGENES BUEN SABOR/MENU/empanada-jyq.png"));
+        platos.add(new Plato("Empanada de Choclo"
+            , "Empanada rellena con una mezcla de granos de choclo dulce, cebolla, queso y especias, envuelta en una masa dorada y crujiente. El relleno cremoso y ligeramente dulce del choclo ofrece una combinación deliciosa y reconfortante, ideal como aperitivo o plato ligero. Se vende por docena."
             , Tipo.EMPANADA
             , 2500D
             , 25
-            , true));
-        platos.add(new Plato("Empanada de Pollo y Espinaca"
-            , "Pechuga de pollo desmenuzada, mezclada con espinacas salteadas y queso crema."
-            , Tipo.EMPANADA
-            , 2500D
-            , 25
-            , true));
-        platos.add(new Plato("Empanada de Humita"
-            , "Rellena de una mezcla cremosa de maíz, queso y especias."
-            , Tipo.EMPANADA
-            , 2500D
-            , 25
-            , true));
-        platos.add(new Plato("Empanada Caprese (vegetariana):"
-            , "Relleno de queso mozzarella, tomate cherry y hojas frescas de albahaca, sazonada con aceite de oliva y pimienta."
-            , Tipo.EMPANADA
-            , 2500D
-            , 25
-            , true));
-        platos.add(new Plato("Empanada de Espinaca y Ricota (vegetariana)"
-            , "Espinacas frescas mezcladas con queso ricota y un toque de nuez moscada para darle más sabor."
-            , Tipo.EMPANADA
-            , 2500D
-            , 25
-            , true));
-        platos.add(new Plato("Empanada de Lentejas y Champiñones (vegana)"
-            , "Relleno de lentejas cocidas con champiñones salteados, cebolla, ajo y un toque de pimentón ahumado."
-            , Tipo.EMPANADA
-            , 2500D
-            , 25
-            , true));
-        platos.add(new Plato("Empanada de Vegetales Asados (vegana)"
-            , "Una mezcla de calabacín, pimientos rojos, cebolla y berenjena asados, aderezados con hierbas frescas y un poco de aceite de oliva."
-            , Tipo.EMPANADA
-            , 2500D
-            , 25
-            , true));
+            , true
+            , "IMAGENES BUEN SABOR/MENU/empanada-choclo.png"));
+
         //      ------------Pizzas------------
-        platos.add(new Plato("Pizza Pepperoni"
-            , "Salsa de tomate, queso mozzarella y rodajas de pepperoni, con un toque de orégano."
-            , Tipo.PIZZA
-            , 1500D
-            , 20
-            , true));
-        platos.add(new Plato("Pizza Cuatro Quesos"
-            , "Mezcla de quesos mozzarella, parmesano, gorgonzola y provolone, sobre una base de salsa blanca o tomate."
-            , Tipo.PIZZA
-            , 1500D
-            , 20
-            , true));
         platos.add(new Plato("Pizza Muzzarella"
-            , "Sin Descripcion"
+            , "Pizza tradicional con una base de masa esponjosa y ligeramente crujiente, cubierta con una capa generosa de salsa de tomate casera y abundante queso muzzarella derretido. Coronada con un toque de orégano y, opcionalmente, unas aceitunas verdes, es la clásica favorita por su sencillez y sabor reconfortante."
             , Tipo.PIZZA
             , 1500D
             , 20
-            , true));
-        platos.add(new Plato("Pizza Pollo y Pesto"
-            , "Salsa pesto, pechuga de pollo a la parrilla, queso mozzarella y tomate cherry."
+            , true
+            , "IMAGENES BUEN SABOR/MENU/pizza-muzarella.png"));
+        platos.add(new Plato("Pizza Pollo y Espinaca"
+            , "Pizza con una base crujiente y dorada, cubierta con una capa de salsa blanca suave o de tomate, trozos de pollo a la parrilla, hojas de espinaca frescas y queso muzzarella derretido. Los sabores suaves del pollo y la espinaca se complementan perfectamente con el queso, creando una opción ligera y deliciosa."
             , Tipo.PIZZA
             , 1500D
             , 20
-            , true));
-        platos.add(new Plato("Pizza Jamon y Morrones"
-            , "Con salsa de tomate, jamón cocido, pimientos asados y queso mozzarella."
+            , true
+            , "IMAGENES BUEN SABOR/MENU/pizza-pollo-espinaca.jpg"));
+        platos.add(new Plato("Pizza Especial"
+            , "Pizza con base de masa esponjosa, cubierta con una capa de salsa de tomate, abundante queso muzzarella derretido y una combinación clásica de jamón cocido, rodajas de morrón rojo asado y aceitunas verdes. Esta opción ofrece un equilibrio perfecto entre sabores suaves y ligeramente ahumados, ideal para quienes buscan algo más que lo tradicional."
             , Tipo.PIZZA
             , 1500D
             , 20
-            , true));
-        platos.add(new Plato("Pizza Tropical"
-            , "Salsa de tomate, queso mozzarella, jamón ahumado, piña jugosa, pimiento rojo en tiras y cebolla morada."
+            , true
+            , "IMAGENES BUEN SABOR/MENU/pizza especial.png"));
+        platos.add(new Plato("Pizza Hawaiana"
+            , "Pizza con una base dorada y crujiente, cubierta con salsa de tomate, una generosa capa de queso muzzarella derretido, rodajas de jamón cocido y trozos de ananá jugoso. Esta combinación de sabores salados y dulces ofrece una experiencia única y refrescante, amada por quienes disfrutan de contrastes atrevidos en sus comidas."
             , Tipo.PIZZA
             , 1500D
             , 20
-            , true));
-        platos.add(new Plato("Pizza Margarita (Vegetariana)"
-            , "Salsa de tomate, mozzarella fresca, rodajas de tomate, hojas de albahaca y un chorrito de aceite de oliva."
+            , true
+            , "IMAGENES BUEN SABOR/MENU/pizza-hawaiana.webp"));
+        platos.add(new Plato("Pizza Champiñones (vegetariana)"
+            , "Pizza con una base crujiente y esponjosa, cubierta con salsa de tomate y una generosa cantidad de queso muzzarella derretido, adornada con champiñones frescos salteados en aceite de oliva y ajo. El sabor terroso y suave de los champiñones combina perfectamente con el queso, ofreciendo una opción simple pero deliciosa para los amantes de los ingredientes frescos."
             , Tipo.PIZZA
             , 1500D
             , 20
-            , true));
-        platos.add(new Plato("Pizza Champiñones y Espinacas (vegetariana)"
-            , "Salsa de tomate, queso mozzarella, champiñones frescos, espinacas salteadas y un toque de ajo y aceite de oliva."
-            , Tipo.PIZZA
-            , 1500D
-            , 20
-            , true));
+            , true
+            , "IMAGENES BUEN SABOR/MENU/pizza-champiñones.webp"));
         platos.add(new Plato("Pizza Vegetales Asados (vegana)"
-            , "Masa vegana cubierta con salsa de tomate, berenjenas, calabacín, pimientos asados y cebolla caramelizada."
+            , "Pizza con una base crujiente y dorada, cubierta con salsa de tomate y queso muzzarella derretido, acompañada de una colorida mezcla de vegetales frescos como pimientos, cebolla, champiñones y tomates en rodajas. Los tomates aportan jugosidad y un sabor ligeramente dulce, equilibrando perfectamente con los otros vegetales y el queso, creando una opción deliciosa y nutritiva."
             , Tipo.PIZZA
             , 1500D
             , 20
-            , true));
-        platos.add(new Plato("Pizza Hummus y Rúcula (vegana)"
-            , "Base de hummus en lugar de salsa de tomate, acompañada de tomates cherry, rúcula fresca y aceitunas negras."
-            , Tipo.PIZZA
-            , 1500D
-            , 20
-            , true));
+            , true
+            , "IMAGENES BUEN SABOR/MENU/pizza-vegetales.webp"));
+
         //      ------------Hamburguesas------------
-        platos.add(new Plato("Hamburguesa Clásica con Queso"
-            , "Carne de res jugosa, queso cheddar, lechuga, tomate, cebolla y pepinillos en un pan de hamburguesa clásico."
+        platos.add(new Plato("Hamburguesa Clásica de la Casa"
+            , "Una hamburguesa clásica con una carne super jugosa y un sabor incomparable. Contiene pan de papa, doble carne jugosa, queso cheddar derretido, tomate, lechuga, pepino y salsa de la casa."
             , Tipo.HAMBURGESA
             , 1500D
             , 20
-            , true));
-        platos.add(new Plato("Hamburguesa BBQ con Cebolla Caramelizada"
-            , "Carne de res con salsa BBQ, cebolla caramelizada, queso cheddar y lechuga en pan brioche."
+            , true
+            , "IMAGENES BUEN SABOR/MENU/burger-clasica.webp"));
+        platos.add(new Plato("Hamburguesa Bacon y Huevo"
+            , "Un jugoso medallón de carne a la parrilla, acompañada de crujientes tiras de bacon y un huevo frito con la yema ligeramente líquida. Todo servido en un pan suave con queso cheddar derretido, lechuga fresca y mayonesa, creando una deliciosa combinación de sabores clásicos y texturas."
             , Tipo.HAMBURGESA
             , 1500D
             , 20
-            , true));
-        platos.add(new Plato("Hamburguesa de Pollo a la Parrilla con Palta (celiaco)"
-            , "Pechuga de pollo a la parrilla, palta, tomate y lechuga en un pan sin gluten."
+            , true
+            , "IMAGENES BUEN SABOR/MENU/burger-bacon-egg.png"));
+        platos.add(new Plato("Hamburguesa Cebolla y Bacon"
+            , "Medallón de carne a la parrilla, cubierta con cebolla caramelizada que aporta un toque dulce y tiras crujientes de bacon. Servida en un pan suave con queso cheddar derretido y una ligera capa de mayonesa, esta hamburguesa combina sabores intensos y texturas deliciosas."
             , Tipo.HAMBURGESA
             , 1500D
             , 20
-            , true));
-        platos.add(new Plato("Hamburguesa de Ternera con Champiñones Salteados (celiaco)"
-            , "Carne de res con champiñones salteados, queso suizo y espinacas en pan sin gluten."
+            , true
+            , "IMAGENES BUEN SABOR/MENU/burger-bbq.webp"));
+        platos.add(new Plato("Hamburguesa Pollo Crispy Simple"
+            , "Pechuga de pollo empanada y frita hasta quedar crujiente por fuera y jugosa por dentro. Servida en un pan suave, acompañada de rodajas de tomate fresco, lechuga crocante y una capa de mayonesa cremosa para equilibrar los sabores. Simple, pero deliciosa."
             , Tipo.HAMBURGESA
             , 1500D
             , 20
-            , true));
-        platos.add(new Plato("Hamburguesa de Garbanzos y Espinacas (vegetariana)"
-            , "Hamburguesa a base de garbanzos, espinacas, zanahorias y especias, con hummus, tomate y lechuga en pan integral."
+            , true
+            , "IMAGENES BUEN SABOR/MENU/burger-crispy-chicken.png"));
+        platos.add(new Plato("Hamburguesa Pollo, Bacon y Cebolla Crispy"
+            , "Pechuga de pollo empanada y frita hasta quedar extra crujiente, cubierta con tiras de bacon crocante, cebolla crispy dorada y dos generosas rodajas de queso provoleta derretido. Servida en un pan suave, esta hamburguesa ofrece una explosión de texturas y sabores intensos, perfecta para los amantes de las combinaciones irresistibles."
             , Tipo.HAMBURGESA
             , 1500D
             , 20
-            , true));
-        platos.add(new Plato("Hamburguesa de Portobello a la Parrilla (vegetariana)"
-            , "Hongo portobello a la parrilla con queso feta, tomate, cebolla roja y pesto en pan de hamburguesa."
+            , true
+            , "IMAGENES BUEN SABOR/MENU/burger-chicken-bacon.png"));
+        platos.add(new Plato("Hamburguesa Vegana Simple"
+            , "Hamburguesa con un medallón vegano hecho a base de ingredientes que imitan la textura y sabor de la carne, servido con lechuga fresca, rodajas de tomate, cebolla morada crujiente y pepino. Todo en un pan vegano suave, acompañado de una salsa ligera, ofreciendo una opción deliciosa y sabrosa, 100% vegetal."
             , Tipo.HAMBURGESA
             , 1500D
             , 20
-            , true));
-        platos.add(new Plato("Hamburguesa de Lentejas y Remolacha (vegana)"
-            , "Hamburguesa vegana a base de lentejas, remolacha, zanahorias y especias, con aguacate, tomate y lechuga en pan vegano."
-            , Tipo.HAMBURGESA
-            , 1500D
-            , 20
-            , true));
-        platos.add(new Plato("Hamburguesa de Berenjena y Garbanzos (vegana)"
-            , "Hamburguesa hecha con berenjena asada y garbanzos triturados, sazonada con comino y cilantro, acompañada de salsa de tahini, tomate y rúcula."
-            , Tipo.HAMBURGESA
-            , 1500D
-            , 20
-            , true));
+            , true
+            , "IMAGENES BUEN SABOR/MENU/burger-vegan.web.png"));
+
         //      ------------Acompañamientos------------
         platos.add(new Plato("Papas Fritas Caseras"
             , "Papas cortadas en tiras y fritas, con opción de condimentos como paprika, ajo en polvo y romero."
             , Tipo.ACOMPAÑANMIENTO
             , 1500D
             , 20
-            , true));
+            , true
+            , "IMAGENES BUEN SABOR/MENU/acompañamineto-papas-fritas.png"));
         platos.add(new Plato("Aros de Cebolla"
-            , "Aros de Cebolla"
+            , "Cebolla rebozada y frita, con salsa barbacoa o mayonesa."
             , Tipo.ACOMPAÑANMIENTO
             , 1500D
             , 20
-            , true));
+            , true
+            , "IMAGENES BUEN SABOR/MENU/acompañamiento-onion-rings.png"));
         platos.add(new Plato("Papas con Cheddar y Bacon Triturado"
             , "Deliciosas papas al horno o fritas, cubiertas con una generosa capa de queso cheddar derretido y trocitos crujientes de bacon triturado."
             , Tipo.ACOMPAÑANMIENTO
             , 1500D
             , 20
-            , true));
+            , true
+            , "IMAGENES BUEN SABOR/MENU/acompañamiento-papas-cheddar-bacon.png"));
+
         //      ------------Ensaladas------------
-        platos.add(new Plato("Ensalada Mediterránea"
-            , "Mezcla de tomates cherry, pepino, cebolla roja, aceitunas negras, queso feta y albahaca fresca. Aliñada con aceite de oliva, jugo de limón, sal y pimienta."
+        platos.add(new Plato("Ensalada César con Pollo"
+            , "Ensalada de lechuga romana crujiente, acompañada de trozos de pollo a la parrilla, crutones dorados y queso parmesano rallado. Todo aderezado con una suave y cremosa salsa César, que mezcla mayonesa, ajo, anchoas y limón. Esta combinación ofrece una opción fresca y sabrosa, con una mezcla de texturas y sabores enriquecedores."
             , Tipo.ENSALADA
             , 1500D
             , 20
-            , true));
-        platos.add(new Plato("Ensalada César Vegetariana"
-            , "Lechuga romana, crutones de pan integral, queso parmesano y aderezo César casero, sin anacardos para la versión vegana."
+            , true
+            , "IMAGENES BUEN SABOR/MENU/Ensalada-cesar-con-pollo.png"));
+        platos.add(new Plato("Ensalada Latina"
+            , "Ensalada vibrante que combina lechuga fresca con tomate, aguacate, maíz, frijoles negros y cebolla roja. Adornada con cilantro fresco y acompañada de una vinagreta de limón y comino. Esta ensalada ofrece una explosión de sabores y texturas, con un toque refrescante y ligero."
             , Tipo.ENSALADA
             , 1500D
             , 20
-            , true));
-        platos.add(new Plato("Ensalada de Papa y Huevos"
-            , "Papas hervidas, huevos duros, cebolla morada y apio, mezclados con un aderezo de mayonesa ligera y mostaza"
+            , true
+            , "IMAGENES BUEN SABOR/MENU/Ensalada-latina.webp"));
+        platos.add(new Plato("Ensalada de Manzana, Queso Azul y Nuez"
+            , "Ensalada fresca y equilibrada que combina rodajas de manzana crujiente con el sabor intenso y cremoso del queso azul, nueces tostadas para aportar crocante, y pasas dulces. Todo aliñado con un ligero toque de miel, que une los sabores en una mezcla perfecta de dulce, salado y fresco."
             , Tipo.ENSALADA
             , 1500D
             , 20
-            , true));
-        platos.add(new Plato("Ensalada de Tomate y Palta"
-            , "Tomates en rodajas y palta, acompañados de cebolla morada y albahaca. Aliñada con aceite de oliva, vinagre balsámico, sal y pimienta."
-            , Tipo.ENSALADA
-            , 1500D
-            , 20
-            , true));
-        platos.add(new Plato("Ensalada de Garbanzos con Espárragos"
-            , "Garbanzos cocidos y espárragos blanqueados mezclados con cebolla roja, pimientos y cilantro. Aliñada con una vinagreta de limón y comino."
-            , Tipo.ENSALADA
-            , 1500D
-            , 20
-            , true));
+            , true
+            , "IMAGENES BUEN SABOR/MENU/ensalada manzana.webp"));
+
         //      ------------Bebidas------------
         //! Hay que ver bien que hacer con las bebidas, asi que solo pongo esto por ahora
-        platos.add(new Plato("Coca-Cola"
-            , "Disponibles en 500ml, 1.5L y 2.25L"
+        platos.add(new Plato("Coca-Cola 500ml"
+            , "Disponibles en 500ml"
             , Tipo.BEBIDA
             , 1500D
             , 20
-            , true));
+            , true
+            , "IMAGENES BUEN SABOR/MENU/bebeida-coca-medio.webp"));
+        
+            platos.add(new Plato("Coca-Cola 1.5L"
+            , "Disponible en 1.5L"
+            , Tipo.BEBIDA
+            , 1500D
+            , 20
+            , true
+            , "IMAGENES BUEN SABOR/MENU/bebeida-coca-medio.webp"));
+        
+        platos.add(new Plato("Coca-Cola 2.25L"
+            , "Disponibles en 2.25L"
+            , Tipo.BEBIDA
+            , 1500D
+            , 20
+            , true
+            , "IMAGENES BUEN SABOR/MENU/bebeida-coca-medio.webp"));
+        
+            platos.add(new Plato("Coca-Cola Zero 500Ml"
+            , "Disponibles en 500ml"
+            , Tipo.BEBIDA
+            , 1500D
+            , 20
+            , true
+            , "IMAGENES BUEN SABOR/MENU/bebeida-coca-medio.webp"));
+        
+            platos.add(new Plato("Coca-Cola Zero 1.5L"
+            , "Disponibles en 1.5L"
+            , Tipo.BEBIDA
+            , 1500D
+            , 20
+            , true
+            , "IMAGENES BUEN SABOR/MENU/bebeida-coca-medio.webp"));
+        
+            platos.add(new Plato("Coca-Cola Zero 2.25L"
+            , "Disponibles en 2.25L"
+            , Tipo.BEBIDA
+            , 1500D
+            , 20
+            , true
+            , "IMAGENES BUEN SABOR/MENU/bebeida-coca-medio.webp"));
+
         //      ------------Postres------------
-        platos.add(new Plato("Flan Casero con Dulce de Leche"
-            , "Clásico flan de huevo, suave y cremoso, servido con una generosa porción de dulce de leche."
+        platos.add(new Plato("Flan Casero"
+            , "Clásico flan de huevo, suave y cremoso, servido con una generosa porción de dulce de leche y, opcionalmente, un poco de crema chantilly."
             , Tipo.POSTRE
             , 1500D
             , 20
-            , true));
-        platos.add(new Plato("Alfajor"
-            , "Dulce tradicional argentino compuesto por dos galletas suaves rellenas de dulce de leche y cubiertas con chocolate."
+            , true
+            , "IMAGENES BUEN SABOR/MENU/postre-flan.webp"));
+        platos.add(new Plato("Alfajor de Maicena"
+            , "Delicados y suaves alfajores hechos con una masa de maicena, que les da una textura ligera y desmenuzable. Rellenos con una generosa capa de dulce de leche, y luego cubiertos con un espolvoreo de azúcar impalpable o coco rallado."
             , Tipo.POSTRE
             , 1500D
             , 20
-            , true));
-        platos.add(new Plato("Chocotorta"
-            , "Postre frío hecho con capas de galletitas de chocolate mojadas en café o leche, intercaladas con una mezcla de dulce de leche y queso crema."
+            , true
+            , "IMAGENES BUEN SABOR/MENU/postre-alfajores.webp"));
+        platos.add(new Plato("Arroz con Leche"
+            , "Postre cremoso y reconfortante hecho con arroz cocido lentamente en leche, azúcar y una pizca de canela. Se aromatiza con cáscara de limón o vainilla, resultando en una textura suave y un sabor dulce y especiado. Perfecto para disfrutar frío o tibio."
             , Tipo.POSTRE
             , 1500D
             , 20
-            , true));
-        platos.add(new Plato("Vigilante"
-            , "Postre simple pero muy tradicional, que consiste en rodajas de queso (generalmente queso fresco) servidas con dulce de membrillo"
-            , Tipo.POSTRE
-            , 1500D
-            , 20
-            , true));
-        platos.add(new Plato("Helado Artesanal"
-            , "El helado es una de las estrellas de la gastronomía argentina, con sabores tradicionales como dulce de leche, chocolate amargo, frutilla y crema americana."
-            , Tipo.POSTRE
-            , 1500D
-            , 20
-            , true));
+            , true
+            , "IMAGENES BUEN SABOR/MENU/postre-arroz-con-leche.webp"));
     }
 
     public boolean savePlatos(PlatoRequestDTO platoDTO) {

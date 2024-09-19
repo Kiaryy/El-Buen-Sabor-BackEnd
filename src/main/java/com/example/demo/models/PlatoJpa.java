@@ -25,6 +25,7 @@ public class PlatoJpa {
     private Double price;
     private int stock;
     private boolean avaliable;
+    private String img;
 
     // Without lombok
     /*

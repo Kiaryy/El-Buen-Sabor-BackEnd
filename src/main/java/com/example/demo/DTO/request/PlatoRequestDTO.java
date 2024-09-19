@@ -7,6 +7,7 @@ public record PlatoRequestDTO(
         String description,
         Tipo type,
         Double price,
-        int stock
+        int stock,
+        String img
 ) {
 }
