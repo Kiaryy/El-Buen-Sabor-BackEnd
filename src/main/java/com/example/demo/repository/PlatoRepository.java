@@ -86,42 +86,42 @@ public class PlatoRepository {
         //      ------------Hamburguesas------------
         platos.add(new Plato("Hamburguesa Clásica de la Casa"
             , "Una hamburguesa clásica con una carne super jugosa y un sabor incomparable. Contiene pan de papa, doble carne jugosa, queso cheddar derretido, tomate, lechuga, pepino y salsa de la casa."
-            , Tipo.HAMBURGESA
+            , Tipo.HAMBURGUESA
             , 1500D
             , 20
             , true
             , "IMAGENES BUEN SABOR/MENU/burger-clasica.webp"));
         platos.add(new Plato("Hamburguesa Bacon y Huevo"
             , "Un jugoso medallón de carne a la parrilla, acompañada de crujientes tiras de bacon y un huevo frito con la yema ligeramente líquida. Todo servido en un pan suave con queso cheddar derretido, lechuga fresca y mayonesa, creando una deliciosa combinación de sabores clásicos y texturas."
-            , Tipo.HAMBURGESA
+            , Tipo.HAMBURGUESA
             , 1500D
             , 20
             , true
             , "IMAGENES BUEN SABOR/MENU/burger-bacon-egg.png"));
         platos.add(new Plato("Hamburguesa Cebolla y Bacon"
             , "Medallón de carne a la parrilla, cubierta con cebolla caramelizada que aporta un toque dulce y tiras crujientes de bacon. Servida en un pan suave con queso cheddar derretido y una ligera capa de mayonesa, esta hamburguesa combina sabores intensos y texturas deliciosas."
-            , Tipo.HAMBURGESA
+            , Tipo.HAMBURGUESA
             , 1500D
             , 20
             , true
             , "IMAGENES BUEN SABOR/MENU/burger-bbq.webp"));
         platos.add(new Plato("Hamburguesa Pollo Crispy Simple"
             , "Pechuga de pollo empanada y frita hasta quedar crujiente por fuera y jugosa por dentro. Servida en un pan suave, acompañada de rodajas de tomate fresco, lechuga crocante y una capa de mayonesa cremosa para equilibrar los sabores. Simple, pero deliciosa."
-            , Tipo.HAMBURGESA
+            , Tipo.HAMBURGUESA
             , 1500D
             , 20
             , true
             , "IMAGENES BUEN SABOR/MENU/burger-crispy-chicken.png"));
         platos.add(new Plato("Hamburguesa Pollo, Bacon y Cebolla Crispy"
             , "Pechuga de pollo empanada y frita hasta quedar extra crujiente, cubierta con tiras de bacon crocante, cebolla crispy dorada y dos generosas rodajas de queso provoleta derretido. Servida en un pan suave, esta hamburguesa ofrece una explosión de texturas y sabores intensos, perfecta para los amantes de las combinaciones irresistibles."
-            , Tipo.HAMBURGESA
+            , Tipo.HAMBURGUESA
             , 1500D
             , 20
             , true
             , "IMAGENES BUEN SABOR/MENU/burger-chicken-bacon.png"));
         platos.add(new Plato("Hamburguesa Vegana Simple"
             , "Hamburguesa con un medallón vegano hecho a base de ingredientes que imitan la textura y sabor de la carne, servido con lechuga fresca, rodajas de tomate, cebolla morada crujiente y pepino. Todo en un pan vegano suave, acompañado de una salsa ligera, ofreciendo una opción deliciosa y sabrosa, 100% vegetal."
-            , Tipo.HAMBURGESA
+            , Tipo.HAMBURGUESA
             , 1500D
             , 20
             , true

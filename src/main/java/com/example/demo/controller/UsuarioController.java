@@ -35,4 +35,5 @@ public class UsuarioController {
 
         return ResponseEntity.ok(usuarioService.addUsuarios(usuarioDTO));
     }
+    // TODO Put and Delete Mappings
 }
