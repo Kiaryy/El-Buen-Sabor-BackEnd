@@ -5,9 +5,14 @@ import com.example.demo.models.UsuarioJpa;
 import com.example.demo.service.UsuarioService;
 
 import lombok.AllArgsConstructor;
+
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -35,5 +40,16 @@ public class UsuarioController {
 
         return ResponseEntity.ok(usuarioService.addUsuarios(usuarioDTO));
     }
-    // TODO Put and Delete Mappings
+    
+    @PutMapping("/usuarios/{id}")
+    //Updates entity with matching id
+    public ResponseEntity<?> update(@PathVariable Long id, @RequestBody UsuarioRequestDTO usuarioDTO){ 
+        return ResponseEntity.status(HttpStatus.OK).body(usuarioService.update(id, usuarioDTO));
+    }
+
+    @DeleteMapping("/usuarios/{id}")
+    // Deletes entity with matchign id
+    public ResponseEntity<?> delete(@PathVariable Long id){
+        return ResponseEntity.status(HttpStatus.NO_CONTENT).body(usuarioService.delete(id));
+    }
 }
