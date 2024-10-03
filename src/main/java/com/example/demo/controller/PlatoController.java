@@ -49,7 +49,7 @@ public class PlatoController {
     }
 
     @DeleteMapping("/platos/{id}")
-    // Deletes entity with matchign id
+    // Deletes entity with matching id
     public ResponseEntity<?> delete(@PathVariable Long id){
         return ResponseEntity.status(HttpStatus.NO_CONTENT).body(platosService.delete(id));
     }
