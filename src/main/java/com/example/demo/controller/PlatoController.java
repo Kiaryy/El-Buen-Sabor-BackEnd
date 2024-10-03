@@ -7,6 +7,7 @@ import lombok.AllArgsConstructor;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -19,6 +20,7 @@ import java.util.List;
 
 @RestController
 @AllArgsConstructor // with lombok
+@CrossOrigin(origins = "*")
 public class PlatoController {
 
     private final PlatosService platosService;
@@ -33,7 +35,6 @@ public class PlatoController {
     List<PlatoJpa> findAll(){
         return platosService.getAllPlatos();
     }
-
 
     @PostMapping("/platos/add")
     // adds DTO object
