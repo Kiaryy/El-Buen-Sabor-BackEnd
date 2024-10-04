@@ -19,21 +19,14 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@AllArgsConstructor // with lombok
+@AllArgsConstructor 
 public class UsuarioController {
 
     private final UsuarioService usuarioService;
-    // Without lombok
-    /*
-    public PlatoController(PlatosService platosService){
-        this.platosService = platosService;
-    }
-    */
     @GetMapping("/usuarios/findAll")
     List<UsuarioJpa> findAll(){
         return usuarioService.getAllUsuarios();
     }
-
 
     @PostMapping("/usuarios/add")
     public ResponseEntity<String> addUsuarios(@RequestBody UsuarioRequestDTO usuarioDTO){
@@ -48,7 +41,7 @@ public class UsuarioController {
     }
 
     @DeleteMapping("/usuarios/{id}")
-    // Deletes entity with matchign id
+    // Deletes entity with matching id
     public ResponseEntity<?> delete(@PathVariable Long id){
         return ResponseEntity.status(HttpStatus.NO_CONTENT).body(usuarioService.delete(id));
     }

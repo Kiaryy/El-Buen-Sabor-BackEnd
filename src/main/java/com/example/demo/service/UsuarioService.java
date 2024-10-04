@@ -35,7 +35,9 @@ public class UsuarioService {
         UsuarioJpa usuario = UsuarioJpa.builder()
                 .name(usuarioDTO.name())
                 .mail(usuarioDTO.mail())
-                .address(usuarioDTO.address())
+                .addresses(usuarioDTO.adresses())
+                .cards(usuarioDTO.cards())
+                .phoneNumber(usuarioDTO.phoneNumber())
                 .passWord(usuarioDTO.passWord())
                 .build();
         // Here we save in dataBase
@@ -50,7 +52,9 @@ public class UsuarioService {
         UsuarioJpa usuarioActualizado = UsuarioJpa.builder()
                 .name(entity.name())
                 .mail(entity.mail())
-                .address(entity.address())
+                .addresses(entity.adresses())
+                .cards(entity.cards())
+                .phoneNumber(entity.phoneNumber())
                 .passWord(entity.passWord())
                 .build();
         // Saves updated entity to database
