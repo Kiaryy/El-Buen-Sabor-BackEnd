@@ -1,10 +1,7 @@
 package com.example.demo.models;
 
 import com.example.demo.models.enums.Tipo;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.*;
 
 //With Lombok
@@ -19,11 +16,15 @@ public class PlatoJpa {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long platoId;
 
+    @Column(columnDefinition = "varchar(100)")
     private String name;
+
+    @Column(columnDefinition = "varchar(600)")
     private String description;
     private Tipo type;
     private Double price;
     private int stock;
     private boolean available;
+    @Column(columnDefinition = "varchar(600)")
     private String img;
 }

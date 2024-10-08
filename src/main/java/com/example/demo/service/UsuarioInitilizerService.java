@@ -1,4 +1,4 @@
-package com.example.demo.repository;
+package com.example.demo.service;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -6,9 +6,10 @@ import java.util.List;
 import com.example.demo.models.Usuario;
 import jakarta.annotation.PostConstruct;
 import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 
-@Repository
-public class UsuarioRepository {
+@Service
+public class UsuarioInitilizerService {
     private List<Usuario> usuarios = new ArrayList<Usuario>();
     public List<Usuario> findAll(){
         return usuarios;

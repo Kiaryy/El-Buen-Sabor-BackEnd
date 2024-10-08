@@ -10,11 +10,11 @@ import java.util.List;
 import java.util.Optional;
 @Service
 public class PlatosService {
+
+    private final PlatoJpaRepository platoJpaRepository;
     @Autowired
-    private PlatoJpaRepository platoJpaRepository;
-
-
     public PlatosService(PlatoJpaRepository platoJpaRepository) {
+
         this.platoJpaRepository = platoJpaRepository;
     }
 
