@@ -24,6 +24,6 @@ public class PlatoJpa {
     private Tipo type;
     private Double price;
     private int stock;
-    private boolean avaliable;
+    private boolean available;
     private String img;
 }

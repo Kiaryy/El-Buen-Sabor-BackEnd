@@ -42,6 +42,8 @@ public class EmployeeService {
                 .state(employeeDTO.state())
                 .shift(employeeDTO.charge().getShift())
                 .build();
+
+
         // Here we save in dataBase
         employeeJpaRepository.save(employee);
         return "Employee added";

@@ -38,7 +38,7 @@ public class PlatosService {
                 .price(platoDTO.price())
                 .type(platoDTO.type())
                 .stock(platoDTO.stock())
-                .avaliable(true)
+                .available(true)
                 .img(platoDTO.img())
                 .build();
         // Here we save in dataBase
@@ -57,7 +57,7 @@ public class PlatosService {
                 .price(entity.price())
                 .type(entity.type())
                 .stock(entity.stock())
-                .avaliable(true)
+                .available(true)
                 .img(entity.img())
                 .build();
         // Saves updated entity to database

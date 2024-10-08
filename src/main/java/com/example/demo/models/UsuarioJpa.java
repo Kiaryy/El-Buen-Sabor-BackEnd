@@ -5,8 +5,10 @@ import java.util.List;
 
 import jakarta.persistence.*;
 import lombok.*;
+import lombok.experimental.SuperBuilder;
 
 @Entity
+@SuperBuilder
 @Getter
 @Setter
 @AllArgsConstructor
@@ -17,20 +19,11 @@ public class UsuarioJpa extends Person {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long userId;
     private String mail;
-    private ArrayList<String> adresses = new ArrayList<String>();
-    private ArrayList<Long> cards = new ArrayList<Long>();
+    private ArrayList<String> addresses;
+    private ArrayList<Long> cards ;
     private String passWord;
 
     @OneToMany(mappedBy = "user" ,cascade =CascadeType.ALL, orphanRemoval = true)
-    private List<Pedido> pedido = new ArrayList<>();
+    private List<Pedido> pedido;
 
-    @Builder
-    public UsuarioJpa(String name, Long phoneNumber, Long usuarioId, String mail, ArrayList<String> addresses, ArrayList<Long> cards, String passWord) {
-        super(name, phoneNumber);
-        this.userId = usuarioId;
-        this.adresses = addresses;
-        this.cards = cards;
-        this.mail = mail;
-        this.passWord = passWord;
-    }
 }
