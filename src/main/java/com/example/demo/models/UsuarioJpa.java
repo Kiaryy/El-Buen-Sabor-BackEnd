@@ -1,10 +1,9 @@
 package com.example.demo.models;
 
 import java.util.ArrayList;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import java.util.List;
+
+import jakarta.persistence.*;
 import lombok.*;
 
 @Entity
@@ -21,6 +20,9 @@ public class UsuarioJpa extends Person {
     private ArrayList<String> adresses = new ArrayList<String>();
     private ArrayList<Long> cards = new ArrayList<Long>();
     private String passWord;
+
+    @OneToMany(mappedBy = "user" ,cascade =CascadeType.ALL, orphanRemoval = true)
+    private List<Pedido> pedido = new ArrayList<>();
 
     @Builder
     public UsuarioJpa(String name, Long phoneNumber, Long usuarioId, String mail, ArrayList<String> addresses, ArrayList<Long> cards, String passWord) {
