@@ -5,14 +5,12 @@ import com.example.demo.DTO.request.UsuarioPedidoRequest;
 import com.example.demo.models.Pedido;
 import com.example.demo.models.PlatoJpa;
 import com.example.demo.models.UsuarioJpa;
-import com.example.demo.repository.PedidoRepository;
 import com.example.demo.repository.PlatoJpaRepository;
 import com.example.demo.repository.UsuarioJpaRepository;
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Service;
 
-import javax.swing.*;
 import java.util.List;
 import java.util.Optional;
 import java.util.StringJoiner;
@@ -36,7 +34,7 @@ public class PedidoService {
         for (PlatoRequestDTO requestDTO : request.getProductos()){
             if(!platoJpaRepository.existsByName(requestDTO.name())){
                 throw new RuntimeException("El plato con el nombre: "+requestDTO.name()+" no existe!");
-            };
+            }
         }
 
         List<PlatoJpa> platoJpa = platoJpaRepository.findAll();
@@ -44,10 +42,10 @@ public class PedidoService {
         for (PlatoRequestDTO platoUser : request.getProductos()){
 
             platoJpa.forEach(platoEntity -> {
-                if(platoEntity.getName().equalsIgnoreCase(platoUser.name()) || platoEntity.getStock() > 0 ){
+                if(platoEntity.getName().equalsIgnoreCase(platoUser.name()) && platoEntity.getStock() > 0 ){
                     platoEntity.setStock(platoEntity.getStock() -1);
                     platoJpaRepository.save(platoEntity);
-                };
+                }
                 platoEntity.setAvaliable(false);
             });
         }
