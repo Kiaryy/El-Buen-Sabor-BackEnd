@@ -34,11 +34,11 @@ public class UsuarioService {
 
         UsuarioJpa usuario = UsuarioJpa.builder()
                 .name(usuarioDTO.name())
-                .mail(usuarioDTO.mail())
+                .email(usuarioDTO.mail())
                 .addresses(usuarioDTO.adresses())
                 .cards(usuarioDTO.cards())
                 .phoneNumber(usuarioDTO.phoneNumber())
-                .passWord(usuarioDTO.passWord())
+                .password(usuarioDTO.passWord())
                 .build();
         // Here we save in dataBase
         usuarioJpaRepository.save(usuario);
@@ -51,11 +51,11 @@ public class UsuarioService {
         // We convert the DTO entity to an object
         UsuarioJpa usuarioActualizado = UsuarioJpa.builder()
                 .name(entity.name())
-                .mail(entity.mail())
+                .email(entity.mail())
                 .addresses(entity.adresses())
                 .cards(entity.cards())
                 .phoneNumber(entity.phoneNumber())
-                .passWord(entity.passWord())
+                .password(entity.passWord())
                 .build();
         // Saves updated entity to database
         usuario = usuarioJpaRepository.save(usuarioActualizado);

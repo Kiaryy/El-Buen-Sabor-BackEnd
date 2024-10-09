@@ -18,10 +18,10 @@ public class UsuarioJpa extends Person {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long userId;
-    private String mail;
-    private ArrayList<String> addresses;
-    private ArrayList<Long> cards ;
-    private String passWord;
+    private String email;
+    private List<String> addresses;
+    private List<Long> cards ;
+    private String password;
 
     @OneToMany(mappedBy = "user" ,cascade =CascadeType.ALL, orphanRemoval = true)
     private List<Pedido> pedido;
