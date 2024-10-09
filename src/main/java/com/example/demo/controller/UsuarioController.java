@@ -30,19 +30,16 @@ public class UsuarioController {
 
     @PostMapping("/usuarios/add")
     public ResponseEntity<String> addUsuarios(@RequestBody UsuarioRequestDTO usuarioDTO){
-
         return ResponseEntity.ok(usuarioService.addUsuarios(usuarioDTO));
     }
     
     @PutMapping("/usuarios/{id}")
-    //Updates entity with matching id
-    public ResponseEntity<?> update(@PathVariable Long id, @RequestBody UsuarioRequestDTO usuarioDTO){ 
+    public ResponseEntity<UsuarioJpa> update(@PathVariable Long id, @RequestBody UsuarioRequestDTO usuarioDTO){
         return ResponseEntity.status(HttpStatus.OK).body(usuarioService.update(id, usuarioDTO));
     }
 
     @DeleteMapping("/usuarios/{id}")
-    // Deletes entity with matching id
-    public ResponseEntity<?> delete(@PathVariable Long id){
+    public ResponseEntity<Boolean> delete(@PathVariable Long id){
         return ResponseEntity.status(HttpStatus.NO_CONTENT).body(usuarioService.delete(id));
     }
 }

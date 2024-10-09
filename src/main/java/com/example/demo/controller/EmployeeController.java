@@ -36,13 +36,13 @@ public class EmployeeController {
     
     @PutMapping("/employees/{id}")
     //Updates entity with matching id
-    public ResponseEntity<?> update(@PathVariable Long id, @RequestBody EmployeeRequestDTO employeeDTO){ 
+    public ResponseEntity<EmployeeJpa> update(@PathVariable Long id, @RequestBody EmployeeRequestDTO employeeDTO){
         return ResponseEntity.status(HttpStatus.OK).body(employeeService.update(id, employeeDTO));
     }
 
     @DeleteMapping("/employees/{id}")
     // Deletes entity with matching id
-    public ResponseEntity<?> delete(@PathVariable Long id){
+    public ResponseEntity<Boolean> delete(@PathVariable Long id){
         return ResponseEntity.status(HttpStatus.NO_CONTENT).body(employeeService.delete(id));
     }
 }

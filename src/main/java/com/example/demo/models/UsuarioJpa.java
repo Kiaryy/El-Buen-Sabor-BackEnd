@@ -18,7 +18,7 @@ public class UsuarioJpa extends Person {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long userId;
-    private String email;
+    private String email ;
     private List<String> addresses;
     private List<Long> cards ;
     private String password;
