@@ -8,6 +8,5 @@ public class BackEndApi{
 
 	public static void main(String[] args) {
 		SpringApplication.run(BackEndApi.class, args);
-		System.out.println("---------------------INICIALIZADO CON POLITICA CORS-------------------------");
 	}
 }

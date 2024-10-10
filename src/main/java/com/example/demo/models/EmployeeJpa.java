@@ -12,8 +12,10 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.experimental.SuperBuilder;
 
 @Entity
+@SuperBuilder
 @Getter
 @Setter
 @AllArgsConstructor
@@ -28,16 +30,5 @@ public class EmployeeJpa extends Person{
     private Charge charge;
     private EmployeeState state;
     private String shift;
-    @Builder
-    public EmployeeJpa(String name, long phoneNumber, Long employeeId, Double hourlySalary, int absences, Charge charge,
-            EmployeeState state, String shift) {
-        super(name, phoneNumber);
-        this.employeeId = employeeId;
-        this.hourlySalary = hourlySalary;
-        this.absences = absences;
-        this.charge = charge;
-        this.state = state;
-        this.shift = charge.getShift();
-    }
 
 }

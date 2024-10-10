@@ -19,38 +19,29 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@AllArgsConstructor // with lombok
+@AllArgsConstructor
 @CrossOrigin(origins = "*")
 public class PlatoController {
 
     private final PlatosService platosService;
-    // Without lombok
-    /*
-    public PlatoController(PlatosService platosService){
-        this.platosService = platosService;
-    }
-    */
+
     @GetMapping("/platos/findAll") 
-    // Returns everything in table
     List<PlatoJpa> findAll(){
         return platosService.getAllPlatos();
     }
 
     @PostMapping("/platos/add")
-    // adds DTO object
-    public ResponseEntity<String> addPlatos(@RequestBody PlatoRequestDTO platoDTO){ 
+    public ResponseEntity<String> addPlatos(@RequestBody PlatoRequestDTO platoDTO){
         return ResponseEntity.ok(platosService.addPlatos(platoDTO));
     }
     
     @PutMapping("/platos/{id}")
-    //Updates entity with matching id
-    public ResponseEntity<?> update(@PathVariable Long id, @RequestBody PlatoRequestDTO platoDTO){ 
+    public ResponseEntity<PlatoJpa> update(@PathVariable Long id, @RequestBody PlatoRequestDTO platoDTO){
         return ResponseEntity.status(HttpStatus.OK).body(platosService.update(id, platoDTO));
     }
 
     @DeleteMapping("/platos/{id}")
-    // Deletes entity with matching id
-    public ResponseEntity<?> delete(@PathVariable Long id){
+    public ResponseEntity<Boolean> delete(@PathVariable Long id){
         return ResponseEntity.status(HttpStatus.NO_CONTENT).body(platosService.delete(id));
     }
 }

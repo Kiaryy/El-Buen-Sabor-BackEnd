@@ -46,7 +46,7 @@ public class PedidoService {
                     platoEntity.setStock(platoEntity.getStock() -1);
                     platoJpaRepository.save(platoEntity);
                 }
-                platoEntity.setAvaliable(false);
+                platoEntity.setAvailable(false);
             });
         }
 
