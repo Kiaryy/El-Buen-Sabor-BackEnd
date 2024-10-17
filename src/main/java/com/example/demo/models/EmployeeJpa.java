@@ -3,32 +3,39 @@ package com.example.demo.models;
 import com.example.demo.models.enums.Charge;
 import com.example.demo.models.enums.EmployeeState;
 
+import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import lombok.experimental.SuperBuilder;
 
 @Entity
-@SuperBuilder
 @Getter
 @Setter
+@DiscriminatorValue("E")
+@EqualsAndHashCode(callSuper=true)
 @AllArgsConstructor
 @NoArgsConstructor
 
 public class EmployeeJpa extends Person{
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long employeeId;
     private Double hourlySalary;
     private int absences;
     private Charge charge;
     private EmployeeState state;
     private String shift;
-
+    @Builder
+    public EmployeeJpa(String name, Long phoneNumber, Double hourlySalary, int absences, Charge charge,
+            EmployeeState state, String shift) {
+        super(name, phoneNumber);
+        this.hourlySalary = hourlySalary;
+        this.absences = absences;
+        this.charge = charge;
+        this.state = state;
+        this.shift = shift;
+    }
+    
+    
 }
