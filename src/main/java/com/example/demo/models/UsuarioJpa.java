@@ -1,23 +1,18 @@
 package com.example.demo.models;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import jakarta.persistence.*;
 import lombok.*;
-import lombok.experimental.SuperBuilder;
 
 @Entity
-@SuperBuilder
 @Getter
 @Setter
+@DiscriminatorValue("U")
+@EqualsAndHashCode(callSuper=true)
 @AllArgsConstructor
 @NoArgsConstructor
-
 public class UsuarioJpa extends Person {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long userId;
     private String email ;
     private List<String> addresses;
     private List<Long> cards ;
@@ -26,4 +21,16 @@ public class UsuarioJpa extends Person {
     @OneToMany(mappedBy = "user" ,cascade =CascadeType.ALL, orphanRemoval = true)
     private List<Pedido> pedido;
 
+    @Builder
+    public UsuarioJpa(String name, Long phoneNumber, String email, List<String> addresses, List<Long> cards,
+            String password, List<Pedido> pedido) {
+        super(name, phoneNumber);
+        this.email = email;
+        this.addresses = addresses;
+        this.cards = cards;
+        this.password = password;
+        this.pedido = pedido;
+    }
+
+    
 }
