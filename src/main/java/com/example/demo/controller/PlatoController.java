@@ -44,4 +44,10 @@ public class PlatoController {
     public ResponseEntity<Boolean> delete(@PathVariable Long id){
         return ResponseEntity.status(HttpStatus.NO_CONTENT).body(platosService.delete(id));
     }
+
+    //! NO TOCAR
+    // @PostMapping("/platos/iniciar")
+    // List<PlatoJpa> initializeAll(){
+    //     return initializerService.loadMenu();
+    // }
 }

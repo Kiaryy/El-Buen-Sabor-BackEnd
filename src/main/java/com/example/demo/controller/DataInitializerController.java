@@ -1,9 +1,7 @@
 package com.example.demo.controller;
 
-import com.example.demo.models.ArticleJpa;
 import com.example.demo.models.PlatoJpa;
 import com.example.demo.models.UsuarioJpa;
-import com.example.demo.service.ArticleInitializerService;
 import com.example.demo.service.PlateInitializerService;
 import com.example.demo.service.UserInitilizerService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,9 +21,6 @@ public class DataInitializerController {
 
     @Autowired
     UserInitilizerService userService;
-
-    @Autowired
-    ArticleInitializerService articleService;
 
     @GetMapping("createPlates")
     public List<PlatoJpa> createAllPlates(){
@@ -47,10 +42,10 @@ public class DataInitializerController {
         return userService.deleteAllUsers();
     }
 
-}
-    @GetMapping("createArticles")
-    public List<ArticleJpa> createAllArticles(){return articleService.loadArticles();}
 
-    @GetMapping("deleteAllPlates")
-    public String deleteAllArticles(){return articleService.deleteArticle();}
+
+
+
+
+
 }
