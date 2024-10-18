@@ -15,6 +15,8 @@ import java.util.List;
 
 @RestController
 @AllArgsConstructor
+@CrossOrigin(origins = "*")
+
 public class ArticuloInsumoController{
 
     private final ArticleService articleService;
