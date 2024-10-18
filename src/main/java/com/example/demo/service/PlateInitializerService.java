@@ -10,9 +10,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class PlateInitializerService {
-
     private final PlatoJpaRepository repository;
-
     @Autowired
     public PlateInitializerService(PlatoJpaRepository repository) {
         this.repository = repository;
@@ -173,7 +171,7 @@ public class PlateInitializerService {
                 .price(3100D)
                 .stock(20)
                 .available(true)
-                .img("IMAGENES BUEN SABOR/MENU/burger-bacon-chicken.jpg")
+                .img("IMAGENES BUEN SABOR/MENU/burger-chicken-bacon.png")
                 .build());
 
         plates.add(PlatoJpa.builder()
@@ -183,7 +181,7 @@ public class PlateInitializerService {
                 .price(2700D)
                 .stock(20)
                 .available(true)
-                .img("IMAGENES BUEN SABOR/MENU/burger-vegana.jpg")
+                .img("IMAGENES BUEN SABOR/MENU/burger-vegan.web.png")
                 .build());
 
 //      ------------Acompañamientos------------
@@ -216,6 +214,36 @@ public class PlateInitializerService {
                 .available(true)
                 .img("IMAGENES BUEN SABOR/MENU/papas-cheddar-bacon.webp")
                 .build());
+//      ------------Postres------------
+        plates.add(PlatoJpa.builder()
+                .name("Flan")
+                .description("Flan Casero")
+                .type(Tipo.POSTRE)
+                .price(1250D)
+                .stock(20)
+                .available(true)
+                .img("IMAGENES BUEN SABOR/MENU/postre-flan.webp")
+                .build());
+
+        plates.add(PlatoJpa.builder()
+                .name("Alfajores de Maicena")
+                .description("Alfajores de Maicena")
+                .type(Tipo.POSTRE)
+                .price(1000D)
+                .stock(25)
+                .available(true)
+                .img("IMAGENES BUEN SABOR/MENU/postre-alfajores.webp")
+                .build());
+
+        plates.add(PlatoJpa.builder()
+                .name("Arroz Con Leche")
+                .description("Arroz Con Leche")
+                .type(Tipo.POSTRE)
+                .price(1500D)
+                .stock(20)
+                .available(true)
+                .img("IMAGENES BUEN SABOR/MENU/postre-arroz-con-leche.webp")
+                .build());
 
 //      ------------Ensaladas------------
         plates.add(PlatoJpa.builder()
@@ -235,7 +263,7 @@ public class PlateInitializerService {
                 .price(2400D)
                 .stock(15)
                 .available(true)
-                .img("IMAGENES BUEN SABOR/MENU/ensalada-latina.jpg")
+                .img("IMAGENES BUEN SABOR/MENU/Ensalada-latina.webp")
                 .build());
 
         plates.add(PlatoJpa.builder()
@@ -256,7 +284,7 @@ public class PlateInitializerService {
                 .price(500D)
                 .stock(50)
                 .available(true)
-                .img("IMAGENES BUEN SABOR/MENU/coca500.jpg")
+                .img("IMAGENES BUEN SABOR/MENU/bebeida-coca-medio.webp")
                 .build());
 
         plates.add(PlatoJpa.builder()
@@ -266,7 +294,7 @@ public class PlateInitializerService {
                 .price(800D)
                 .stock(50)
                 .available(true)
-                .img("IMAGENES BUEN SABOR/MENU/coca1500.webp")
+                .img("IMAGENES BUEN SABOR/MENU/bebeida-coca-medio.webp")
                 .build());
 
         return repository.saveAll(plates);
