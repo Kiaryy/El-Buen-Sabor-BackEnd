@@ -1,8 +1,11 @@
 package com.example.demo.models;
 
 import com.example.demo.models.enums.Tipo;
+import com.example.demo.service.ArticleInitializerService;
 import jakarta.persistence.*;
 import lombok.*;
+
+import java.util.List;
 
 //With Lombok
 @Entity
@@ -27,4 +30,5 @@ public class PlatoJpa {
     private boolean available;
     @Column(columnDefinition = "varchar(600)")
     private String img;
+    private int count;
 }

@@ -45,6 +45,11 @@ public class DataInitializerController {
         return userService.deleteAllUsers();
     }
 
+    @GetMapping("purchasePlate")
+    public String purchasePlate(Long platoId, int quantity) {
+        return platoService.purchasePlate(platoId, quantity);
+    }
+
 
 
 

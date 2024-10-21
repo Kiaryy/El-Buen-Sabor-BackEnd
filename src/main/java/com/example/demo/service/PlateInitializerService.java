@@ -25,6 +25,31 @@ public class PlateInitializerService {
         return "All entries from plates table deleted." ;
 
     }
+
+    public String purchasePlate(Long platoId, int quantity) {
+
+        PlatoJpa plato = repository.findById(platoId).orElse(null);
+
+        if (plato == null) {
+            return "Plato no encontrado.";
+        }
+
+        // Verificar si hay suficiente stock
+        if (plato.getStock() < quantity) {
+            return "No hay suficiente stock disponible.";
+        }
+
+        // Reducir el stock del plato
+        plato.setStock(plato.getStock() - quantity);
+
+        // Aumentar el contador de compras
+        plato.setCount(plato.getCount() + quantity);
+
+        repository.save(plato);
+
+        return "Compra realizada exitosamente. Se compraron " + quantity + " unidades del plato " + plato.getName() + ".";
+    }
+
     public List<PlatoJpa> loadMenu(){
 
         List<PlatoJpa> plates = new ArrayList<>();
@@ -40,6 +65,7 @@ public class PlateInitializerService {
                 .stock(25)
                 .available(true)
                 .img("IMAGENES BUEN SABOR/MENU/empandas-carne.webp")
+                .count(0)
                 .build());
 
         plates.add(PlatoJpa.builder()
@@ -50,6 +76,7 @@ public class PlateInitializerService {
                 .stock(25)
                 .available(true)
                 .img("IMAGENES BUEN SABOR/MENU/empanada-jyq.png")
+                .count(0)
                 .build());
 
         plates.add(PlatoJpa.builder()
@@ -60,6 +87,7 @@ public class PlateInitializerService {
                 .stock(25)
                 .available(true)
                 .img("IMAGENES BUEN SABOR/MENU/empanada-choclo.png")
+                .count(0)
                 .build());
 
 //      ------------Pizzas------------
@@ -71,6 +99,7 @@ public class PlateInitializerService {
                 .stock(20)
                 .available(true)
                 .img("IMAGENES BUEN SABOR/MENU/pizza-muzarella.png")
+                .count(0)
                 .build());
 
         plates.add(PlatoJpa.builder()
@@ -81,6 +110,7 @@ public class PlateInitializerService {
                 .stock(20)
                 .available(true)
                 .img("IMAGENES BUEN SABOR/MENU/pizza-pollo-espinaca.jpg")
+                .count(0)
                 .build());
 
         plates.add(PlatoJpa.builder()
@@ -91,6 +121,7 @@ public class PlateInitializerService {
                 .stock(20)
                 .available(true)
                 .img("IMAGENES BUEN SABOR/MENU/pizza especial.png")
+                .count(0)
                 .build());
 
         plates.add(PlatoJpa.builder()
@@ -101,6 +132,7 @@ public class PlateInitializerService {
                 .stock(20)
                 .available(true)
                 .img("IMAGENES BUEN SABOR/MENU/pizza-hawaiana.webp")
+                .count(0)
                 .build());
 
         plates.add(PlatoJpa.builder()
@@ -111,6 +143,7 @@ public class PlateInitializerService {
                 .stock(20)
                 .available(true)
                 .img("IMAGENES BUEN SABOR/MENU/pizza-champiñones.webp")
+                .count(0)
                 .build());
 
         plates.add(PlatoJpa.builder()
@@ -121,6 +154,7 @@ public class PlateInitializerService {
                 .stock(20)
                 .available(true)
                 .img("IMAGENES BUEN SABOR/MENU/pizza-vegetales.webp")
+                .count(0)
                 .build());
 
 //      ------------Hamburguesas------------
@@ -132,6 +166,7 @@ public class PlateInitializerService {
                 .stock(20)
                 .available(true)
                 .img("IMAGENES BUEN SABOR/MENU/burger-clasica.webp")
+                .count(0)
                 .build());
 
         plates.add(PlatoJpa.builder()
@@ -142,6 +177,7 @@ public class PlateInitializerService {
                 .stock(20)
                 .available(true)
                 .img("IMAGENES BUEN SABOR/MENU/burger-bacon-egg.png")
+                .count(0)
                 .build());
 
         plates.add(PlatoJpa.builder()
@@ -152,6 +188,7 @@ public class PlateInitializerService {
                 .stock(20)
                 .available(true)
                 .img("IMAGENES BUEN SABOR/MENU/burger-bbq.webp")
+                .count(0)
                 .build());
 
         plates.add(PlatoJpa.builder()
@@ -162,6 +199,7 @@ public class PlateInitializerService {
                 .stock(20)
                 .available(true)
                 .img("IMAGENES BUEN SABOR/MENU/burger-crispy-chicken.png")
+                .count(0)
                 .build());
 
         plates.add(PlatoJpa.builder()
@@ -172,6 +210,7 @@ public class PlateInitializerService {
                 .stock(20)
                 .available(true)
                 .img("IMAGENES BUEN SABOR/MENU/burger-chicken-bacon.png")
+                .count(0)
                 .build());
 
         plates.add(PlatoJpa.builder()
@@ -182,6 +221,7 @@ public class PlateInitializerService {
                 .stock(20)
                 .available(true)
                 .img("IMAGENES BUEN SABOR/MENU/burger-vegan.web.png")
+                .count(0)
                 .build());
 
 //      ------------Acompañamientos------------
@@ -193,6 +233,7 @@ public class PlateInitializerService {
                 .stock(30)
                 .available(true)
                 .img("IMAGENES BUEN SABOR/MENU/papas-fritas.jpg")
+                .count(0)
                 .build());
 
         plates.add(PlatoJpa.builder()
@@ -203,6 +244,7 @@ public class PlateInitializerService {
                 .stock(30)
                 .available(true)
                 .img("IMAGENES BUEN SABOR/MENU/aros-cebolla.webp")
+                .count(0)
                 .build());
 
         plates.add(PlatoJpa.builder()
@@ -213,6 +255,7 @@ public class PlateInitializerService {
                 .stock(30)
                 .available(true)
                 .img("IMAGENES BUEN SABOR/MENU/papas-cheddar-bacon.webp")
+                .count(0)
                 .build());
 //      ------------Postres------------
         plates.add(PlatoJpa.builder()
@@ -223,6 +266,7 @@ public class PlateInitializerService {
                 .stock(20)
                 .available(true)
                 .img("IMAGENES BUEN SABOR/MENU/postre-flan.webp")
+                .count(0)
                 .build());
 
         plates.add(PlatoJpa.builder()
@@ -233,6 +277,7 @@ public class PlateInitializerService {
                 .stock(25)
                 .available(true)
                 .img("IMAGENES BUEN SABOR/MENU/postre-alfajores.webp")
+                .count(0)
                 .build());
 
         plates.add(PlatoJpa.builder()
@@ -243,6 +288,7 @@ public class PlateInitializerService {
                 .stock(20)
                 .available(true)
                 .img("IMAGENES BUEN SABOR/MENU/postre-arroz-con-leche.webp")
+                .count(0)
                 .build());
 
 //      ------------Ensaladas------------
@@ -254,6 +300,7 @@ public class PlateInitializerService {
                 .stock(15)
                 .available(true)
                 .img("IMAGENES BUEN SABOR/MENU/ensalada-cesar.webp")
+                .count(0)
                 .build());
 
         plates.add(PlatoJpa.builder()
@@ -264,6 +311,7 @@ public class PlateInitializerService {
                 .stock(15)
                 .available(true)
                 .img("IMAGENES BUEN SABOR/MENU/Ensalada-latina.webp")
+                .count(0)
                 .build());
 
         plates.add(PlatoJpa.builder()
@@ -274,6 +322,7 @@ public class PlateInitializerService {
                 .stock(15)
                 .available(true)
                 .img("IMAGENES BUEN SABOR/MENU/ensalada-manzana-queso-nuez.jpg")
+                .count(0)
                 .build());
 
 //      ------------Bebidas------------
@@ -285,6 +334,7 @@ public class PlateInitializerService {
                 .stock(50)
                 .available(true)
                 .img("IMAGENES BUEN SABOR/MENU/bebeida-coca-medio.webp")
+                .count(0)
                 .build());
 
         plates.add(PlatoJpa.builder()
@@ -295,6 +345,7 @@ public class PlateInitializerService {
                 .stock(50)
                 .available(true)
                 .img("IMAGENES BUEN SABOR/MENU/bebeida-coca-medio.webp")
+                .count(0)
                 .build());
 
         return repository.saveAll(plates);
