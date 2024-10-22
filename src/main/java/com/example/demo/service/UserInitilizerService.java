@@ -27,15 +27,23 @@ public class UserInitilizerService {
         List<UsuarioJpa> users = new ArrayList<>();
 
         List<String> addresses = new ArrayList<>();
+        List<Long> cards = new ArrayList<>();
 
         addresses.add("Calle Falsa 123");
         addresses.add("Calle Verdadera 456");
         addresses.add("Calle Null 456");
 
+        cards.add(54215695023L);
+        cards.add(54868566975L);
+        cards.add(54245851488L);
+        
+
+
         users.add(UsuarioJpa.builder()
                 .name("Pedro Gonzales")
                 .email("pedro.gonzales@gmail.com")
                 .addresses(addresses)
+                .cards(cards)
                 .password("123456789")
                 .build());
 
@@ -43,6 +51,7 @@ public class UserInitilizerService {
                 .name("Manolo Garcia")
                 .email("manolo.garcia@gmail.com")
                 .addresses(addresses)
+                .cards(cards)
                 .password("123456789")
                 .build());
 
@@ -50,6 +59,7 @@ public class UserInitilizerService {
                 .name("Armando Esteban Quito")
                 .email("Armando.Quito@gmail.com")
                 .addresses(addresses)
+                .cards(cards)
                 .password("123456789")
                 .build());
 
