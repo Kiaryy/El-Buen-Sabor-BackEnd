@@ -30,5 +30,5 @@ public class PlatoJpa {
     private boolean available;
     @Column(columnDefinition = "varchar(600)")
     private String img;
-    private int count;
+    private int timesPurchased;
 }
