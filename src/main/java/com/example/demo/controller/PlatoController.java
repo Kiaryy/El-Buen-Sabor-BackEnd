@@ -49,10 +49,4 @@ public class PlatoController {
     public String purchasePlate(Long platoId, int quantity) {
         return platosService.purchasePlate(platoId, quantity);
     }
-
-    //! NO TOCAR
-    // @PostMapping("/platos/iniciar")
-    // List<PlatoJpa> initializeAll(){
-    //     return initializerService.loadMenu();
-    // }
 }
