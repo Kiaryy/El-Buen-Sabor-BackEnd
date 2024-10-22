@@ -64,6 +64,31 @@ public class PlatosService {
         plato = platoJpaRepository.save(platoActualizado);
         return plato;
     }
+
+    public String purchasePlate(Long platoId, int quantity) {
+
+        PlatoJpa plato = platoJpaRepository.findById(platoId).orElse(null);
+
+        if (plato == null) {
+            return "Plato no encontrado.";
+        }
+
+        // Verificar si hay suficiente stock
+        if (plato.getStock() < quantity) {
+            return "No hay suficiente stock disponible.";
+        }
+
+        // Reducir el stock del plato
+        plato.setStock(plato.getStock() - quantity);
+
+        // Aumentar el contador de compras
+        plato.setTimesPurchased(plato.getTimesPurchased() + quantity);
+
+        platoJpaRepository.save(plato);
+
+        return "Compra realizada exitosamente. Se compraron " + quantity + " unidades del plato " + plato.getName() + ".";
+    }
+
     public boolean delete(Long id){
         if(platoJpaRepository.existsById(id)){
             platoJpaRepository.deleteById(id);
