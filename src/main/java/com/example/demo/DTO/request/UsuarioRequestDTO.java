@@ -3,7 +3,7 @@ import java.util.ArrayList;
 public record UsuarioRequestDTO(
         String name,
         Long phoneNumber,
-        ArrayList<String> adresses,
+        ArrayList<String> addresses,
         ArrayList<Long> cards,
         String mail,
         String passWord
