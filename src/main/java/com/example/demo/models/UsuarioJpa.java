@@ -13,10 +13,10 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 public class UsuarioJpa extends Person {
-    private String email ;
+    private String mail ;
     private List<String> addresses;
     private List<Long> cards ;
-    private String password;
+    private String passWord;
 
     @OneToMany(mappedBy = "user" ,cascade =CascadeType.ALL, orphanRemoval = true)
     private List<Pedido> pedido;
@@ -25,10 +25,10 @@ public class UsuarioJpa extends Person {
     public UsuarioJpa(String name, Long phoneNumber, String email, List<String> addresses, List<Long> cards,
             String password, List<Pedido> pedido) {
         super(name, phoneNumber);
-        this.email = email;
+        this.mail = email;
         this.addresses = addresses;
         this.cards = cards;
-        this.password = password;
+        this.passWord = password;
         this.pedido = pedido;
     }
 
