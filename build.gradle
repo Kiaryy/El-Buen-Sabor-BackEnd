@@ -22,8 +22,9 @@ dependencies {
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+	// Mercado pago SDK
+	implementation group: 'com.mercadopago', name: 'sdk-java', version: '2.1.29'
 	// SQL Connector
-
     runtimeOnly 'com.mysql:mysql-connector-j'
     // Hibernate and JPA Dependencies
 	implementation "org.hibernate.orm:hibernate-core:6.6.0.Final"
