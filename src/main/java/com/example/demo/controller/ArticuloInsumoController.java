@@ -34,7 +34,7 @@ public class ArticuloInsumoController{
     }
     
     @PutMapping("/article/{id}")
-    //Updates entity with matching id
+    // Updates entity with matching id
     public ResponseEntity<?> update(@PathVariable Long id, @RequestBody ArticleRequestDTO articleDTO){ 
         return ResponseEntity.status(HttpStatus.OK).body(articleService.update(id, articleDTO));
     }
