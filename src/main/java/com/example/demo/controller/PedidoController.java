@@ -1,5 +1,6 @@
 package com.example.demo.controller;
 
+import com.example.demo.DTO.request.userPreferenceRequest;
 import com.mercadopago.MercadoPagoConfig;
 import com.mercadopago.client.preference.PreferenceBackUrlsRequest;
 import com.mercadopago.client.preference.PreferenceClient;
@@ -38,22 +39,24 @@ public class PedidoController {
     }
 
     @PostMapping("/createPreference")
-    public Preference createPreference(@RequestBody UserPreferenceRequest userPreference ) {
-        log.info("Request Title: ", userPreference.title);
+    public Preference createPreference(@RequestBody List<userPreferenceRequest> userItemsPreference ) {
         MercadoPagoConfig.setAccessToken("APP_USR-3152703235404722-102218-53fe358050253c60902835a04a1b5a2a-2045302897");
-        
-        PreferenceItemRequest itemRequest = PreferenceItemRequest.builder()
-                .id("1234") //requerido
-                .title(userPreference.title) //requerido
-                .description(userPreference.description)
-                .pictureUrl("http://picture.com/PS5")
-                .categoryId("games")
-                .quantity(userPreference.quantity) //requerido                
-                .unitPrice(new BigDecimal(userPreference.unitPrice)) //requerido
-                .build();
+
         List<PreferenceItemRequest> items = new ArrayList<>();
-        items.add(itemRequest);
-        log.info("PreferenceList: ", items.get(0));
+
+        userItemsPreference.forEach(userPreference -> {
+            PreferenceItemRequest itemRequest = PreferenceItemRequest.builder()
+                    .id("1234") //require
+                    .title(userPreference.title()) //require
+                    .description(userPreference.description())
+                    .pictureUrl("http://picture.com/PS5")
+                    .categoryId("games")
+                    .quantity(userPreference.quantity()) //require
+                    .unitPrice(new BigDecimal(userPreference.price())) //require
+                    .build();
+            items.add(itemRequest);
+        });
+
         // Preference Back url
         PreferenceBackUrlsRequest backUrl = PreferenceBackUrlsRequest.builder()
                 .success("http://localhost:8080/home")
@@ -62,7 +65,7 @@ public class PedidoController {
         PreferenceRequest preferenceRequest = PreferenceRequest.builder()
                 .backUrls(backUrl)        
                 .items(items).build();        
-                
+
         PreferenceClient client = new PreferenceClient();
         Preference preference;
         try {
@@ -76,11 +79,5 @@ public class PedidoController {
         log.info(preference);
         return preference;
     }
-    public record UserPreferenceRequest(
-        String title,
-        int quantity,
-        String description,
-        String unitPrice
-    ){        
-    };
+
 }
