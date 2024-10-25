@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("initializer/")
+@RequestMapping("/initializer/")
 @CrossOrigin(origins = "*")
 
 public class DataInitializerController {
