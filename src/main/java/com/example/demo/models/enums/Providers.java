@@ -6,5 +6,12 @@ public enum Providers {
     PUREZA, //Harina
     YAGUAR, //Vegetales
     ELABASTO, //Quesos
-    SERENISIMA //Leche o Yogurt
+    SERENISIMA, //Leche o Yogurt
+    KANSAS, // Salsas y Aderezos
+    LEDESMA, // Azucar
+    ABUANA, // Especias
+    SAICA, // Maicena
+    LUCCHETTI, // Mas q nada Arroz
+
+
 }
