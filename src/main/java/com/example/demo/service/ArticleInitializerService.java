@@ -271,6 +271,139 @@ public class ArticleInitializerService {
                 .lastPurchased(LocalDate.of(2024, 4, 12))
                 .build());
 
+        articles.add(ArticleJpa.builder()
+                .name("Salsa Blanca")
+                .category(ArticleCategory.VEGETABLE)
+                .provider(Providers.YAGUAR)
+                .priceUnit(420.0)
+                .precioCompra(670.0)
+                .stockActual(310)
+                .existencies(115)
+                .lastPurchased(LocalDate.of(2024, 9, 18))
+                .build());
+
+        articles.add(ArticleJpa.builder()
+                .name("Espinaca")
+                .category(ArticleCategory.VEGETABLE)
+                .provider(Providers.YAGUAR)
+                .priceUnit(410.0)
+                .precioCompra(665.0)
+                .stockActual(330)
+                .existencies(120)
+                .lastPurchased(LocalDate.of(2024, 9, 16))
+                .build());
+
+        articles.add(ArticleJpa.builder()
+                .name("Morron Rojo")
+                .category(ArticleCategory.VEGETABLE)
+                .provider(Providers.YAGUAR)
+                .priceUnit(395.0)
+                .precioCompra(660.0)
+                .stockActual(300)
+                .existencies(105)
+                .lastPurchased(LocalDate.of(2024, 9, 10))
+                .build());
+
+        articles.add(ArticleJpa.builder()
+                .name("Aceitunas")
+                .category(ArticleCategory.FRUITS)
+                .provider(Providers.YAGUAR)
+                .priceUnit(450.0)
+                .precioCompra(680.0)
+                .stockActual(315)
+                .existencies(95)
+                .lastPurchased(LocalDate.of(2024, 9, 5))
+                .build());
+
+        articles.add(ArticleJpa.builder()
+                .name("Ajo")
+                .category(ArticleCategory.VEGETABLE)
+                .provider(Providers.YAGUAR)
+                .priceUnit(425.0)
+                .precioCompra(675.0)
+                .stockActual(340)
+                .existencies(100)
+                .lastPurchased(LocalDate.of(2024, 8, 20))
+                .build());
+
+        articles.add(ArticleJpa.builder()
+                .name("Aceite de Oliva")
+                .category(ArticleCategory.DIP)
+                .provider(Providers.KANSAS)
+                .priceUnit(460.0)
+                .precioCompra(690.0)
+                .stockActual(350)
+                .existencies(130)
+                .lastPurchased(LocalDate.of(2024, 8, 15))
+                .build());
+
+        articles.add(ArticleJpa.builder()
+                .name("Azucar")
+                .category(ArticleCategory.SUGAR)
+                .provider(Providers.LEDESMA)
+                .priceUnit(370.0)
+                .precioCompra(640.0)
+                .stockActual(280)
+                .existencies(115)
+                .lastPurchased(LocalDate.of(2024, 8, 12))
+                .build());
+
+        articles.add(ArticleJpa.builder()
+                .name("Canela")
+                .category(ArticleCategory.SPICES)
+                .provider(Providers.ABUANA)
+                .priceUnit(390.0)
+                .precioCompra(655.0)
+                .stockActual(290)
+                .existencies(120)
+                .lastPurchased(LocalDate.of(2024, 7, 22))
+                .build());
+
+        articles.add(ArticleJpa.builder()
+                .name("Vainilla")
+                .category(ArticleCategory.SPICES)
+                .provider(Providers.ABUANA)
+                .priceUnit(385.0)
+                .precioCompra(645.0)
+                .stockActual(285)
+                .existencies(125)
+                .lastPurchased(LocalDate.of(2024, 7, 18))
+                .build());
+
+        articles.add(ArticleJpa.builder()
+                .name("Dulce de Leche")
+                .category(ArticleCategory.CARAMEL_SAUCE)
+                .provider(Providers.SERENISIMA)
+                .priceUnit(440.0)
+                .precioCompra(700.0)
+                .stockActual(330)
+                .existencies(105)
+                .lastPurchased(LocalDate.of(2024, 7, 10))
+                .build());
+
+        articles.add(ArticleJpa.builder()
+                .name("Maicena")
+                .category(ArticleCategory.CEREALS)
+                .provider(Providers.SAICA)
+                .priceUnit(375.0)
+                .precioCompra(660.0)
+                .stockActual(315)
+                .existencies(115)
+                .lastPurchased(LocalDate.of(2024, 6, 25))
+                .build());
+
+        articles.add(ArticleJpa.builder()
+                .name("Coco Rallado")
+                .category(ArticleCategory.FRUITS)
+                .provider(Providers.YAGUAR)
+                .priceUnit(430.0)
+                .precioCompra(680.0)
+                .stockActual(340)
+                .existencies(110)
+                .lastPurchased(LocalDate.of(2024, 6, 20))
+                .build());
+
+
         //           --------------------- Legumbres ---------------------
         articles.add(ArticleJpa.builder()
                 .name("Frijoles")
@@ -285,13 +418,13 @@ public class ArticleInitializerService {
         
         articles.add(ArticleJpa.builder()
                 .name("Arroz")
-                .category(ArticleCategory.LEGUMES)
-                .provider(Providers.YAGUAR)
-                .priceUnit(140.0)
-                .precioCompra(250.0)
-                .stockActual(500)
-                .existencies(270)
-                .lastPurchased(LocalDate.of(2024, 7, 14))
+                .category(ArticleCategory.CEREALS)
+                .provider(Providers.LUCCHETTI)
+                .priceUnit(155.0)
+                .precioCompra(230.0)
+                .stockActual(450)
+                .existencies(250)
+                .lastPurchased(LocalDate.of(2024, 10, 5))
                 .build());
 
         //           --------------------- Frutas ---------------------
@@ -310,22 +443,22 @@ public class ArticleInitializerService {
                 .name("Nuez")
                 .category(ArticleCategory.FRUITS)
                 .provider(Providers.YAGUAR)
-                .priceUnit(140.0)
-                .precioCompra(200.5)
-                .stockActual(150)
-                .existencies(77)
-                .lastPurchased(LocalDate.of(2024, 2, 18))
+                .priceUnit(250.0)
+                .precioCompra(180.0)
+                .stockActual(120)
+                .existencies(65)
+                .lastPurchased(LocalDate.of(2024, 9, 15))
                 .build());
         
         articles.add(ArticleJpa.builder()
                 .name("Manzana")
                 .category(ArticleCategory.FRUITS)
                 .provider(Providers.YAGUAR)
-                .priceUnit(140.0)
-                .precioCompra(200.5)
-                .stockActual(150)
-                .existencies(77)
-                .lastPurchased(LocalDate.of(2024, 2, 18))
+                .priceUnit(180.0)
+                .precioCompra(220.0)
+                .stockActual(200)
+                .existencies(85)
+                .lastPurchased(LocalDate.of(2024, 10, 10))
                 .build());
 
         //           --------------------- Hongos ---------------------
@@ -445,11 +578,11 @@ public class ArticleInitializerService {
                 .name("Carne de Res")
                 .category(ArticleCategory.MEAT)
                 .provider(Providers.PATTY)
-                .priceUnit(230.0)
-                .precioCompra(500.0)
-                .stockActual(400)
-                .existencies(320)
-                .lastPurchased(LocalDate.of(2024, 9, 25))
+                .priceUnit(270.0)
+                .precioCompra(550.0)
+                .stockActual(300)
+                .existencies(220)
+                .lastPurchased(LocalDate.of(2024, 10, 10))
                 .build());
 
         //           --------------------- Lacteos ---------------------
@@ -494,7 +627,7 @@ public class ArticleInitializerService {
                 .precioCompra(270.0)
                 .stockActual(1100)
                 .existencies(550)
-                .lastPurchased(LocalDate.of(2024, 9, 25))
+                .lastPurchased(LocalDate.of(2024, 2, 9))
                 .build());
         
         articles.add(ArticleJpa.builder()
@@ -505,18 +638,18 @@ public class ArticleInitializerService {
                 .precioCompra(270.0)
                 .stockActual(1100)
                 .existencies(550)
-                .lastPurchased(LocalDate.of(2024, 9, 25))
+                .lastPurchased(LocalDate.of(2024, 5, 12))
                 .build());
         
         articles.add(ArticleJpa.builder()
                 .name("Aderezo Cesar")
-                .category(ArticleCategory.DAIRY)
-                .provider(Providers.ELABASTO)
+                .category(ArticleCategory.DRESSINGS)
+                .provider(Providers.KANSAS)
                 .priceUnit(130.0)
                 .precioCompra(270.0)
                 .stockActual(1100)
                 .existencies(550)
-                .lastPurchased(LocalDate.of(2024, 9, 25))
+                .lastPurchased(LocalDate.of(2024, 6, 21))
                 .build());
 
         articles.add(ArticleJpa.builder()
@@ -539,7 +672,18 @@ public class ArticleInitializerService {
                 .precioCompra(350.0)
                 .stockActual(500)
                 .existencies(320)
-                .lastPurchased(LocalDate.of(2024, 4, 12))
+                .lastPurchased(LocalDate.of(2024, 2, 19))
+                .build());
+        
+        articles.add(ArticleJpa.builder()
+                .name("Palta")
+                .category(ArticleCategory.FRUITS)
+                .provider(Providers.YAGUAR)
+                .priceUnit(140.0)
+                .precioCompra(200.5)
+                .stockActual(150)
+                .existencies(77)
+                .lastPurchased(LocalDate.of(2024, 7, 18))
                 .build());
         
         articles.add(ArticleJpa.builder()

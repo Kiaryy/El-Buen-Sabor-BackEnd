@@ -55,4 +55,13 @@ public class DataInitializerController {
         return userService.deleteAllUsers();
     }
 
+    @GetMapping("createArticle")
+    public List<ArticleJpa> createAllArticles(){
+        return articleService.loadArticles();
+    }
+    
+    @GetMapping("deleteAllArticles")
+    public String deleteAllArticles(){
+        return articleService.deleteArticle();
+    }
 }
