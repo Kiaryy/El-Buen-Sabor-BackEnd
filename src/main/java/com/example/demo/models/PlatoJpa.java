@@ -3,6 +3,7 @@ package com.example.demo.models;
 import com.example.demo.models.enums.Tipo;
 import jakarta.persistence.*;
 import lombok.*;
+import java.util.List;
 
 //With Lombok
 @Entity
@@ -18,7 +19,7 @@ public class PlatoJpa {
 
     @Column(columnDefinition = "varchar(100)")
     private String name;
-
+ 
     @Column(columnDefinition = "varchar(600)")
     private String description;
     private Tipo type;
@@ -27,4 +28,10 @@ public class PlatoJpa {
     private boolean available;
     @Column(columnDefinition = "varchar(600)")
     private String img;
+    private int timesPurchased;
+    
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name = "plate_id")
+    private List<PlateIngredient> ingredients;
+
 }

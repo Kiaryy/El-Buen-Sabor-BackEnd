@@ -9,7 +9,7 @@ public record ArticleRequestDTO(
         String name,
         String denominacion,
         ArticleCategory category,
-        Providers provider,
+        Providers providers,
         Double priceUnit,
         Double precioCompra,
         int stockActual,
@@ -17,3 +17,4 @@ public record ArticleRequestDTO(
         LocalDate lastPurchased
 ) {
 }
+

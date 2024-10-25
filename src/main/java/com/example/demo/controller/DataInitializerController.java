@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("initializer/")
+@RequestMapping("/initializer/")
 @CrossOrigin(origins = "*")
 
 public class DataInitializerController {
@@ -33,6 +33,11 @@ public class DataInitializerController {
     @GetMapping("createPlates")
     public List<PlatoJpa> createAllPlates(){
         return platoService.loadMenu();
+    }
+
+    @GetMapping("createArticles")
+    public List<ArticleJpa> createAllArticles(){
+        return articleService.loadArticles();
     }
 
     @GetMapping("deleteAllPlates")
@@ -59,7 +64,4 @@ public class DataInitializerController {
     public String deleteAllArticles(){
         return articleService.deleteArticle();
     }
-
-
-
 }

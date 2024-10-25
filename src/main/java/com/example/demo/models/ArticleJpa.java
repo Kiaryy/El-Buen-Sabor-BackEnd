@@ -3,8 +3,8 @@ package com.example.demo.models;
 import java.time.LocalDate;
 
 import com.example.demo.models.enums.ArticleCategory;
-import com.example.demo.models.enums.Providers;
 
+import com.example.demo.models.enums.Providers;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -21,7 +21,7 @@ public class ArticleJpa{
     private Long articleId;
     private String name;
     private String denominacion;
-    private ArticleCategory category; 
+    private ArticleCategory category;
     private Providers provider;
     private Double priceUnit;
     private Double precioCompra;

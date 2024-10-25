@@ -45,9 +45,8 @@ public class PlatoController {
         return ResponseEntity.status(HttpStatus.NO_CONTENT).body(platosService.delete(id));
     }
 
-    //! NO TOCAR
-    // @PostMapping("/platos/iniciar")
-    // List<PlatoJpa> initializeAll(){
-    //     return initializerService.loadMenu();
-    // }
+    @GetMapping("purchasePlate")
+    public String purchasePlate(Long platoId, int quantity) {
+        return platosService.purchasePlate(platoId, quantity);
+    }
 }
