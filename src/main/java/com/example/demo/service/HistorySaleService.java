@@ -3,7 +3,6 @@ package com.example.demo.service;
 import com.example.demo.DTO.request.HistorySaleRequestDTO;
 import com.example.demo.models.HistorySale;
 import com.example.demo.repository.HistorySaleRepository;
-import org.hibernate.type.TrueFalseConverter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

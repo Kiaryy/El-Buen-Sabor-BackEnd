@@ -1,6 +1,5 @@
 package com.example.demo.controller;
 
-import com.example.demo.DTO.request.ArticleRequestDTO;
 import com.example.demo.DTO.request.HistorySaleRequestDTO;
 import com.example.demo.models.HistorySale;
 import com.example.demo.service.HistorySaleService;

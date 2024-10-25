@@ -1,9 +1,7 @@
 package com.example.demo.controller;
 
 import com.example.demo.DTO.request.HistoryPurchaseRequestDTO;
-import com.example.demo.DTO.request.HistorySaleRequestDTO;
 import com.example.demo.models.HistoryPurchased;
-import com.example.demo.models.HistorySale;
 import com.example.demo.service.HistoryPurchasedService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
