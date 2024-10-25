@@ -2,8 +2,11 @@ package com.example.demo.service;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.example.demo.models.ArticleJpa;
+import com.example.demo.models.PlateIngredient;
 import com.example.demo.models.PlatoJpa;
 import com.example.demo.models.enums.Tipo;
+import com.example.demo.repository.ArticleRepository;
 import com.example.demo.repository.PlatoJpaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,6 +18,8 @@ public class PlateInitializerService {
     public PlateInitializerService(PlatoJpaRepository repository) {
         this.repository = repository;
     }
+    @Autowired
+    private ArticleRepository articleRepository;
 
     public String deleteMenu(){
 
@@ -27,23 +32,29 @@ public class PlateInitializerService {
     }
 
     public List<PlatoJpa> loadMenu(){
+        List<ArticleJpa> ingredients = articleRepository.findAll();
 
         List<PlatoJpa> plates = new ArrayList<>();
 
         //      ------------Empanadas------------
         plates.add(PlatoJpa.builder()
                 .name("Empanada de Carne")
-                .description("Empanada rellena con carne picada sazonada, cebolla, pimiento rojo y especias, todo cocido a la perfección. " +
-                        "La masa, dorada y crujiente, encierra el relleno jugoso y sabroso, ofreciendo una experiencia clásica y reconfortante en cada bocado. " +
-                        "Ideal como aperitivo o plato principal. Se vende por docena.")
+                .description("Empanada rellena con carne picada sazonada, cebolla, pimiento rojo y especias, todo cocido a la perfección.  Se vende por docena.")
                 .type(Tipo.EMPANADA)
                 .price(4000D)
                 .stock(25)
                 .available(true)
                 .img("IMAGENES BUEN SABOR/MENU/empandas-carne.png")
                 .timesPurchased(0)
-
                 .build());
+        
+        plates.get(plates.size() -1).setIngredients(List.of(
+                // Añade 1 unidad del ingrediente con id 15 al ultimo plato
+                PlateIngredient.builder().ingredient(ingredients.get(29)).quantity(1).build(),
+                PlateIngredient.builder().ingredient(ingredients.get(37)).quantity(2).build(),
+                PlateIngredient.builder().ingredient(ingredients.get(3)).quantity(2).build(),
+                PlateIngredient.builder().ingredient(ingredients.get(4)).quantity(2).build()
+        ));
 
         plates.add(PlatoJpa.builder()
                 .name("Empanada de Jamon y Queso")
@@ -55,6 +66,12 @@ public class PlateInitializerService {
                 .img("IMAGENES BUEN SABOR/MENU/empanada-jyq.png")
                 .timesPurchased(0)
                 .build());
+        
+        plates.get(plates.size() -1).setIngredients(List.of(
+                PlateIngredient.builder().ingredient(ingredients.get(29)).quantity(1).build(),
+                PlateIngredient.builder().ingredient(ingredients.get(35)).quantity(2).build(),
+                PlateIngredient.builder().ingredient(ingredients.get(40)).quantity(2).build()
+        ));
 
         plates.add(PlatoJpa.builder()
                 .name("Empanada de Choclo")
@@ -66,6 +83,13 @@ public class PlateInitializerService {
                 .img("IMAGENES BUEN SABOR/MENU/empanada-choclo.png")
                 .timesPurchased(0)
                 .build());
+        
+        plates.get(plates.size() -1).setIngredients(List.of(
+                PlateIngredient.builder().ingredient(ingredients.get(29)).quantity(1).build(),
+                PlateIngredient.builder().ingredient(ingredients.get(5)).quantity(2).build(),
+                PlateIngredient.builder().ingredient(ingredients.get(3)).quantity(2).build(),
+                PlateIngredient.builder().ingredient(ingredients.get(40)).quantity(2).build()
+        ));
 
 //      ------------Pizzas------------
         plates.add(PlatoJpa.builder()
@@ -78,6 +102,12 @@ public class PlateInitializerService {
                 .img("IMAGENES BUEN SABOR/MENU/pizza-muzarella.png")
                 .timesPurchased(0)
                 .build());
+        
+        plates.get(plates.size() -1).setIngredients(List.of(
+                PlateIngredient.builder().ingredient(ingredients.get(31)).quantity(1).build(),
+                PlateIngredient.builder().ingredient(ingredients.get(1)).quantity(4).build(),
+                PlateIngredient.builder().ingredient(ingredients.get(40)).quantity(2).build()
+        ));
 
         plates.add(PlatoJpa.builder()
                 .name("Pizza Pollo y Espinaca")
@@ -89,6 +119,14 @@ public class PlateInitializerService {
                 .img("IMAGENES BUEN SABOR/MENU/pizza-pollo-espinaca.png")
                 .timesPurchased(0)
                 .build());
+        
+        plates.get(plates.size() -1).setIngredients(List.of(
+                PlateIngredient.builder().ingredient(ingredients.get(31)).quantity(1).build(),
+                PlateIngredient.builder().ingredient(ingredients.get(10)).quantity(1).build(),
+                PlateIngredient.builder().ingredient(ingredients.get(34)).quantity(1).build(),
+                PlateIngredient.builder().ingredient(ingredients.get(11)).quantity(2).build(),
+                PlateIngredient.builder().ingredient(ingredients.get(40)).quantity(2).build()
+        ));
 
         plates.add(PlatoJpa.builder()
                 .name("Pizza Especial")
@@ -100,6 +138,15 @@ public class PlateInitializerService {
                 .img("IMAGENES BUEN SABOR/MENU/pizza especial.png")
                 .timesPurchased(0)
                 .build());
+        
+        plates.get(plates.size() -1).setIngredients(List.of(
+                PlateIngredient.builder().ingredient(ingredients.get(31)).quantity(1).build(),
+                PlateIngredient.builder().ingredient(ingredients.get(1)).quantity(4).build(),
+                PlateIngredient.builder().ingredient(ingredients.get(35)).quantity(2).build(),
+                PlateIngredient.builder().ingredient(ingredients.get(12)).quantity(2).build(),
+                PlateIngredient.builder().ingredient(ingredients.get(13)).quantity(4).build(),
+                PlateIngredient.builder().ingredient(ingredients.get(40)).quantity(2).build()
+        ));
 
         plates.add(PlatoJpa.builder()
                 .name("Pizza Hawaiana")
@@ -111,6 +158,14 @@ public class PlateInitializerService {
                 .img("IMAGENES BUEN SABOR/MENU/pizza-hawaiana.png")
                 .timesPurchased(0)
                 .build());
+        
+        plates.get(plates.size() -1).setIngredients(List.of(
+                PlateIngredient.builder().ingredient(ingredients.get(31)).quantity(1).build(),
+                PlateIngredient.builder().ingredient(ingredients.get(1)).quantity(4).build(),
+                PlateIngredient.builder().ingredient(ingredients.get(35)).quantity(2).build(),
+                PlateIngredient.builder().ingredient(ingredients.get(24)).quantity(2).build(),
+                PlateIngredient.builder().ingredient(ingredients.get(40)).quantity(2).build()
+        ));
 
         plates.add(PlatoJpa.builder()
                 .name("Pizza Champiñones (vegetariana)")
@@ -122,6 +177,15 @@ public class PlateInitializerService {
                 .img("IMAGENES BUEN SABOR/MENU/pizza-champiñones.png")
                 .timesPurchased(0)
                 .build());
+        
+        plates.get(plates.size() -1).setIngredients(List.of(
+                PlateIngredient.builder().ingredient(ingredients.get(31)).quantity(1).build(),
+                PlateIngredient.builder().ingredient(ingredients.get(1)).quantity(4).build(),
+                PlateIngredient.builder().ingredient(ingredients.get(27)).quantity(3).build(),
+                PlateIngredient.builder().ingredient(ingredients.get(15)).quantity(1).build(),
+                PlateIngredient.builder().ingredient(ingredients.get(14)).quantity(2).build(),
+                PlateIngredient.builder().ingredient(ingredients.get(40)).quantity(2).build()
+        ));
 
         plates.add(PlatoJpa.builder()
                 .name("Pizza Vegetales Asados (vegana)")
@@ -133,11 +197,20 @@ public class PlateInitializerService {
                 .img("IMAGENES BUEN SABOR/MENU/pizza-vegetales.png")
                 .timesPurchased(0)
                 .build());
+        
+        plates.get(plates.size() -1).setIngredients(List.of(
+                PlateIngredient.builder().ingredient(ingredients.get(31)).quantity(1).build(),
+                PlateIngredient.builder().ingredient(ingredients.get(1)).quantity(6).build(),
+                PlateIngredient.builder().ingredient(ingredients.get(4)).quantity(3).build(),
+                PlateIngredient.builder().ingredient(ingredients.get(3)).quantity(2).build(),
+                PlateIngredient.builder().ingredient(ingredients.get(27)).quantity(2).build(),
+                PlateIngredient.builder().ingredient(ingredients.get(40)).quantity(2).build()
+        ));
 
 //      ------------Hamburguesas------------
         plates.add(PlatoJpa.builder()
                 .name("Hamburguesa Clásica de la Casa")
-                .description("Una hamburguesa clásica con una carne super jugosa y un sabor incomparable. Contiene pan de papa, doble carne jugosa, queso cheddar derretido, tomate, lechuga, pepino y salsa de la casa.")
+                .description("Una hamburguesa clásica con una carne super jugosa y un sabor incomparable. Carne jugosa, queso cheddar derretido, tomate, lechuga y pepino.")
                 .type(Tipo.HAMBURGUESA)
                 .price(2800D)
                 .stock(20)
@@ -145,6 +218,15 @@ public class PlateInitializerService {
                 .img("IMAGENES BUEN SABOR/MENU/burger-clasica.png")
                 .timesPurchased(0)
                 .build());
+        
+        plates.get(plates.size() -1).setIngredients(List.of(
+                PlateIngredient.builder().ingredient(ingredients.get(28)).quantity(2).build(),
+                PlateIngredient.builder().ingredient(ingredients.get(44)).quantity(1).build(),
+                PlateIngredient.builder().ingredient(ingredients.get(1)).quantity(1).build(),
+                PlateIngredient.builder().ingredient(ingredients.get(0)).quantity(1).build(),
+                PlateIngredient.builder().ingredient(ingredients.get(6)).quantity(1).build(),
+                PlateIngredient.builder().ingredient(ingredients.get(33)).quantity(1).build()
+        ));
 
         plates.add(PlatoJpa.builder()
                 .name("Hamburguesa Bacon y Huevo")
@@ -156,6 +238,13 @@ public class PlateInitializerService {
                 .img("IMAGENES BUEN SABOR/MENU/burger-bacon-egg.png")
                 .timesPurchased(0)
                 .build());
+        
+        plates.get(plates.size() -1).setIngredients(List.of(
+                PlateIngredient.builder().ingredient(ingredients.get(28)).quantity(2).build(),
+                PlateIngredient.builder().ingredient(ingredients.get(36)).quantity(1).build(),
+                PlateIngredient.builder().ingredient(ingredients.get(45)).quantity(1).build(),
+                PlateIngredient.builder().ingredient(ingredients.get(33)).quantity(1).build()
+        ));
 
         plates.add(PlatoJpa.builder()
                 .name("Hamburguesa Cebolla y Bacon")
@@ -167,6 +256,13 @@ public class PlateInitializerService {
                 .img("IMAGENES BUEN SABOR/MENU/burger-bbq.png")
                 .timesPurchased(0)
                 .build());
+        
+        plates.get(plates.size() -1).setIngredients(List.of(
+                PlateIngredient.builder().ingredient(ingredients.get(28)).quantity(2).build(),
+                PlateIngredient.builder().ingredient(ingredients.get(3)).quantity(1).build(),
+                PlateIngredient.builder().ingredient(ingredients.get(36)).quantity(1).build(),
+                PlateIngredient.builder().ingredient(ingredients.get(33)).quantity(1).build()
+        ));
 
         plates.add(PlatoJpa.builder()
                 .name("Hamburguesa Pollo Crispy Simple")
@@ -178,6 +274,11 @@ public class PlateInitializerService {
                 .img("IMAGENES BUEN SABOR/MENU/burger-crispy-chicken.png")
                 .timesPurchased(0)
                 .build());
+        
+        plates.get(plates.size() -1).setIngredients(List.of(
+                PlateIngredient.builder().ingredient(ingredients.get(28)).quantity(2).build(),
+                PlateIngredient.builder().ingredient(ingredients.get(32)).quantity(1).build()
+        ));
 
         plates.add(PlatoJpa.builder()
                 .name("Hamburguesa Pollo, Bacon y Cebolla Crispy")
@@ -189,10 +290,18 @@ public class PlateInitializerService {
                 .img("IMAGENES BUEN SABOR/MENU/burger-chicken-bacon.png")
                 .timesPurchased(0)
                 .build());
+        
+        plates.get(plates.size() -1).setIngredients(List.of(
+                PlateIngredient.builder().ingredient(ingredients.get(28)).quantity(2).build(),
+                PlateIngredient.builder().ingredient(ingredients.get(36)).quantity(1).build(),
+                PlateIngredient.builder().ingredient(ingredients.get(3)).quantity(1).build(),
+                PlateIngredient.builder().ingredient(ingredients.get(44)).quantity(1).build(),
+                PlateIngredient.builder().ingredient(ingredients.get(32)).quantity(1).build()
+        ));
 
         plates.add(PlatoJpa.builder()
                 .name("Hamburguesa Vegana Simple")
-                .description("Hamburguesa vegana con un medallón a base de legumbres, aderezado con hierbas y especias. Acompañada de tomate, lechuga y un toque de mayonesa vegana.")
+                .description("Hamburguesa vegana con un medallón a base de legumbres, aderezado con hierbas y especias. Acompañada de tomate y lechuga.")
                 .type(Tipo.HAMBURGUESA)
                 .price(2700D)
                 .stock(20)
@@ -200,6 +309,13 @@ public class PlateInitializerService {
                 .img("IMAGENES BUEN SABOR/MENU/burger-vegan.png")
                 .timesPurchased(0)
                 .build());
+        
+        plates.get(plates.size() -1).setIngredients(List.of(
+                PlateIngredient.builder().ingredient(ingredients.get(28)).quantity(2).build(),
+                PlateIngredient.builder().ingredient(ingredients.get(1)).quantity(1).build(),
+                PlateIngredient.builder().ingredient(ingredients.get(0)).quantity(1).build(),
+                PlateIngredient.builder().ingredient(ingredients.get(7)).quantity(1).build()
+        ));
 
 //      ------------Acompañamientos------------
         plates.add(PlatoJpa.builder()
@@ -212,6 +328,10 @@ public class PlateInitializerService {
                 .img("IMAGENES BUEN SABOR/MENU/acompañamineto-papas-fritas.png")
                 .timesPurchased(0)
                 .build());
+        
+        plates.get(plates.size() -1).setIngredients(List.of(
+                PlateIngredient.builder().ingredient(ingredients.get(8)).quantity(1).build()
+        ));
 
         plates.add(PlatoJpa.builder()
                 .name("Aros de Cebolla")
@@ -223,6 +343,10 @@ public class PlateInitializerService {
                 .img("IMAGENES BUEN SABOR/MENU/acompañamiento-onion-rings.png")
                 .timesPurchased(0)
                 .build());
+        
+        plates.get(plates.size() -1).setIngredients(List.of(
+                PlateIngredient.builder().ingredient(ingredients.get(3)).quantity(1).build()
+        ));
 
         plates.add(PlatoJpa.builder()
                 .name("Papas con Cheddar y Bacon Triturado")
@@ -234,6 +358,12 @@ public class PlateInitializerService {
                 .img("IMAGENES BUEN SABOR/MENU/acompañamiento-papas-cheddar-bacon.png")
                 .timesPurchased(0)
                 .build());
+        
+        plates.get(plates.size() -1).setIngredients(List.of(
+                PlateIngredient.builder().ingredient(ingredients.get(8)).quantity(1).build(),
+                PlateIngredient.builder().ingredient(ingredients.get(36)).quantity(1).build(),
+                PlateIngredient.builder().ingredient(ingredients.get(44)).quantity(1).build()
+        ));
 //      ------------Postres------------
         plates.add(PlatoJpa.builder()
                 .name("Flan")
@@ -245,6 +375,12 @@ public class PlateInitializerService {
                 .img("IMAGENES BUEN SABOR/MENU/postre-flan.png")
                 .timesPurchased(0)
                 .build());
+        
+        plates.get(plates.size() -1).setIngredients(List.of(
+                PlateIngredient.builder().ingredient(ingredients.get(45)).quantity(1).build(),
+                PlateIngredient.builder().ingredient(ingredients.get(38)).quantity(1).build(),
+                PlateIngredient.builder().ingredient(ingredients.get(16)).quantity(1).build()
+        ));
 
         plates.add(PlatoJpa.builder()
                 .name("Alfajores de Maicena")
@@ -256,6 +392,12 @@ public class PlateInitializerService {
                 .img("IMAGENES BUEN SABOR/MENU/postre-alfajores.png")
                 .timesPurchased(0)
                 .build());
+        
+        plates.get(plates.size() -1).setIngredients(List.of(
+                PlateIngredient.builder().ingredient(ingredients.get(19)).quantity(1).build(),
+                PlateIngredient.builder().ingredient(ingredients.get(20)).quantity(2).build(),
+                PlateIngredient.builder().ingredient(ingredients.get(21)).quantity(2).build()
+        ));
 
         plates.add(PlatoJpa.builder()
                 .name("Arroz Con Leche")
@@ -267,11 +409,19 @@ public class PlateInitializerService {
                 .img("IMAGENES BUEN SABOR/MENU/postre-arroz-con-leche.png")
                 .timesPurchased(0)
                 .build());
+        
+        plates.get(plates.size() -1).setIngredients(List.of(
+                PlateIngredient.builder().ingredient(ingredients.get(23)).quantity(1).build(),
+                PlateIngredient.builder().ingredient(ingredients.get(38)).quantity(2).build(),
+                PlateIngredient.builder().ingredient(ingredients.get(17)).quantity(2).build(),
+                PlateIngredient.builder().ingredient(ingredients.get(18)).quantity(2).build(),
+                PlateIngredient.builder().ingredient(ingredients.get(16)).quantity(2).build()
+        ));
 
 //      ------------Ensaladas------------
         plates.add(PlatoJpa.builder()
                 .name("Ensalada César con Pollo")
-                .description("Clásica ensalada César con lechuga romana fresca, crujientes croutons, trozos de pollo a la parrilla, queso parmesano rallado y aderezo César cremoso.")
+                .description("Clásica ensalada César con lechuga romana fresca, trozos de pollo a la parrilla, queso parmesano rallado y aderezo César cremoso.")
                 .type(Tipo.ENSALADA)
                 .price(2500D)
                 .stock(15)
@@ -279,6 +429,13 @@ public class PlateInitializerService {
                 .img("IMAGENES BUEN SABOR/MENU/Ensalada-cesar-con-pollo.png")
                 .timesPurchased(0)
                 .build());
+        
+        plates.get(plates.size() -1).setIngredients(List.of(
+                PlateIngredient.builder().ingredient(ingredients.get(0)).quantity(2).build(),
+                PlateIngredient.builder().ingredient(ingredients.get(42)).quantity(1).build(),
+                PlateIngredient.builder().ingredient(ingredients.get(43)).quantity(1).build(),
+                PlateIngredient.builder().ingredient(ingredients.get(34)).quantity(1).build()
+        ));
 
         plates.add(PlatoJpa.builder()
                 .name("Ensalada Latina")
@@ -290,10 +447,18 @@ public class PlateInitializerService {
                 .img("IMAGENES BUEN SABOR/MENU/Ensalada-latina.png")
                 .timesPurchased(0)
                 .build());
+        
+        plates.get(plates.size() -1).setIngredients(List.of(
+                PlateIngredient.builder().ingredient(ingredients.get(0)).quantity(2).build(),
+                PlateIngredient.builder().ingredient(ingredients.get(1)).quantity(2).build(),
+                PlateIngredient.builder().ingredient(ingredients.get(46)).quantity(2).build(),
+                PlateIngredient.builder().ingredient(ingredients.get(5)).quantity(1).build(),
+                PlateIngredient.builder().ingredient(ingredients.get(22)).quantity(2).build()
+        ));
 
         plates.add(PlatoJpa.builder()
                 .name("Ensalada de Manzana, Queso Azul y Nuez")
-                .description("Mezcla de hojas verdes frescas con rodajas de manzana, queso azul desmenuzado y nueces crujientes, todo aderezado con una vinagreta de miel y mostaza. ")
+                .description("Mezcla de hojas verdes frescas con rodajas de manzana, queso azul desmenuzado y nueces crujientes. ")
                 .type(Tipo.ENSALADA)
                 .price(2600D)
                 .stock(15)
@@ -301,29 +466,14 @@ public class PlateInitializerService {
                 .img("IMAGENES BUEN SABOR/MENU/ensalada manzana.png")
                 .timesPurchased(0)
                 .build());
+        
+        plates.get(plates.size() -1).setIngredients(List.of(
+                PlateIngredient.builder().ingredient(ingredients.get(0)).quantity(2).build(),
+                PlateIngredient.builder().ingredient(ingredients.get(26)).quantity(2).build(),
+                PlateIngredient.builder().ingredient(ingredients.get(41)).quantity(1).build(),
+                PlateIngredient.builder().ingredient(ingredients.get(25)).quantity(2).build()
+        ));
 
-//      ------------Bebidas------------
-        plates.add(PlatoJpa.builder()
-                .name("Coca-Cola 500ml")
-                .description("Refresco Coca-Cola clásico en formato de 500 ml.")
-                .type(Tipo.BEBIDA)
-                .price(500D)
-                .stock(50)
-                .available(true)
-                .img("IMAGENES BUEN SABOR/MENU/bebeida-coca-medio.png")
-                .timesPurchased(0)
-                .build());
-
-        plates.add(PlatoJpa.builder()
-                .name("Coca-Cola 1.5L")
-                .description("Refresco Coca-Cola clásico en formato de 1.5 litros.")
-                .type(Tipo.BEBIDA)
-                .price(800D)
-                .stock(50)
-                .available(true)
-                .img("IMAGENES BUEN SABOR/MENU/bebeida-coca-medio.png")
-                .timesPurchased(0)
-                .build());
 
         return repository.saveAll(plates);
     }
