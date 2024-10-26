@@ -39,7 +39,7 @@ public class PlatosService {
                 .type(platoDTO.type())
                 .stock(platoDTO.stock())
                 .available(true)
-                .img(platoDTO.img())
+                .imageData(platoDTO.imageData())
                 .build();
         // Here we save in dataBase
         platoJpaRepository.save(plato);
@@ -58,7 +58,7 @@ public class PlatosService {
                 .type(entity.type())
                 .stock(entity.stock())
                 .available(true)
-                .img(entity.img())
+                .imageData(entity.imageData())
                 .build();
         // Saves updated entity to database
         plato = platoJpaRepository.save(platoActualizado);
