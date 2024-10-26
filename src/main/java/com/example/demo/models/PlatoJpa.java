@@ -19,15 +19,16 @@ public class PlatoJpa {
 
     @Column(columnDefinition = "varchar(100)")
     private String name;
- 
     @Column(columnDefinition = "varchar(600)")
     private String description;
     private Tipo type;
     private Double price;
     private int stock;
     private boolean available;
-    @Column(columnDefinition = "varchar(600)")
-    private String img;
+    
+    @Lob
+    @Column(name = "image_data", columnDefinition="MEDIUMBLOB")
+    private byte[] imageData;
     private int timesPurchased;
     
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)

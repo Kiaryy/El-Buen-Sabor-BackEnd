@@ -4,7 +4,6 @@ import com.example.demo.DTO.request.PlatoRequestDTO;
 import com.example.demo.models.PlatoJpa;
 import com.example.demo.service.PlatosService;
 import lombok.AllArgsConstructor;
-
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;

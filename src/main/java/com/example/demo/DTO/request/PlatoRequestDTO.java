@@ -8,6 +8,6 @@ public record PlatoRequestDTO(
         Tipo type,
         Double price,
         int stock,
-        String img
+        byte[] imageData
 ) {
 }
