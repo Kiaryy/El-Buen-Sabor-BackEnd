@@ -23,39 +23,19 @@ public class DataInitializerController {
 
     @Autowired
     PlateInitializerService platoService;
-
+    
     @Autowired
     UserInitilizerService userService;
-
+    
     @Autowired
     ArticleInitializerService articleService;
-
+    
     @GetMapping("createPlates")
     public List<PlatoJpa> createAllPlates(){
         return platoService.loadMenu();
     }
-
+    
     @GetMapping("createArticles")
-    public List<ArticleJpa> createAllArticles(){
-        return articleService.loadArticles();
-    }
-
-    @GetMapping("deleteAllPlates")
-    public String deleteAllPlates(){
-        return platoService.deleteMenu();
-    }
-
-    @GetMapping("createUsers")
-    public List<UsuarioJpa> createAllUsers(){
-        return userService.createUsers();
-    }
-
-    @GetMapping("deleteAllUsers")
-    public String deleteAllUsers(){
-        return userService.deleteAllUsers();
-    }
-
-    @GetMapping("createArticle")
     public List<ArticleJpa> createAllArticles(){
         return articleService.loadArticles();
     }
@@ -63,5 +43,20 @@ public class DataInitializerController {
     @GetMapping("deleteAllArticles")
     public String deleteAllArticles(){
         return articleService.deleteArticle();
+    }
+    
+    @GetMapping("deleteAllPlates")
+    public String deleteAllPlates(){
+        return platoService.deleteMenu();
+    }
+    
+    @GetMapping("createUsers")
+    public List<UsuarioJpa> createAllUsers(){
+        return userService.createUsers();
+    }
+    
+    @GetMapping("deleteAllUsers")
+    public String deleteAllUsers(){
+        return userService.deleteAllUsers();
     }
 }
