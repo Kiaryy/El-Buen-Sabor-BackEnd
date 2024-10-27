@@ -3,12 +3,13 @@ package com.example.demo.models;
 import com.example.demo.models.enums.Tipo;
 import jakarta.persistence.*;
 import lombok.*;
+
+import java.util.ArrayList;
 import java.util.List;
 
 //With Lombok
 @Entity
-@Getter
-@Setter
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
@@ -31,8 +32,10 @@ public class PlatoJpa {
     private byte[] imageData;
     private int timesPurchased;
     
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-    @JoinColumn(name = "plate_id")
-    private List<PlateIngredient> ingredients;
-
+    @ElementCollection
+    private List<ArticleReference> articles = new ArrayList<>();
+    
+    public boolean getAvaliable(){
+        return this.available;
+    }
 }

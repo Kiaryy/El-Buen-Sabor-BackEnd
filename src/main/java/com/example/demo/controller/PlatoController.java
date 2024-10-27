@@ -20,11 +20,11 @@ import java.util.List;
 @RestController
 @AllArgsConstructor
 @CrossOrigin(origins = "*")
-public class PlatoController {
+public class PlatoController{
 
     private final PlatosService platosService;
 
-    @GetMapping("/platos/findAll") 
+    @GetMapping("/platos/findAll")
     List<PlatoJpa> findAll(){
         return platosService.getAllPlatos();
     }
