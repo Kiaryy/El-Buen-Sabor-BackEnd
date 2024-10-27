@@ -30,18 +30,17 @@ public class PlatosService {
     }
 
     public String addPlatos(PlatoRequestDTO platoDTO){
-
-
         PlatoJpa plato = PlatoJpa.builder()
-                .name(platoDTO.name())
-                .description(platoDTO.description())
-                .price(platoDTO.price())
-                .type(platoDTO.type())
-                .stock(platoDTO.stock())
-                .available(true)
-                .imageData(platoDTO.imageData())
-                .build();
-        // Here we save in dataBase
+            .name(platoDTO.name())
+            .description(platoDTO.description())
+            .price(platoDTO.price())
+            .type(platoDTO.type())
+            .stock(platoDTO.stock())
+            .available(true)
+            .imageData(platoDTO.imageData())
+            .articles(platoDTO.articles())
+            .build();
+    
         platoJpaRepository.save(plato);
         return "Plato agregado";
     }
@@ -59,6 +58,7 @@ public class PlatosService {
                 .stock(entity.stock())
                 .available(true)
                 .imageData(entity.imageData())
+                .articles(entity.articles())
                 .build();
         // Saves updated entity to database
         plato = platoJpaRepository.save(platoActualizado);

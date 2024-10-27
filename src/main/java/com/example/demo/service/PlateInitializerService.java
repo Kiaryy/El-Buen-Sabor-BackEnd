@@ -5,11 +5,9 @@ import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.example.demo.models.ArticleJpa;
-import com.example.demo.models.PlateIngredient;
+import com.example.demo.models.ArticleReference;
 import com.example.demo.models.PlatoJpa;
 import com.example.demo.models.enums.Tipo;
-import com.example.demo.repository.ArticleRepository;
 import com.example.demo.repository.PlatoJpaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,8 +19,6 @@ public class PlateInitializerService {
     public PlateInitializerService(PlatoJpaRepository repository) {
         this.repository = repository;
     }
-    @Autowired
-    private ArticleRepository articleRepository;
 
     public String deleteMenu(){
 
@@ -35,8 +31,6 @@ public class PlateInitializerService {
     }
 
     public List<PlatoJpa> loadMenu(){
-        List<ArticleJpa> ingredients = articleRepository.findAll();
-
         List<PlatoJpa> plates = new ArrayList<>();
 
         //      ------------Empanadas------------
@@ -51,15 +45,14 @@ public class PlateInitializerService {
                         // Convierte el archivo en un array de bytes y lo guarda en db
                         .imageData(Files.readAllBytes(new File("MENU\\empandas-carne.png").toPath()))
                         .timesPurchased(0)
+                        .articles(new ArrayList<>(List.of(
+                                new ArticleReference(30L,1),
+                                new ArticleReference(38L,2),
+                                new ArticleReference(4L,2),
+                                new ArticleReference(5L,2)
+                        )))
                         .build());
 
-                plates.get(plates.size() -1).setIngredients(List.of(
-                        // Añade 1 unidad del ingrediente con id 15 al ultimo plato
-                        PlateIngredient.builder().ingredient(ingredients.get(29)).quantity(1).build(),
-                        PlateIngredient.builder().ingredient(ingredients.get(37)).quantity(2).build(),
-                        PlateIngredient.builder().ingredient(ingredients.get(3)).quantity(2).build(),
-                        PlateIngredient.builder().ingredient(ingredients.get(4)).quantity(2).build()
-                ));
 
                 plates.add(PlatoJpa.builder()
                         .name("Empanada de Jamon y Queso")
@@ -70,13 +63,13 @@ public class PlateInitializerService {
                         .available(true)
                         .imageData(Files.readAllBytes(new File("MENU\\empanada-jyq.png").toPath()))
                         .timesPurchased(0)
+                        .articles(new ArrayList<>(List.of(
+                                new ArticleReference(30L,1),
+                                new ArticleReference(36L,2),
+                                new ArticleReference(41L,2)
+                        )))
                         .build());
 
-                plates.get(plates.size() -1).setIngredients(List.of(
-                        PlateIngredient.builder().ingredient(ingredients.get(29)).quantity(1).build(),
-                        PlateIngredient.builder().ingredient(ingredients.get(35)).quantity(2).build(),
-                        PlateIngredient.builder().ingredient(ingredients.get(40)).quantity(2).build()
-                ));
 
                 plates.add(PlatoJpa.builder()
                         .name("Empanada de Choclo")
@@ -87,14 +80,14 @@ public class PlateInitializerService {
                         .available(true)
                         .imageData(Files.readAllBytes(new File("MENU\\empanada-choclo.png").toPath()))
                         .timesPurchased(0)
+                        .articles(new ArrayList<>(List.of(
+                                new ArticleReference(30L,1),
+                                new ArticleReference(6L,2),
+                                new ArticleReference(4L,2),
+                                new ArticleReference(41L,2)
+                        )))
                         .build());
 
-                plates.get(plates.size() -1).setIngredients(List.of(
-                        PlateIngredient.builder().ingredient(ingredients.get(29)).quantity(1).build(),
-                        PlateIngredient.builder().ingredient(ingredients.get(5)).quantity(2).build(),
-                        PlateIngredient.builder().ingredient(ingredients.get(3)).quantity(2).build(),
-                        PlateIngredient.builder().ingredient(ingredients.get(40)).quantity(2).build()
-                ));
 
                 //      ------------Pizzas------------
                 plates.add(PlatoJpa.builder()
@@ -106,14 +99,12 @@ public class PlateInitializerService {
                         .available(true)
                         .imageData(Files.readAllBytes(new File("MENU\\pizza-muzarella.png").toPath()))
                         .timesPurchased(0)
+                        .articles(new ArrayList<>(List.of(
+                                new ArticleReference(32L,1),
+                                new ArticleReference(2L,4),
+                                new ArticleReference(41L,2)
+                        )))
                         .build());
-
-                plates.get(plates.size() -1).setIngredients(List.of(
-                        PlateIngredient.builder().ingredient(ingredients.get(31)).quantity(1).build(),
-                        PlateIngredient.builder().ingredient(ingredients.get(1)).quantity(4).build(),
-                        PlateIngredient.builder().ingredient(ingredients.get(40)).quantity(2).build()
-                ));
-
                 plates.add(PlatoJpa.builder()
                         .name("Pizza Pollo y Espinaca")
                         .description("Pizza con una base crujiente y dorada, cubierta con una capa de salsa blanca suave, trozos de pollo a la parrilla, hojas de espinaca frescas y queso muzzarella derretido.")
@@ -123,15 +114,15 @@ public class PlateInitializerService {
                         .available(true)
                         .imageData(Files.readAllBytes(new File("MENU\\pizza-pollo-espinaca.png").toPath()))
                         .timesPurchased(0)
+                        .articles(new ArrayList<>(List.of(
+                                new ArticleReference(32L,1),
+                                new ArticleReference(11L,1),
+                                new ArticleReference(35L,1),
+                                new ArticleReference(12L,2),
+                                new ArticleReference(41L,2)
+                        )))
                         .build());
 
-                plates.get(plates.size() -1).setIngredients(List.of(
-                        PlateIngredient.builder().ingredient(ingredients.get(31)).quantity(1).build(),
-                        PlateIngredient.builder().ingredient(ingredients.get(10)).quantity(1).build(),
-                        PlateIngredient.builder().ingredient(ingredients.get(34)).quantity(1).build(),
-                        PlateIngredient.builder().ingredient(ingredients.get(11)).quantity(2).build(),
-                        PlateIngredient.builder().ingredient(ingredients.get(40)).quantity(2).build()
-                ));
 
                 plates.add(PlatoJpa.builder()
                         .name("Pizza Especial")
@@ -142,16 +133,15 @@ public class PlateInitializerService {
                         .available(true)
                         .imageData(Files.readAllBytes(new File("MENU\\pizza especial.png").toPath()))
                         .timesPurchased(0)
+                        .articles(new ArrayList<>(List.of(
+                                new ArticleReference(32L,1),
+                                new ArticleReference(2L,4),
+                                new ArticleReference(36L,2),
+                                new ArticleReference(12L,2),
+                                new ArticleReference(14L,4),
+                                new ArticleReference(41L,2)
+                        )))
                         .build());
-
-                plates.get(plates.size() -1).setIngredients(List.of(
-                        PlateIngredient.builder().ingredient(ingredients.get(31)).quantity(1).build(),
-                        PlateIngredient.builder().ingredient(ingredients.get(1)).quantity(4).build(),
-                        PlateIngredient.builder().ingredient(ingredients.get(35)).quantity(2).build(),
-                        PlateIngredient.builder().ingredient(ingredients.get(12)).quantity(2).build(),
-                        PlateIngredient.builder().ingredient(ingredients.get(13)).quantity(4).build(),
-                        PlateIngredient.builder().ingredient(ingredients.get(40)).quantity(2).build()
-                ));
 
                 plates.add(PlatoJpa.builder()
                         .name("Pizza Hawaiana")
@@ -162,15 +152,15 @@ public class PlateInitializerService {
                         .available(true)
                         .imageData(Files.readAllBytes(new File("MENU\\pizza-hawaiana.png").toPath()))
                         .timesPurchased(0)
+                        .articles(new ArrayList<>(List.of(
+                                new ArticleReference(32L,1),
+                                new ArticleReference(2L,4),
+                                new ArticleReference(36L,2),
+                                new ArticleReference(25L,2),
+                                new ArticleReference(41L,2)
+                        )))
                         .build());
 
-                plates.get(plates.size() -1).setIngredients(List.of(
-                        PlateIngredient.builder().ingredient(ingredients.get(31)).quantity(1).build(),
-                        PlateIngredient.builder().ingredient(ingredients.get(1)).quantity(4).build(),
-                        PlateIngredient.builder().ingredient(ingredients.get(35)).quantity(2).build(),
-                        PlateIngredient.builder().ingredient(ingredients.get(24)).quantity(2).build(),
-                        PlateIngredient.builder().ingredient(ingredients.get(40)).quantity(2).build()
-                ));
 
                 plates.add(PlatoJpa.builder()
                         .name("Pizza Champiñones (vegetariana)")
@@ -181,16 +171,15 @@ public class PlateInitializerService {
                         .available(true)
                         .imageData(Files.readAllBytes(new File("MENU\\pizza-champiñones.png").toPath()))
                         .timesPurchased(0)
+                        .articles(new ArrayList<>(List.of(
+                                new ArticleReference(32L,1),
+                                new ArticleReference(2L,4),
+                                new ArticleReference(28L,3),
+                                new ArticleReference(16L,1),
+                                new ArticleReference(15L,2),
+                                new ArticleReference(41L,2)
+                        )))
                         .build());
-
-                plates.get(plates.size() -1).setIngredients(List.of(
-                        PlateIngredient.builder().ingredient(ingredients.get(31)).quantity(1).build(),
-                        PlateIngredient.builder().ingredient(ingredients.get(1)).quantity(4).build(),
-                        PlateIngredient.builder().ingredient(ingredients.get(27)).quantity(3).build(),
-                        PlateIngredient.builder().ingredient(ingredients.get(15)).quantity(1).build(),
-                        PlateIngredient.builder().ingredient(ingredients.get(14)).quantity(2).build(),
-                        PlateIngredient.builder().ingredient(ingredients.get(40)).quantity(2).build()
-                ));
 
                 plates.add(PlatoJpa.builder()
                         .name("Pizza Vegetales Asados (vegana)")
@@ -201,16 +190,15 @@ public class PlateInitializerService {
                         .available(true)
                         .imageData(Files.readAllBytes(new File("MENU\\pizza-vegetales.png").toPath()))
                         .timesPurchased(0)
+                        .articles(new ArrayList<>(List.of(
+                                new ArticleReference(21L,1),
+                                new ArticleReference(2L,6),
+                                new ArticleReference(5L,3),
+                                new ArticleReference(4L,2),
+                                new ArticleReference(28L,2),
+                                new ArticleReference(41L,2)
+                        )))
                         .build());
-
-                plates.get(plates.size() -1).setIngredients(List.of(
-                        PlateIngredient.builder().ingredient(ingredients.get(31)).quantity(1).build(),
-                        PlateIngredient.builder().ingredient(ingredients.get(1)).quantity(6).build(),
-                        PlateIngredient.builder().ingredient(ingredients.get(4)).quantity(3).build(),
-                        PlateIngredient.builder().ingredient(ingredients.get(3)).quantity(2).build(),
-                        PlateIngredient.builder().ingredient(ingredients.get(27)).quantity(2).build(),
-                        PlateIngredient.builder().ingredient(ingredients.get(40)).quantity(2).build()
-                ));
 
                 //      ------------Hamburguesas------------
                 plates.add(PlatoJpa.builder()
@@ -222,16 +210,15 @@ public class PlateInitializerService {
                         .available(true)
                         .imageData(Files.readAllBytes(new File("MENU\\burger-clasica.png").toPath()))
                         .timesPurchased(0)
+                        .articles(new ArrayList<>(List.of(
+                                new ArticleReference(29L,2),
+                                new ArticleReference(45L,1),
+                                new ArticleReference(2L,1),
+                                new ArticleReference(1L,1),
+                                new ArticleReference(7L,1),
+                                new ArticleReference(34L,1)
+                        )))
                         .build());
-
-                plates.get(plates.size() -1).setIngredients(List.of(
-                        PlateIngredient.builder().ingredient(ingredients.get(28)).quantity(2).build(),
-                        PlateIngredient.builder().ingredient(ingredients.get(44)).quantity(1).build(),
-                        PlateIngredient.builder().ingredient(ingredients.get(1)).quantity(1).build(),
-                        PlateIngredient.builder().ingredient(ingredients.get(0)).quantity(1).build(),
-                        PlateIngredient.builder().ingredient(ingredients.get(6)).quantity(1).build(),
-                        PlateIngredient.builder().ingredient(ingredients.get(33)).quantity(1).build()
-                ));
 
                 plates.add(PlatoJpa.builder()
                         .name("Hamburguesa Bacon y Huevo")
@@ -242,14 +229,13 @@ public class PlateInitializerService {
                         .available(true)
                         .imageData(Files.readAllBytes(new File("MENU\\burger-bacon-egg.png").toPath()))
                         .timesPurchased(0)
+                        .articles(new ArrayList<>(List.of(
+                                new ArticleReference(29L,2),
+                                new ArticleReference(37L,1),
+                                new ArticleReference(46L,1),
+                                new ArticleReference(34L,1)
+                        )))
                         .build());
-
-                plates.get(plates.size() -1).setIngredients(List.of(
-                        PlateIngredient.builder().ingredient(ingredients.get(28)).quantity(2).build(),
-                        PlateIngredient.builder().ingredient(ingredients.get(36)).quantity(1).build(),
-                        PlateIngredient.builder().ingredient(ingredients.get(45)).quantity(1).build(),
-                        PlateIngredient.builder().ingredient(ingredients.get(33)).quantity(1).build()
-                ));
 
                 plates.add(PlatoJpa.builder()
                         .name("Hamburguesa Cebolla y Bacon")
@@ -260,14 +246,13 @@ public class PlateInitializerService {
                         .available(true)
                         .imageData(Files.readAllBytes(new File("MENU\\burger-bbq.png").toPath()))
                         .timesPurchased(0)
+                        .articles(new ArrayList<>(List.of(
+                                new ArticleReference(29L,2),
+                                new ArticleReference(4L,1),
+                                new ArticleReference(37L,1),
+                                new ArticleReference(34L,1)
+                        )))
                         .build());
-
-                plates.get(plates.size() -1).setIngredients(List.of(
-                        PlateIngredient.builder().ingredient(ingredients.get(28)).quantity(2).build(),
-                        PlateIngredient.builder().ingredient(ingredients.get(3)).quantity(1).build(),
-                        PlateIngredient.builder().ingredient(ingredients.get(36)).quantity(1).build(),
-                        PlateIngredient.builder().ingredient(ingredients.get(33)).quantity(1).build()
-                ));
 
                 plates.add(PlatoJpa.builder()
                         .name("Hamburguesa Pollo Crispy Simple")
@@ -278,12 +263,11 @@ public class PlateInitializerService {
                         .available(true)
                         .imageData(Files.readAllBytes(new File("MENU\\burger-crispy-chicken.png").toPath()))
                         .timesPurchased(0)
+                        .articles(new ArrayList<>(List.of(
+                                new ArticleReference(28L,2),
+                                new ArticleReference(33L,1)
+                        )))
                         .build());
-
-                plates.get(plates.size() -1).setIngredients(List.of(
-                        PlateIngredient.builder().ingredient(ingredients.get(28)).quantity(2).build(),
-                        PlateIngredient.builder().ingredient(ingredients.get(32)).quantity(1).build()
-                ));
 
                 plates.add(PlatoJpa.builder()
                         .name("Hamburguesa Pollo, Bacon y Cebolla Crispy")
@@ -294,15 +278,14 @@ public class PlateInitializerService {
                         .available(true)
                         .imageData(Files.readAllBytes(new File("MENU\\burger-chicken-bacon.png").toPath()))
                         .timesPurchased(0)
+                        .articles(new ArrayList<>(List.of(
+                                new ArticleReference(29L,2),
+                                new ArticleReference(37L,1),
+                                new ArticleReference(4L,1),
+                                new ArticleReference(45L,1),
+                                new ArticleReference(33L,1)
+                        )))
                         .build());
-
-                plates.get(plates.size() -1).setIngredients(List.of(
-                        PlateIngredient.builder().ingredient(ingredients.get(28)).quantity(2).build(),
-                        PlateIngredient.builder().ingredient(ingredients.get(36)).quantity(1).build(),
-                        PlateIngredient.builder().ingredient(ingredients.get(3)).quantity(1).build(),
-                        PlateIngredient.builder().ingredient(ingredients.get(44)).quantity(1).build(),
-                        PlateIngredient.builder().ingredient(ingredients.get(32)).quantity(1).build()
-                ));
 
                 plates.add(PlatoJpa.builder()
                         .name("Hamburguesa Vegana Simple")
@@ -313,14 +296,13 @@ public class PlateInitializerService {
                         .available(true)
                         .imageData(Files.readAllBytes(new File("MENU\\burger-vegan.png").toPath()))
                         .timesPurchased(0)
+                        .articles(new ArrayList<>(List.of(
+                                new ArticleReference(28L,2),
+                                new ArticleReference(2L,1),
+                                new ArticleReference(1L,1),
+                                new ArticleReference(8L,1)
+                        )))
                         .build());
-
-                plates.get(plates.size() -1).setIngredients(List.of(
-                        PlateIngredient.builder().ingredient(ingredients.get(28)).quantity(2).build(),
-                        PlateIngredient.builder().ingredient(ingredients.get(1)).quantity(1).build(),
-                        PlateIngredient.builder().ingredient(ingredients.get(0)).quantity(1).build(),
-                        PlateIngredient.builder().ingredient(ingredients.get(7)).quantity(1).build()
-                ));
 
                 //      ------------Acompañamientos------------
                 plates.add(PlatoJpa.builder()
@@ -332,11 +314,10 @@ public class PlateInitializerService {
                         .available(true)
                         .imageData(Files.readAllBytes(new File("MENU\\acompañamineto-papas-fritas.png").toPath()))
                         .timesPurchased(0)
+                        .articles(new ArrayList<>(List.of(
+                                new ArticleReference(9L,1)
+                        )))
                         .build());
-
-                plates.get(plates.size() -1).setIngredients(List.of(
-                        PlateIngredient.builder().ingredient(ingredients.get(8)).quantity(1).build()
-                ));
 
                 plates.add(PlatoJpa.builder()
                         .name("Aros de Cebolla")
@@ -347,11 +328,10 @@ public class PlateInitializerService {
                         .available(true)
                         .imageData(Files.readAllBytes(new File("MENU\\acompañamiento-onion-rings.png").toPath()))
                         .timesPurchased(0)
+                        .articles(new ArrayList<>(List.of(
+                                new ArticleReference(4L,1)
+                        )))
                         .build());
-
-                plates.get(plates.size() -1).setIngredients(List.of(
-                        PlateIngredient.builder().ingredient(ingredients.get(3)).quantity(1).build()
-                ));
 
                 plates.add(PlatoJpa.builder()
                         .name("Papas con Cheddar y Bacon Triturado")
@@ -362,13 +342,13 @@ public class PlateInitializerService {
                         .available(true)
                         .imageData(Files.readAllBytes(new File("MENU\\acompañamiento-papas-cheddar-bacon.png").toPath()))
                         .timesPurchased(0)
+                        .articles(new ArrayList<>(List.of(
+                                new ArticleReference(9L,1),
+                                new ArticleReference(37L,1),
+                                new ArticleReference(45L,1)
+                        )))
                         .build());
 
-                plates.get(plates.size() -1).setIngredients(List.of(
-                        PlateIngredient.builder().ingredient(ingredients.get(8)).quantity(1).build(),
-                        PlateIngredient.builder().ingredient(ingredients.get(36)).quantity(1).build(),
-                        PlateIngredient.builder().ingredient(ingredients.get(44)).quantity(1).build()
-                ));
                 //      ------------Postres------------
                 plates.add(PlatoJpa.builder()
                         .name("Flan")
@@ -379,13 +359,12 @@ public class PlateInitializerService {
                         .available(true)
                         .imageData(Files.readAllBytes(new File("MENU\\postre-flan.png").toPath()))
                         .timesPurchased(0)
+                        .articles(new ArrayList<>(List.of(
+                                new ArticleReference(46L,1),
+                                new ArticleReference(39L,1),
+                                new ArticleReference(17L,1)
+                        )))
                         .build());
-
-                plates.get(plates.size() -1).setIngredients(List.of(
-                        PlateIngredient.builder().ingredient(ingredients.get(45)).quantity(1).build(),
-                        PlateIngredient.builder().ingredient(ingredients.get(38)).quantity(1).build(),
-                        PlateIngredient.builder().ingredient(ingredients.get(16)).quantity(1).build()
-                ));
 
                 plates.add(PlatoJpa.builder()
                         .name("Alfajores de Maicena")
@@ -396,13 +375,12 @@ public class PlateInitializerService {
                         .available(true)
                         .imageData(Files.readAllBytes(new File("MENU\\postre-alfajores.png").toPath()))
                         .timesPurchased(0)
+                        .articles(new ArrayList<>(List.of(
+                                new ArticleReference(20L,1),
+                                new ArticleReference(21L,2),
+                                new ArticleReference(22L,2)
+                        )))
                         .build());
-
-                plates.get(plates.size() -1).setIngredients(List.of(
-                        PlateIngredient.builder().ingredient(ingredients.get(19)).quantity(1).build(),
-                        PlateIngredient.builder().ingredient(ingredients.get(20)).quantity(2).build(),
-                        PlateIngredient.builder().ingredient(ingredients.get(21)).quantity(2).build()
-                ));
 
                 plates.add(PlatoJpa.builder()
                         .name("Arroz Con Leche")
@@ -413,15 +391,14 @@ public class PlateInitializerService {
                         .available(true)
                         .imageData(Files.readAllBytes(new File("MENU\\postre-arroz-con-leche.png").toPath()))
                         .timesPurchased(0)
+                        .articles(new ArrayList<>(List.of(
+                                new ArticleReference(24L,1),
+                                new ArticleReference(29L,2),
+                                new ArticleReference(18L,2),
+                                new ArticleReference(19L,2),
+                                new ArticleReference(17L,2)
+                        )))
                         .build());
-
-                plates.get(plates.size() -1).setIngredients(List.of(
-                        PlateIngredient.builder().ingredient(ingredients.get(23)).quantity(1).build(),
-                        PlateIngredient.builder().ingredient(ingredients.get(38)).quantity(2).build(),
-                        PlateIngredient.builder().ingredient(ingredients.get(17)).quantity(2).build(),
-                        PlateIngredient.builder().ingredient(ingredients.get(18)).quantity(2).build(),
-                        PlateIngredient.builder().ingredient(ingredients.get(16)).quantity(2).build()
-                ));
 
                 //      ------------Ensaladas------------
                 plates.add(PlatoJpa.builder()
@@ -433,14 +410,13 @@ public class PlateInitializerService {
                         .available(true)
                         .imageData(Files.readAllBytes(new File("MENU\\Ensalada-cesar-con-pollo.png").toPath()))
                         .timesPurchased(0)
+                        .articles(new ArrayList<>(List.of(
+                                new ArticleReference(1L,2),
+                                new ArticleReference(43L,1),
+                                new ArticleReference(44L,1),
+                                new ArticleReference(35L,1)
+                        )))
                         .build());
-
-                plates.get(plates.size() -1).setIngredients(List.of(
-                        PlateIngredient.builder().ingredient(ingredients.get(0)).quantity(2).build(),
-                        PlateIngredient.builder().ingredient(ingredients.get(42)).quantity(1).build(),
-                        PlateIngredient.builder().ingredient(ingredients.get(43)).quantity(1).build(),
-                        PlateIngredient.builder().ingredient(ingredients.get(34)).quantity(1).build()
-                ));
 
                 plates.add(PlatoJpa.builder()
                         .name("Ensalada Latina")
@@ -451,15 +427,14 @@ public class PlateInitializerService {
                         .available(true)
                         .imageData(Files.readAllBytes(new File("MENU\\Ensalada-latina.png").toPath()))
                         .timesPurchased(0)
+                        .articles(new ArrayList<>(List.of(
+                                new ArticleReference(1L,2),
+                                new ArticleReference(2L,2),
+                                new ArticleReference(47L,2),
+                                new ArticleReference(6L,1),
+                                new ArticleReference(23L,2)
+                        )))
                         .build());
-
-                plates.get(plates.size() -1).setIngredients(List.of(
-                        PlateIngredient.builder().ingredient(ingredients.get(0)).quantity(2).build(),
-                        PlateIngredient.builder().ingredient(ingredients.get(1)).quantity(2).build(),
-                        PlateIngredient.builder().ingredient(ingredients.get(46)).quantity(2).build(),
-                        PlateIngredient.builder().ingredient(ingredients.get(5)).quantity(1).build(),
-                        PlateIngredient.builder().ingredient(ingredients.get(22)).quantity(2).build()
-                ));
 
                 plates.add(PlatoJpa.builder()
                         .name("Ensalada de Manzana, Queso Azul y Nuez")
@@ -470,14 +445,14 @@ public class PlateInitializerService {
                         .available(true)
                         .imageData(Files.readAllBytes(new File("MENU\\ensalada manzana.png").toPath()))
                         .timesPurchased(0)
+                        .articles(new ArrayList<>(List.of(
+                                new ArticleReference(1L,2),
+                                new ArticleReference(27L,2),
+                                new ArticleReference(42L,1),
+                                new ArticleReference(26L,2)
+                        )))
                         .build());
 
-                plates.get(plates.size() -1).setIngredients(List.of(
-                        PlateIngredient.builder().ingredient(ingredients.get(0)).quantity(2).build(),
-                        PlateIngredient.builder().ingredient(ingredients.get(26)).quantity(2).build(),
-                        PlateIngredient.builder().ingredient(ingredients.get(41)).quantity(1).build(),
-                        PlateIngredient.builder().ingredient(ingredients.get(25)).quantity(2).build()
-                ));
         } catch (IOException e) {
                 System.out.println(e.getMessage());
         }

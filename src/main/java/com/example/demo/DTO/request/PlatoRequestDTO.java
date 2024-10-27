@@ -1,5 +1,8 @@
 package com.example.demo.DTO.request;
 
+import java.util.List;
+
+import com.example.demo.models.ArticleReference;
 import com.example.demo.models.enums.Tipo;
 
 public record PlatoRequestDTO(
@@ -8,6 +11,7 @@ public record PlatoRequestDTO(
         Tipo type,
         Double price,
         int stock,
-        byte[] imageData
+        byte[] imageData,
+        List<ArticleReference> articles
 ) {
 }

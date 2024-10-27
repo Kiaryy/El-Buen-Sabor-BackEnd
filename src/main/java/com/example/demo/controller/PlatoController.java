@@ -1,6 +1,7 @@
 package com.example.demo.controller;
 
 import com.example.demo.DTO.request.PlatoRequestDTO;
+import com.example.demo.DTO.request.PlatoReturnDTO;
 import com.example.demo.models.PlatoJpa;
 import com.example.demo.service.PlatosService;
 import lombok.AllArgsConstructor;
@@ -20,11 +21,11 @@ import java.util.List;
 @RestController
 @AllArgsConstructor
 @CrossOrigin(origins = "*")
-public class PlatoController {
+public class PlatoController{
 
     private final PlatosService platosService;
 
-    @GetMapping("/platos/findAll") 
+    @GetMapping("/platos/findAll")
     List<PlatoJpa> findAll(){
         return platosService.getAllPlatos();
     }
