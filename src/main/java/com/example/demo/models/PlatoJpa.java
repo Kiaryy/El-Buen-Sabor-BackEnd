@@ -34,6 +34,7 @@ public class PlatoJpa {
     
     @ElementCollection
     private List<ArticleReference> articles = new ArrayList<>();
+    
     public boolean getAvaliable(){
         return this.available;
     }
