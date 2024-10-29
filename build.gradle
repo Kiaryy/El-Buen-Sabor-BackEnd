@@ -15,6 +15,7 @@ java {
 
 repositories {
 	mavenCentral()
+	maven { url 'https://jitpack.io' }
 }
 
 dependencies {
@@ -24,6 +25,8 @@ dependencies {
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 	// Mercado pago SDK
 	implementation group: 'com.mercadopago', name: 'sdk-java', version: '2.1.29'
+	// Binance
+	implementation group: 'io.github.binance', name: 'binance-connector-java', version: '3.2.0'
 	// SQL Connector
     runtimeOnly 'com.mysql:mysql-connector-j'
     // Hibernate and JPA Dependencies
