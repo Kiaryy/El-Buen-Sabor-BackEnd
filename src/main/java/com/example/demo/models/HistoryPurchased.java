@@ -1,10 +1,7 @@
 package com.example.demo.models;
 
 import com.example.demo.models.enums.Providers;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDate;
@@ -24,6 +21,7 @@ public class HistoryPurchased {
 
     private Providers provider;
     private LocalDate purchaseDate;
+    @ElementCollection
     private List<String> itemsPurchased;
 
 }

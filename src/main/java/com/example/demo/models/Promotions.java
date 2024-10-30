@@ -3,7 +3,7 @@ package com.example.demo.models;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -12,17 +12,14 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class HistorySale {
+public class Promotions {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String nameofUser;
     @ElementCollection
-    private List<Long> cards;
-    private LocalDate dateSale;
-
-    @OneToOne
-    @JoinColumn(name = "historial_pedido_id")
-    private Pedido pedido;
+    private List<String> platos;
+    @ElementCollection
+    private List<String> bebidas;
+    private double precio;
 }
