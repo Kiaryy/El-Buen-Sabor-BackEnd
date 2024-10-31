@@ -48,7 +48,6 @@ public class PedidoController {
             PreferenceItemRequest itemRequest = PreferenceItemRequest.builder()
                     .id("1234") //require
                     .title(userPreference.title()) //require
-                    .description(userPreference.description())
                     .pictureUrl("http://picture.com/PS5")
                     .categoryId("games")
                     .quantity(userPreference.quantity()) //require
