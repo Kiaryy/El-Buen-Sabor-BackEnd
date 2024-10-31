@@ -3,7 +3,6 @@ package com.example.demo.models;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -17,9 +16,10 @@ public class Promotions {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @ElementCollection
-    private List<String> platos;
-    @ElementCollection
-    private List<String> bebidas;
+
+    @ManyToMany
+    private List<PlatoJpa> platos;
+    @ManyToMany
+    private List<BebidasJpa> bebidas;
     private double precio;
 }
