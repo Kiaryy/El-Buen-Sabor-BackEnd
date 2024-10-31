@@ -13,7 +13,6 @@ import java.util.List;
 @RestController
 @AllArgsConstructor
 @CrossOrigin(origins = "*")
-
 public class HistorySaleController {
 
     private final HistorySaleService historySaleService;

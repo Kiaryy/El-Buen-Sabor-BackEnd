@@ -16,8 +16,6 @@ import java.util.List;
 @RestController
 @AllArgsConstructor
 @CrossOrigin(origins = "*")
-
-
 public class ArticleController {
 
     private final ArticleService articleService;
