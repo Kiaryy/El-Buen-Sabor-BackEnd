@@ -14,7 +14,9 @@ import lombok.*;
 @NoArgsConstructor
 public class UsuarioJpa extends Person {
     private String mail ;
+    @ElementCollection
     private List<String> addresses;
+    @ElementCollection
     private List<Long> cards ;
     private String passWord;
 
