@@ -11,7 +11,7 @@ public interface PlateProjection {
     Tipo getType();
     Double getPrice();
     Integer getStock();
-    Boolean getAvaliable();
+    Boolean getAvailable();
     Integer getTimesPurchased();
     List<ArticleReference> getArticles();
 
