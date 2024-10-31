@@ -1,8 +1,6 @@
 package com.example.demo.controller;
 
-import com.example.demo.DTO.request.ArticleRequestDTO;
 import com.example.demo.DTO.request.PromotionsRequestDTO;
-import com.example.demo.models.ArticleJpa;
 import com.example.demo.models.Promotions;
 import com.example.demo.service.PromotionsService;
 import lombok.AllArgsConstructor;

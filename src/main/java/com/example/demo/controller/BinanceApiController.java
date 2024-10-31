@@ -15,6 +15,7 @@ import org.springframework.web.server.ResponseStatusException;
 @RestController
 @AllArgsConstructor
 @RequestMapping( "/binance")
+@CrossOrigin(origins = "*")
 @Log4j2
 public class BinanceApiController {
 

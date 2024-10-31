@@ -22,7 +22,6 @@ import java.util.List;
 @RestController
 @AllArgsConstructor 
 @CrossOrigin(origins = "*")
-
 public class UsuarioController {
 
     private final UsuarioService usuarioService;
