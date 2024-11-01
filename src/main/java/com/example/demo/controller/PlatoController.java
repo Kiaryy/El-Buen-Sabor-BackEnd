@@ -2,7 +2,7 @@ package com.example.demo.controller;
 
 import com.example.demo.DTO.request.PlatoRequestDTO;
 import com.example.demo.models.PlatoJpa;
-import com.example.demo.models.interfaces.PlateProjection;
+import com.example.demo.models.interfaces.PlatoProjection;
 import com.example.demo.service.PlatosService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -31,8 +31,8 @@ public class PlatoController{
     }
 
     @GetMapping("/platos/simple")
-    public List<PlateProjection> getSimplePlates() {
-        return platosService.findAllPlatesSimple();
+    public List<PlatoProjection> getSimplePlates() {
+        return platosService.findAllProjected();
     }
 
     @PostMapping("/platos/add")

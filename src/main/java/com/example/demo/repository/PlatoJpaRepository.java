@@ -1,7 +1,7 @@
 package com.example.demo.repository;
 
 import com.example.demo.models.PlatoJpa;
-import com.example.demo.models.interfaces.PlateProjection;
+import com.example.demo.models.interfaces.PlatoProjection;
 
 import java.util.List;
 
@@ -18,8 +18,6 @@ public interface PlatoJpaRepository extends JpaRepository<PlatoJpa, Long> {
             "ELSE false END " +
             "FROM PlatoJpa p WHERE p.name = :producto")
     boolean existsByName(@Param("producto") String producto);
-    @Query("SELECT p.name AS name, p.description AS description, p.type AS type, p.price AS price, " +
-            "p.stock AS stock, p.available AS available, p.timesPurchased AS timesPurchased, p.articles AS articles " +
-            "FROM PlatoJpa p")
-    List<PlateProjection> findAllPlatesSimple();
+    @Query("SELECT p FROM PlatoJpa p")
+    List<PlatoProjection> findAllProjected();
 }

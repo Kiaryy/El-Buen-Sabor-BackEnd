@@ -1,18 +1,17 @@
 package com.example.demo.models.interfaces;
 
-import java.util.List;
-
 import com.example.demo.models.ArticleReference;
 import com.example.demo.models.enums.Tipo;
+import java.util.List;
 
-public interface PlateProjection {
+public interface PlatoProjection {
+    Long getPlatoId();
     String getName();
     String getDescription();
     Tipo getType();
     Double getPrice();
-    Integer getStock();
-    Boolean getAvailable();
-    Integer getTimesPurchased();
+    int getStock();
+    boolean isAvailable();
+    int getTimesPurchased();
     List<ArticleReference> getArticles();
-
 }
