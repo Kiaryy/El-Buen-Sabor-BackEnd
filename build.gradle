@@ -27,6 +27,10 @@ dependencies {
 	implementation group: 'com.mercadopago', name: 'sdk-java', version: '2.1.29'
 	// Binance
 	implementation group: 'io.github.binance', name: 'binance-connector-java', version: '3.2.0'
+	// https://mvnrepository.com/artifact/com.github.binance-exchange/binance-java-api
+	implementation group: 'com.github.binance-exchange', name: 'binance-java-api', version: '08d52a49a3031e504b0712f823d9aa0b0a1d142b'
+
+
 	// SQL Connector
     runtimeOnly 'com.mysql:mysql-connector-j'
     // Hibernate and JPA Dependencies
