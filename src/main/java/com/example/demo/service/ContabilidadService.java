@@ -29,23 +29,31 @@ public class ContabilidadService {
         // Buscar la cuenta por nombre
         Cuenta cuenta = cuentaRepository.findByNombre(asientoDTO.cuenta())
                 .orElseThrow(() -> new RuntimeException("Cuenta no encontrada"));
+        Cuenta cuenta2 = cuentaRepository.findByNombre(asientoDTO.cuenta2())
+        .orElseThrow(() -> new RuntimeException("Cuenta no encontrada"));
         
         // Crear el asiento contable
         AsientoContable asiento = AsientoContable.builder()
             .cuenta(cuenta)
+            .cuenta2(cuenta2)
             .fecha(LocalDate.now())
             .debe(asientoDTO.debe())
+            .debe2(asientoDTO.debe2())
             .haber(asientoDTO.haber())
+            .haber2(asientoDTO.haber2())
             .build();
         // Guardar el asiento contable
         asientoContableRepository.save(asiento);
         
         // Actualizar el saldo de la cuenta
         double nuevoSaldo = cuenta.getSaldo() + (asientoDTO.haber() - asientoDTO.debe());
+        double nuevoSaldo2 = cuenta2.getSaldo() + (asientoDTO.haber2() - asientoDTO.debe2());
         cuenta.setSaldo(nuevoSaldo);
+        cuenta2.setSaldo(nuevoSaldo2);
         
         // Guardar la cuenta con el nuevo saldo
         cuentaRepository.save(cuenta);
+        cuentaRepository.save(cuenta2);
     }
     
     public List<AsientoContable> getAllAsientosContables(){

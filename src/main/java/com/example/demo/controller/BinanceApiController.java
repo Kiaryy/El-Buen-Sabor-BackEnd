@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @AllArgsConstructor
 @RequestMapping( "/binance")
+@CrossOrigin(origins = "*")
 @Log4j2
 public class BinanceApiController {
 

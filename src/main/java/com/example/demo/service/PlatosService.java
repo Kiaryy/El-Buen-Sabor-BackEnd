@@ -2,6 +2,7 @@ package com.example.demo.service;
 
 import com.example.demo.DTO.request.PlatoRequestDTO;
 import com.example.demo.models.PlatoJpa;
+import com.example.demo.models.interfaces.PlatoProjection;
 import com.example.demo.repository.PlatoJpaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -23,6 +24,9 @@ public class PlatosService {
     public List<PlatoJpa> getAllPlatos() {
         return platoJpaRepository.findAll();
     }
+    public List<PlatoProjection> findAllProjected() {
+    return platoJpaRepository.findAllProjected();
+}
 
     public PlatoJpa findById(Long id){
         Optional<PlatoJpa> entityOptional = platoJpaRepository.findById(id);
