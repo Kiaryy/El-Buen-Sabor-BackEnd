@@ -58,7 +58,9 @@ public class PedidoController {
 
         // Preference Back url
         PreferenceBackUrlsRequest backUrl = PreferenceBackUrlsRequest.builder()
-                .success("http://localhost:8080/home")
+                .success("http://localhost:8080/menu")
+                .pending("http://localhost:8080/menu")
+                .failure("http://localhost:8080/menu")
                 .build();
 
         PreferenceRequest preferenceRequest = PreferenceRequest.builder()

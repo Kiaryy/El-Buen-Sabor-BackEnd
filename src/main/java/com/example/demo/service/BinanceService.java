@@ -23,7 +23,7 @@ import java.util.Map;
 @Log4j2
 public class BinanceService {
     private final SpotClientImpl client;
-
+    
     public BinanceService(@Value("${binance.api.key}") String apiKey,
                           @Value("${binance.secret.key}") String secretKey) {
         this.client = new SpotClientImpl(apiKey, secretKey,"https://testnet.binance.vision");
@@ -49,8 +49,8 @@ public class BinanceService {
         params.put("fromAsset", quoteInquiry.fromAsset());
         params.put("toAsset", quoteInquiry.toAsset());
 
-            String result = client.createConvert().exchangeInfo(params);
-            System.out.println(result);
+        String result = client.createConvert().exchangeInfo(params);
+        System.out.println(result);
 
         return result;
     }
