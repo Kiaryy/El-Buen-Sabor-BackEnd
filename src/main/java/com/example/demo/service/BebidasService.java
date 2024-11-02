@@ -3,6 +3,8 @@ package com.example.demo.service;
 import com.example.demo.DTO.request.BebidasRequestDTO;
 import com.example.demo.models.BebidasJpa;
 import com.example.demo.repository.BebidasRepository;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -10,7 +12,7 @@ import java.util.Optional;
 
 @Service
 public class BebidasService {
-
+    @Autowired
     private BebidasRepository bebidasRepository;
 
     public List<BebidasJpa> getAllBebidas() {
