@@ -18,7 +18,6 @@ public class BebidasController {
     private final BebidasService bebidasService;
 
     @GetMapping("/bebidas/findAll")
-        // Returns everything in table
     List<BebidasJpa> findAll(){
         return bebidasService.getAllBebidas();
     }
