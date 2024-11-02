@@ -1,9 +1,6 @@
 package com.example.demo.controller;
 
-import com.example.demo.DTO.request.ArticleRequestDTO;
-import com.example.demo.DTO.request.PromotionsRequestDTO;
 import com.example.demo.DTO.request.ProvidersRequestDTO;
-import com.example.demo.models.ArticleJpa;
 import com.example.demo.models.Providers;
 import com.example.demo.service.ProvidersService;
 import lombok.AllArgsConstructor;
@@ -30,6 +27,10 @@ public class ProvidersController {
     // adds DTO object
     public ResponseEntity<String> addProvider(@RequestBody ProvidersRequestDTO providersDTO){
         return ResponseEntity.ok(providerService.addProviders(providersDTO));
+    }
+    @PostMapping("/providers/purchase/{id}")
+    public ResponseEntity<String> purchaseArticles(@PathVariable("id") Long id){
+        return ResponseEntity.ok(providerService.purchaseArticles(id));
     }
 
     @PutMapping("/providers/{id}")

@@ -1,9 +1,9 @@
 package com.example.demo.service;
 
-import com.example.demo.DTO.request.PromotionsRequestDTO;
 import com.example.demo.DTO.request.ProvidersRequestDTO;
-import com.example.demo.models.Promotions;
+import com.example.demo.models.ArticleJpa;
 import com.example.demo.models.Providers;
+import com.example.demo.repository.ArticleRepository;
 import com.example.demo.repository.ProvidersRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,6 +15,8 @@ import java.util.Optional;
 public class ProvidersService {
     @Autowired
     private ProvidersRepository providersRepository;
+    @Autowired
+    private ArticleRepository articleRepository;
 
     public List<Providers> getAllProviders() {
         return providersRepository.findAll();
@@ -24,31 +26,41 @@ public class ProvidersService {
 
         Providers providers = Providers.builder()
                 .name(providersDTO.name())
-                .state(providersDTO.state())
-                .lastProduct(providersDTO.lastProduct())
+                .lastShipment(null)
                 .phoneNumber(providersDTO.phoneNumber())
                 .product(providersDTO.product())
-                .products(providersDTO.products())
                 .shippingCost(providersDTO.shippingCost())
+                .articles(providersDTO.articles())
                 .build();
         providersRepository.save(providers);
-        return "Providers added successfully!";
+        return "Provider added successfully!";
     }
 
-    public Providers updateProviders(Long id, ProvidersRequestDTO entity) {
+    public String purchaseArticles(Long id){
+        Optional<Providers> entityOptional = providersRepository.findById(id);
+        Providers providers = entityOptional.get();
+        for (Long articleId : providers.getArticles()) {
+            Optional<ArticleJpa> articleOptional = articleRepository.findById(articleId);
+            ArticleJpa articleJpa = articleOptional.get();
+            articleJpa.setStockActual(articleJpa.getStockActual() + 50);
+            articleRepository.save(articleJpa);
+        }
+        return "Articles Purchased";
+    }
+
+    public Providers updateProviders(Long id, ProvidersRequestDTO entity){
         Optional<Providers> entityOptional = providersRepository.findById(id);
         Providers providers = entityOptional.get();
 
-        Providers updatedPromotions = Providers.builder()
+        Providers updatedProvider = Providers.builder()
                 .name(entity.name())
-                .state(entity.state())
-                .lastProduct(entity.lastProduct())
+                .lastShipment(null)
                 .phoneNumber(entity.phoneNumber())
                 .product(entity.product())
-                .products(entity.products())
                 .shippingCost(entity.shippingCost())
+                .articles(entity.articles())
                 .build();
-        providers = providersRepository.save(updatedPromotions);
+        providers = providersRepository.save(updatedProvider);
         return providers;
     }
 

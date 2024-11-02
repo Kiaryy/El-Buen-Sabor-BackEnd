@@ -2,9 +2,11 @@ package com.example.demo.controller;
 
 import com.example.demo.models.ArticleJpa;
 import com.example.demo.models.PlatoJpa;
+import com.example.demo.models.Providers;
 import com.example.demo.models.UsuarioJpa;
 import com.example.demo.service.ArticleInitializerService;
 import com.example.demo.service.PlateInitializerService;
+import com.example.demo.service.ProviderInitializer;
 import com.example.demo.service.UserInitilizerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -29,6 +31,9 @@ public class DataInitializerController {
     
     @Autowired
     ArticleInitializerService articleService;
+    
+    @Autowired
+    ProviderInitializer providersService;
     
     @GetMapping("createPlates")
     public List<PlatoJpa> createAllPlates(){
@@ -59,4 +64,9 @@ public class DataInitializerController {
     public String deleteAllUsers(){
         return userService.deleteAllUsers();
     }
+    @GetMapping("createProviders")
+    public List<Providers> createAllProviders(){
+        return providersService.loadProviders();
+    }
+
 }
