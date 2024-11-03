@@ -33,14 +33,10 @@ public class PromotionsService {
     public Promotions updatePromotion(Long id, PromotionsRequestDTO entity) {
         Optional<Promotions> entityOptional = promotionsRepository.findById(id);
         Promotions promotions = entityOptional.get();
-
-        Promotions updatedPromotions = Promotions.builder()
-                .precio(entity.precio())
-                .bebidas(entity.bebidas())
-                .platos(entity.platos())
-                .build();
-        promotions = promotionsRepository.save(updatedPromotions);
-        return promotions;
+        promotions.setPrecio(entity.precio());
+        promotions.setBebidas(entity.bebidas());
+        promotions.setPlatos(entity.platos());
+        return promotionsRepository.save(promotions);
     }
 
     public boolean delete(Long id){

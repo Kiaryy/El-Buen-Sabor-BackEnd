@@ -55,17 +55,13 @@ public class ProvidersService {
     public Providers updateProviders(Long id, ProvidersRequestDTO entity){
         Optional<Providers> entityOptional = providersRepository.findById(id);
         Providers providers = entityOptional.get();
-
-        Providers updatedProvider = Providers.builder()
-                .name(entity.name())
-                .lastShipment(null)
-                .phoneNumber(entity.phoneNumber())
-                .product(entity.product())
-                .shippingCost(entity.shippingCost())
-                .articles(entity.articles())
-                .build();
-        providers = providersRepository.save(updatedProvider);
-        return providers;
+        providers.setName(entity.name());
+        providers.setLastShipment(null);
+        providers.setPhoneNumber(entity.phoneNumber());
+        providers.setProduct(entity.product());
+        providers.setShippingCost(entity.shippingCost());
+        providers.setArticles(entity.articles());
+        return providersRepository.save(providers);
     }
 
     public boolean delete(Long id){

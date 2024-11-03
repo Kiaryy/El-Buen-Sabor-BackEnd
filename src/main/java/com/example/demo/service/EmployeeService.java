@@ -53,18 +53,16 @@ public class EmployeeService {
         Optional<EmployeeJpa> entityOptional = employeeJpaRepository.findById(id); 
         EmployeeJpa employee = entityOptional.get();
         // We convert the DTO entity to an object
-        EmployeeJpa updatedEmployee = EmployeeJpa.builder()
-                .name(entity.name())
-                .phoneNumber(entity.phoneNumber())
-                .hourlySalary(entity.hourlySalary())
-                .absences(entity.absences())
-                .charge(entity.charge())
-                .state(entity.state())
-                .shift(entity.charge().getShift())
-                .build();
+        employee.setName(entity.name());
+        employee.setPhoneNumber(entity.phoneNumber());
+        employee.setHourlySalary(entity.hourlySalary());
+        employee.setAbsences(entity.absences());
+        employee.setCharge(entity.charge());
+        employee.setShift(entity.name());
+        employee.setState(entity.state());
         // Saves updated entity to database
-        employee = employeeJpaRepository.save(updatedEmployee);
-        return employee;
+        
+        return employeeJpaRepository.save(employee);
     }
 
     public boolean delete(Long id){

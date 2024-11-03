@@ -40,7 +40,7 @@ public class PlatosService {
             .price(platoDTO.price())
             .type(platoDTO.type())
             .stock(platoDTO.stock())
-            .available(true)
+            .available(platoDTO.available())
             .imageData(platoDTO.imageData())
             .articles(platoDTO.articles())
             .build();
@@ -53,20 +53,16 @@ public class PlatosService {
         Optional<PlatoJpa> entityOptional = platoJpaRepository.findById(id); 
         PlatoJpa plato = entityOptional.get();
         // We convert the DTO entity to an object
-        PlatoJpa platoActualizado = PlatoJpa.builder()
-                .platoId(id)
-                .name(entity.name())
-                .description(entity.description())
-                .price(entity.price())
-                .type(entity.type())
-                .stock(entity.stock())
-                .available(true)
-                .imageData(entity.imageData())
-                .articles(entity.articles())
-                .build();
+        plato.setName(entity.name());
+        plato.setDescription(entity.description());
+        plato.setPrice(entity.price());
+        plato.setType(entity.type());
+        plato.setStock(entity.stock());
+        plato.setAvailable(entity.available());
+        plato.setImageData(entity.imageData());
+        plato.setArticles(entity.articles());
         // Saves updated entity to database
-        plato = platoJpaRepository.save(platoActualizado);
-        return plato;
+        return platoJpaRepository.save(plato);
     }
 
     public String purchasePlate(Long platoId, int quantity) {

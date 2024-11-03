@@ -37,15 +37,12 @@ public class BebidasService {
         Optional<BebidasJpa> entityOptional = bebidasRepository.findById(id);
         BebidasJpa bebidasJpa = entityOptional.get();
         // We convert the DTO entity to an object
-        BebidasJpa updatedBebidasJpa = BebidasJpa.builder()
-                .nombre(entity.nombre())
-                .descripcion(entity.descripcion())
-                .precio(entity.precio())
-                .stock(entity.stock())
-                .build();
+        bebidasJpa.setDescripcion(entity.descripcion());
+        bebidasJpa.setNombre(entity.nombre());
+        bebidasJpa.setPrecio(entity.precio());
+        bebidasJpa.setStock(entity.stock());
         // Saves updated entity to database
-        bebidasJpa = bebidasRepository.save(updatedBebidasJpa);
-        return bebidasJpa;
+        return bebidasRepository.save(bebidasJpa);
     }
 
     public boolean deleteBebidas(Long id){

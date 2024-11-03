@@ -49,17 +49,15 @@ public class UsuarioService {
         Optional<UsuarioJpa> entityOptional = usuarioJpaRepository.findById(id); 
         UsuarioJpa usuario = entityOptional.get();
         // We convert the DTO entity to an object
-        UsuarioJpa usuarioActualizado = UsuarioJpa.builder()
-                .name(entity.name())
-                .email(entity.mail())
-                .addresses(entity.addresses())
-                .cards(entity.cards())
-                .phoneNumber(entity.phoneNumber())
-                .password(entity.passWord())
-                .build();
+        usuario.setName(entity.name());
+        usuario.setMail(entity.mail());
+        usuario.setAddresses(entity.addresses());
+        usuario.setCards(entity.cards());
+        usuario.setPhoneNumber(entity.phoneNumber());
+        usuario.setPassWord(entity.passWord());
         // Saves updated entity to database
-        usuario = usuarioJpaRepository.save(usuarioActualizado);
-        return usuario;
+        
+        return usuarioJpaRepository.save(usuario);
     }
 
     public boolean delete(Long id){

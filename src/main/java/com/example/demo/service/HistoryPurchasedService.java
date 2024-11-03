@@ -32,14 +32,10 @@ public class HistoryPurchasedService {
 
         Optional<HistoryPurchased> entityOptional = historyPurchasedRepository.findById(id);
         HistoryPurchased historyPurchased = entityOptional.get();
-
-        HistoryPurchased updatedHistoryPurchased = HistoryPurchased.builder()
-                .provider(entity.providers())
-                .purchaseDate(entity.purchaseDate())
-                .itemsPurchased(entity.itemPurchased())
-                .build();
-        historyPurchased = historyPurchasedRepository.save(updatedHistoryPurchased);
-        return historyPurchased;
+        historyPurchased.setProvider(entity.providers());
+        historyPurchased.setPurchaseDate(entity.purchaseDate());
+        historyPurchased.setItemsPurchased(entity.itemPurchased());
+        return historyPurchasedRepository.save(historyPurchased);
     }
 
     public boolean delete(Long id) {
