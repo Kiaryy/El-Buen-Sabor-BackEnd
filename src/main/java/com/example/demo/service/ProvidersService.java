@@ -8,6 +8,7 @@ import com.example.demo.repository.ProvidersRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -38,11 +39,14 @@ public class ProvidersService {
 
     public String purchaseArticles(Long id){
         Optional<Providers> entityOptional = providersRepository.findById(id);
-        Providers providers = entityOptional.get();
-        for (Long articleId : providers.getArticles()) {
+        Providers provider = entityOptional.get();
+        LocalDate currentDate = LocalDate.now();
+        provider.setLastShipment(currentDate);
+        for (Long articleId : provider.getArticles()) {
             Optional<ArticleJpa> articleOptional = articleRepository.findById(articleId);
             ArticleJpa articleJpa = articleOptional.get();
             articleJpa.setStockActual(articleJpa.getStockActual() + 50);
+            articleJpa.setLastPurchased(currentDate);
             articleRepository.save(articleJpa);
         }
         return "Articles Purchased";
