@@ -34,13 +34,13 @@ public class ArticleController {
     
     @PutMapping("/article/{id}")
     // Updates entity with matching id
-    public ResponseEntity<?> update(@PathVariable Long id, @RequestBody ArticleRequestDTO articleDTO){ 
+    public ResponseEntity<?> update(@PathVariable("id") Long id, @RequestBody ArticleRequestDTO articleDTO){ 
         return ResponseEntity.status(HttpStatus.OK).body(articleService.update(id, articleDTO));
     }
 
     @DeleteMapping("/article/{id}")
     // Deletes entity with matching id
-    public ResponseEntity<?> delete(@PathVariable Long id){
+    public ResponseEntity<?> delete(@PathVariable("id") Long id){
         return ResponseEntity.status(HttpStatus.NO_CONTENT).body(articleService.delete(id));
     }
 }

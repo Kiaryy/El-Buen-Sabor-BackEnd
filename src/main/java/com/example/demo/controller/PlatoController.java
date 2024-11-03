@@ -41,12 +41,12 @@ public class PlatoController{
     }
     
     @PutMapping("/platos/{id}")
-    public ResponseEntity<PlatoJpa> update(@PathVariable Long id, @RequestBody PlatoRequestDTO platoDTO){
+    public ResponseEntity<PlatoJpa> update(@PathVariable("id") Long id, @RequestBody PlatoRequestDTO platoDTO){
         return ResponseEntity.status(HttpStatus.OK).body(platosService.update(id, platoDTO));
     }
 
     @DeleteMapping("/platos/{id}")
-    public ResponseEntity<Boolean> delete(@PathVariable Long id){
+    public ResponseEntity<Boolean> delete(@PathVariable("id") Long id){
         return ResponseEntity.status(HttpStatus.NO_CONTENT).body(platosService.delete(id));
     }
 

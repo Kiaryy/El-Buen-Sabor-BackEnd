@@ -30,13 +30,13 @@ public class BebidasController {
 
     @PutMapping("/bebidas/{id}")
     // Updates entity with matching id
-    public ResponseEntity<?> updatedBebidas(@PathVariable Long id, @RequestBody BebidasRequestDTO bebidasDTO){
+    public ResponseEntity<?> updatedBebidas(@PathVariable("id") Long id, @RequestBody BebidasRequestDTO bebidasDTO){
         return ResponseEntity.status(HttpStatus.OK).body(bebidasService.updatedBebidas(id, bebidasDTO));
     }
 
     @DeleteMapping("/bebidas/{id}")
     // Deletes entity with matching id
-    public ResponseEntity<?> deleteBebidas(@PathVariable Long id){
+    public ResponseEntity<?> deleteBebidas(@PathVariable("id") Long id){
         return ResponseEntity.status(HttpStatus.NO_CONTENT).body(bebidasService.deleteBebidas(id));
     }
 }

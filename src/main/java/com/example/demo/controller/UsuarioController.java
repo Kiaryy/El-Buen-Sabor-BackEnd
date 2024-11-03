@@ -36,12 +36,12 @@ public class UsuarioController {
     }
     
     @PutMapping("/usuarios/{id}")
-    public ResponseEntity<UsuarioJpa> update(@PathVariable Long id, @RequestBody UsuarioRequestDTO usuarioDTO){
+    public ResponseEntity<UsuarioJpa> update(@PathVariable("id") Long id, @RequestBody UsuarioRequestDTO usuarioDTO){
         return ResponseEntity.status(HttpStatus.OK).body(usuarioService.update(id, usuarioDTO));
     }
 
     @DeleteMapping("/usuarios/{id}")
-    public ResponseEntity<Boolean> delete(@PathVariable Long id){
+    public ResponseEntity<Boolean> delete(@PathVariable("id") Long id){
         return ResponseEntity.status(HttpStatus.NO_CONTENT).body(usuarioService.delete(id));
     }
 }
