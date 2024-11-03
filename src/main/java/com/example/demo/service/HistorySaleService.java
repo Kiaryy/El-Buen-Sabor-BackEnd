@@ -32,15 +32,11 @@ public class HistorySaleService {
     public HistorySale update(Long id, HistorySaleRequestDTO entity) {
         Optional<HistorySale> entityOptional = historySaleRepository.findById(id);
         HistorySale historySale = entityOptional.get();
-
-        HistorySale updateHistorySale = HistorySale.builder()
-                .nameofUser(entity.nameofUser())
-                .cards(entity.cards())
-                .dateSale(entity.dateSale())
-                .pedido(entity.pedido())
-                .build();
-        historySale =historySaleRepository.save(updateHistorySale);
-        return historySale;
+        historySale.setNameofUser(entity.nameofUser());
+        historySale.setCards(entity.cards());
+        historySale.setDateSale(entity.dateSale());
+        historySale.setPedido(entity.pedido());
+        return historySaleRepository.save(historySale);
     }
 
     public boolean delete(Long id) {

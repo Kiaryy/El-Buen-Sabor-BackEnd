@@ -10,6 +10,7 @@ public record PlatoRequestDTO(
         String description,
         Tipo type,
         Double price,
+        Boolean available,
         int stock,
         byte[] imageData,
         List<ArticleReference> articles

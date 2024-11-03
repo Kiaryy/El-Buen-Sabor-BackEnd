@@ -43,20 +43,17 @@ public class ArticleService{
         Optional<ArticleJpa> entityOptional = articleInsumoRepository.findById(id);
         ArticleJpa article = entityOptional.get();
         // We convert the DTO entity to an object
-        ArticleJpa updatedArticle = ArticleJpa.builder()
-                .name(entity.name())
-                .denominacion(entity.denominacion())
-                .category(entity.category())
-                .provider(entity.provider())
-                .priceUnit(entity.priceUnit())
-                .precioCompra(entity.precioCompra())
-                .stockActual(entity.stockActual())
-                .existencies(entity.existencies())
-                .lastPurchased(LocalDate.now())
-                .build();
+        article.setName(entity.name());
+        article.setDenominacion(entity.denominacion());
+        article.setCategory(entity.category());
+        article.setProvider(entity.provider());
+        article.setPriceUnit(entity.priceUnit());
+        article.setPrecioCompra(entity.precioCompra());
+        article.setStockActual(entity.stockActual());
+        article.setExistencies(entity.existencies());
+        article.setLastPurchased(LocalDate.now());
         // Saves updated entity to database
-        article = articleInsumoRepository.save(updatedArticle);
-        return article;
+        return articleInsumoRepository.save(article);
     }
 
     public boolean delete(Long id){

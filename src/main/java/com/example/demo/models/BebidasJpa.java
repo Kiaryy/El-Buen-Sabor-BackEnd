@@ -22,5 +22,4 @@ public class BebidasJpa {
     private String descripcion;
     private double precio;
     private int stock;
-
 }
