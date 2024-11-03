@@ -35,13 +35,13 @@ public class ProvidersController {
 
     @PutMapping("/providers/{id}")
     // Updates entity with matching id
-    public ResponseEntity<?> updateProvider(@PathVariable Long id, @RequestBody ProvidersRequestDTO providersDTO){
+    public ResponseEntity<?> updateProvider(@PathVariable("id") Long id, @RequestBody ProvidersRequestDTO providersDTO){
         return ResponseEntity.status(HttpStatus.OK).body(providerService.updateProviders(id, providersDTO));
     }
 
     @DeleteMapping("/providers/{id}")
     // Deletes entity with matching id
-    public ResponseEntity<?> deleteProvider(@PathVariable Long id){
+    public ResponseEntity<?> deleteProvider(@PathVariable("id") Long id){
         return ResponseEntity.status(HttpStatus.NO_CONTENT).body(providerService.delete(id));
     }
 }

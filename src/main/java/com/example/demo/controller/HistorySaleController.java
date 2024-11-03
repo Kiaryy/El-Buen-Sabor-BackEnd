@@ -21,13 +21,13 @@ public class HistorySaleController {
     List<HistorySale> findAll() {return historySaleService.getAllHistorySales();}
 
     @PostMapping("/historySale/{id}")
-    public ResponseEntity<?> update(@PathVariable Long id, @RequestBody HistorySaleRequestDTO historySaleDTO) {
+    public ResponseEntity<?> update(@PathVariable("id") Long id, @RequestBody HistorySaleRequestDTO historySaleDTO) {
         return ResponseEntity.status(HttpStatus.OK).body(historySaleService.update(id, historySaleDTO));
     }
 
     @DeleteMapping("/historySale/{id}")
     // Deletes entity with matching id
-    public ResponseEntity<?> delete(@PathVariable Long id){
+    public ResponseEntity<?> delete(@PathVariable("id") Long id){
         return ResponseEntity.status(HttpStatus.NO_CONTENT).body(historySaleService.delete(id));
     }
 }

@@ -31,13 +31,13 @@ public class PromotionsController {
 
     @PutMapping("/promotions/{id}")
     // Updates entity with matching id
-    public ResponseEntity<?> update(@PathVariable Long id, @RequestBody PromotionsRequestDTO promotionsDTO){
+    public ResponseEntity<?> update(@PathVariable("id") Long id, @RequestBody PromotionsRequestDTO promotionsDTO){
         return ResponseEntity.status(HttpStatus.OK).body(promotionsService.updatePromotion(id, promotionsDTO));
     }
 
     @DeleteMapping("/promotions/{id}")
     // Deletes entity with matching id
-    public ResponseEntity<?> delete(@PathVariable Long id){
+    public ResponseEntity<?> delete(@PathVariable("id") Long id){
         return ResponseEntity.status(HttpStatus.NO_CONTENT).body(promotionsService.delete(id));
     }
 }
