@@ -6,6 +6,7 @@ import com.example.demo.models.PlatoJpa;
 import java.util.List;
 
 public record PromotionsRequestDTO(
+        String name,
         Double precio,
         List<PlatoJpa> platos,
         List<BebidasJpa> bebidas
