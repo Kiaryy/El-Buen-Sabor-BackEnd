@@ -22,6 +22,7 @@ public class PromotionsService {
     public String addPromotion(PromotionsRequestDTO promotionsDTO) {
 
         Promotions promotions = Promotions.builder()
+                .name(promotionsDTO.name())
                 .platos(promotionsDTO.platos())
                 .bebidas(promotionsDTO.bebidas())
                 .precio(promotionsDTO.precio())
@@ -33,6 +34,7 @@ public class PromotionsService {
     public Promotions updatePromotion(Long id, PromotionsRequestDTO entity) {
         Optional<Promotions> entityOptional = promotionsRepository.findById(id);
         Promotions promotions = entityOptional.get();
+        promotions.setName(entity.name());
         promotions.setPrecio(entity.precio());
         promotions.setBebidas(entity.bebidas());
         promotions.setPlatos(entity.platos());

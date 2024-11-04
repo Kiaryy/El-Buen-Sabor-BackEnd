@@ -16,7 +16,7 @@ public class Promotions {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
+    private String name;
     @ManyToMany
     private List<PlatoJpa> platos;
     @ManyToMany
