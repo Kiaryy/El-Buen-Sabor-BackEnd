@@ -30,7 +30,7 @@ public class ArticleInitializerService {
         //           --------------------- Vegetales ---------------------//
         articles.add(ArticleJpa.builder()
                 .name("Lechuga")
-                .category(ArticleCategory.VEGETABLE)
+                .category(ArticleCategory.VEGETAL)
                 .provider(4L)
                 .priceUnit(200.0)
                 .precioCompra(400.0)
@@ -41,7 +41,7 @@ public class ArticleInitializerService {
 
         articles.add(ArticleJpa.builder()
                 .name("Tomate")
-                .category(ArticleCategory.VEGETABLE)
+                .category(ArticleCategory.VEGETAL)
                 .provider(4L)
                 .priceUnit(150.0)
                 .precioCompra(350.0)
@@ -52,7 +52,7 @@ public class ArticleInitializerService {
 
         articles.add(ArticleJpa.builder()
                 .name("Zanahoria")
-                .category(ArticleCategory.VEGETABLE)
+                .category(ArticleCategory.VEGETAL)
                 .provider(4L)
                 .priceUnit(180.0)
                 .precioCompra(320.0)
@@ -63,7 +63,7 @@ public class ArticleInitializerService {
 
         articles.add(ArticleJpa.builder()
                 .name("Cebolla")
-                .category(ArticleCategory.VEGETABLE)
+                .category(ArticleCategory.VEGETAL)
                 .provider(4L)
                 .priceUnit(150.0)
                 .precioCompra(300.0)
@@ -74,7 +74,7 @@ public class ArticleInitializerService {
 
         articles.add(ArticleJpa.builder()
                 .name("Pimiento Rojo")
-                .category(ArticleCategory.VEGETABLE)
+                .category(ArticleCategory.VEGETAL)
                 .provider(4L)
                 .priceUnit(100.0)
                 .precioCompra(210.0)
@@ -85,7 +85,7 @@ public class ArticleInitializerService {
 
         articles.add(ArticleJpa.builder()
                 .name("Choclo")
-                .category(ArticleCategory.VEGETABLE)
+                .category(ArticleCategory.VEGETAL)
                 .provider(4L)
                 .priceUnit(240.5)
                 .precioCompra(540.5)
@@ -96,7 +96,7 @@ public class ArticleInitializerService {
 
         articles.add(ArticleJpa.builder()
                 .name("Pepino")
-                .category(ArticleCategory.VEGETABLE)
+                .category(ArticleCategory.VEGETAL)
                 .provider(4L)
                 .priceUnit(200.0)
                 .precioCompra(350.0)
@@ -107,7 +107,7 @@ public class ArticleInitializerService {
 
         articles.add(ArticleJpa.builder()
                 .name("Medallon de hamburguesa Vegetariana")
-                .category(ArticleCategory.VEGETABLE)
+                .category(ArticleCategory.VEGETAL)
                 .provider(4L)
                 .priceUnit(400.0)
                 .precioCompra(650.0)
@@ -118,7 +118,7 @@ public class ArticleInitializerService {
 
         articles.add(ArticleJpa.builder()
                 .name("Papas")
-                .category(ArticleCategory.VEGETABLE)
+                .category(ArticleCategory.VEGETAL)
                 .provider(4L)
                 .priceUnit(300.0)
                 .precioCompra(420.0)
@@ -129,7 +129,7 @@ public class ArticleInitializerService {
 
         articles.add(ArticleJpa.builder()
                 .name("Aguacate")
-                .category(ArticleCategory.VEGETABLE)
+                .category(ArticleCategory.VEGETAL)
                 .provider(4L)
                 .priceUnit(400.0)
                 .precioCompra(650.0)
@@ -140,7 +140,7 @@ public class ArticleInitializerService {
 
         articles.add(ArticleJpa.builder()
                 .name("Salsa Blanca")
-                .category(ArticleCategory.VEGETABLE)
+                .category(ArticleCategory.VEGETAL)
                 .provider(4L)
                 .priceUnit(420.0)
                 .precioCompra(670.0)
@@ -151,7 +151,7 @@ public class ArticleInitializerService {
 
         articles.add(ArticleJpa.builder()
                 .name("Espinaca")
-                .category(ArticleCategory.VEGETABLE)
+                .category(ArticleCategory.VEGETAL)
                 .provider(4L)
                 .priceUnit(410.0)
                 .precioCompra(665.0)
@@ -162,7 +162,7 @@ public class ArticleInitializerService {
 
         articles.add(ArticleJpa.builder()
                 .name("Morron Rojo")
-                .category(ArticleCategory.VEGETABLE)
+                .category(ArticleCategory.VEGETAL)
                 .provider(4L)
                 .priceUnit(395.0)
                 .precioCompra(660.0)
@@ -173,7 +173,7 @@ public class ArticleInitializerService {
 
         articles.add(ArticleJpa.builder()
                 .name("Aceitunas")
-                .category(ArticleCategory.FRUITS)
+                .category(ArticleCategory.FRUTA)
                 .provider(4L)
                 .priceUnit(450.0)
                 .precioCompra(680.0)
@@ -184,7 +184,7 @@ public class ArticleInitializerService {
 
         articles.add(ArticleJpa.builder()
                 .name("Ajo")
-                .category(ArticleCategory.VEGETABLE)
+                .category(ArticleCategory.VEGETAL)
                 .provider(4L)
                 .priceUnit(425.0)
                 .precioCompra(675.0)
@@ -195,7 +195,7 @@ public class ArticleInitializerService {
 
         articles.add(ArticleJpa.builder()
                 .name("Aceite de Oliva")
-                .category(ArticleCategory.DIP)
+                .category(ArticleCategory.SALSA)
                 .provider(7L)
                 .priceUnit(460.0)
                 .precioCompra(690.0)
@@ -206,7 +206,7 @@ public class ArticleInitializerService {
 
         articles.add(ArticleJpa.builder()
                 .name("Azucar")
-                .category(ArticleCategory.SUGAR)
+                .category(ArticleCategory.AZUCAR)
                 .provider(8L)
                 .priceUnit(370.0)
                 .precioCompra(640.0)
@@ -217,7 +217,7 @@ public class ArticleInitializerService {
 
         articles.add(ArticleJpa.builder()
                 .name("Canela")
-                .category(ArticleCategory.SPICES)
+                .category(ArticleCategory.ESPECIE)
                 .provider(9L)
                 .priceUnit(390.0)
                 .precioCompra(655.0)
@@ -228,7 +228,7 @@ public class ArticleInitializerService {
 
         articles.add(ArticleJpa.builder()
                 .name("Vainilla")
-                .category(ArticleCategory.SPICES)
+                .category(ArticleCategory.ESPECIE)
                 .provider(9L)
                 .priceUnit(385.0)
                 .precioCompra(645.0)
@@ -239,7 +239,7 @@ public class ArticleInitializerService {
 
         articles.add(ArticleJpa.builder()
                 .name("Dulce de Leche")
-                .category(ArticleCategory.CARAMEL_SAUCE)
+                .category(ArticleCategory.DULCE_DE_LECHE)
                 .provider(6L)
                 .priceUnit(440.0)
                 .precioCompra(700.0)
@@ -250,7 +250,7 @@ public class ArticleInitializerService {
 
         articles.add(ArticleJpa.builder()
                 .name("Maicena")
-                .category(ArticleCategory.CEREALS)
+                .category(ArticleCategory.CEREAL)
                 .provider(10L)
                 .priceUnit(375.0)
                 .precioCompra(660.0)
@@ -261,7 +261,7 @@ public class ArticleInitializerService {
 
         articles.add(ArticleJpa.builder()
                 .name("Coco Rallado")
-                .category(ArticleCategory.FRUITS)
+                .category(ArticleCategory.FRUTA)
                 .provider(4L)
                 .priceUnit(430.0)
                 .precioCompra(680.0)
@@ -274,7 +274,7 @@ public class ArticleInitializerService {
         //           --------------------- Legumbres ---------------------
         articles.add(ArticleJpa.builder()
                 .name("Frijoles")
-                .category(ArticleCategory.LEGUMES)
+                .category(ArticleCategory.LEGUMBRE)
                 .provider(4L)
                 .priceUnit(140.0)
                 .precioCompra(250.0)
@@ -285,7 +285,7 @@ public class ArticleInitializerService {
         
         articles.add(ArticleJpa.builder()
                 .name("Arroz")
-                .category(ArticleCategory.CEREALS)
+                .category(ArticleCategory.CEREAL)
                 .provider(11L)
                 .priceUnit(155.0)
                 .precioCompra(230.0)
@@ -297,7 +297,7 @@ public class ArticleInitializerService {
         //           --------------------- Frutas ---------------------
         articles.add(ArticleJpa.builder()
                 .name("Anana")
-                .category(ArticleCategory.FRUITS)
+                .category(ArticleCategory.FRUTA)
                 .provider(4L)
                 .priceUnit(140.0)
                 .precioCompra(200.5)
@@ -308,7 +308,7 @@ public class ArticleInitializerService {
         
         articles.add(ArticleJpa.builder()
                 .name("Nuez")
-                .category(ArticleCategory.FRUITS)
+                .category(ArticleCategory.FRUTA)
                 .provider(4L)
                 .priceUnit(250.0)
                 .precioCompra(180.0)
@@ -319,7 +319,7 @@ public class ArticleInitializerService {
         
         articles.add(ArticleJpa.builder()
                 .name("Manzana")
-                .category(ArticleCategory.FRUITS)
+                .category(ArticleCategory.FRUTA)
                 .provider(4L)
                 .priceUnit(180.0)
                 .precioCompra(220.0)
@@ -331,7 +331,7 @@ public class ArticleInitializerService {
         //           --------------------- Hongos ---------------------
         articles.add(ArticleJpa.builder()
                 .name("Champiñones")
-                .category(ArticleCategory.FUNGUS)
+                .category(ArticleCategory.HONGO)
                 .provider(4L)
                 .priceUnit(160.0)
                 .precioCompra(230.0)
@@ -343,7 +343,7 @@ public class ArticleInitializerService {
         //           --------------------- Horneado ---------------------
         articles.add(ArticleJpa.builder()
                 .name("Pan Integral")
-                .category(ArticleCategory.BAKED)
+                .category(ArticleCategory.PAN)
                 .provider(1L)
                 .priceUnit(250.0)
                 .precioCompra(500.0)
@@ -354,7 +354,7 @@ public class ArticleInitializerService {
 
         articles.add(ArticleJpa.builder()
                 .name("Harina de Trigo")
-                .category(ArticleCategory.BAKED)
+                .category(ArticleCategory.PAN)
                 .provider(3L)
                 .priceUnit(100.0)
                 .precioCompra(250.0)
@@ -365,7 +365,7 @@ public class ArticleInitializerService {
 
         articles.add(ArticleJpa.builder()
                 .name("Pan Blanco")
-                .category(ArticleCategory.BAKED)
+                .category(ArticleCategory.PAN)
                 .provider(1L)
                 .priceUnit(220.0)
                 .precioCompra(450.0)
@@ -376,7 +376,7 @@ public class ArticleInitializerService {
 
         articles.add(ArticleJpa.builder()
                 .name("Masa para Pizza")
-                .category(ArticleCategory.BAKED)
+                .category(ArticleCategory.PAN)
                 .provider(3L)
                 .priceUnit(300.0)
                 .precioCompra(600.0)
@@ -388,7 +388,7 @@ public class ArticleInitializerService {
         //           --------------------- Carnes ---------------------
         articles.add(ArticleJpa.builder()
                 .name("Hamburguesa de Pollo")
-                .category(ArticleCategory.MEAT)
+                .category(ArticleCategory.CARNE)
                 .provider(2L)
                 .priceUnit(700.0)
                 .precioCompra(1400.0)
@@ -399,7 +399,7 @@ public class ArticleInitializerService {
 
         articles.add(ArticleJpa.builder()
                 .name("Hamburguesa de Res")
-                .category(ArticleCategory.MEAT)
+                .category(ArticleCategory.CARNE)
                 .provider(2L)
                 .priceUnit(280.0)
                 .precioCompra(520.5)
@@ -410,7 +410,7 @@ public class ArticleInitializerService {
 
         articles.add(ArticleJpa.builder()
                 .name("Pollos")
-                .category(ArticleCategory.MEAT)
+                .category(ArticleCategory.CARNE)
                 .provider(2L)
                 .priceUnit(150.0)
                 .precioCompra(300.0)
@@ -421,7 +421,7 @@ public class ArticleInitializerService {
 
         articles.add(ArticleJpa.builder()
                 .name("Jamon Cocido")
-                .category(ArticleCategory.MEAT)
+                .category(ArticleCategory.CARNE)
                 .provider(2L)
                 .priceUnit(300.0)
                 .precioCompra(400.0)
@@ -432,7 +432,7 @@ public class ArticleInitializerService {
 
         articles.add(ArticleJpa.builder()
                 .name("Bacon")
-                .category(ArticleCategory.MEAT)
+                .category(ArticleCategory.CARNE)
                 .provider(2L)
                 .priceUnit(230.0)
                 .precioCompra(500.0)
@@ -443,7 +443,7 @@ public class ArticleInitializerService {
         
         articles.add(ArticleJpa.builder()
                 .name("Carne de Res")
-                .category(ArticleCategory.MEAT)
+                .category(ArticleCategory.CARNE)
                 .provider(2L)
                 .priceUnit(270.0)
                 .precioCompra(550.0)
@@ -455,7 +455,7 @@ public class ArticleInitializerService {
         //           --------------------- Lacteos ---------------------
         articles.add(ArticleJpa.builder()
                 .name("Leche Entera")
-                .category(ArticleCategory.DAIRY)
+                .category(ArticleCategory.LACTEO)
                 .provider(6L)
                 .priceUnit(120.0)
                 .precioCompra(300.0)
@@ -466,7 +466,7 @@ public class ArticleInitializerService {
 
         articles.add(ArticleJpa.builder()
                 .name("Yogur Natural")
-                .category(ArticleCategory.DAIRY)
+                .category(ArticleCategory.LACTEO)
                 .provider(6L)
                 .priceUnit(130.0)
                 .precioCompra(270.0)
@@ -477,7 +477,7 @@ public class ArticleInitializerService {
 
         articles.add(ArticleJpa.builder()
                 .name("Queso Muzzarella")
-                .category(ArticleCategory.DAIRY)
+                .category(ArticleCategory.LACTEO)
                 .provider(5L)
                 .priceUnit(130.0)
                 .precioCompra(270.0)
@@ -488,7 +488,7 @@ public class ArticleInitializerService {
         
         articles.add(ArticleJpa.builder()
                 .name("Queso Azul")
-                .category(ArticleCategory.DAIRY)
+                .category(ArticleCategory.LACTEO)
                 .provider(5L)
                 .priceUnit(130.0)
                 .precioCompra(270.0)
@@ -499,7 +499,7 @@ public class ArticleInitializerService {
         
         articles.add(ArticleJpa.builder()
                 .name("Queso Parmesano")
-                .category(ArticleCategory.DAIRY)
+                .category(ArticleCategory.LACTEO)
                 .provider(5L)
                 .priceUnit(130.0)
                 .precioCompra(270.0)
@@ -510,7 +510,7 @@ public class ArticleInitializerService {
         
         articles.add(ArticleJpa.builder()
                 .name("Aderezo Cesar")
-                .category(ArticleCategory.DRESSINGS)
+                .category(ArticleCategory.ADEREZO)
                 .provider(7L)
                 .priceUnit(130.0)
                 .precioCompra(270.0)
@@ -521,7 +521,7 @@ public class ArticleInitializerService {
 
         articles.add(ArticleJpa.builder()
                 .name("Queso Cheddar")
-                .category(ArticleCategory.DAIRY)
+                .category(ArticleCategory.LACTEO)
                 .provider(5L)
                 .priceUnit(200.0)
                 .precioCompra(350.0)
@@ -533,7 +533,7 @@ public class ArticleInitializerService {
         //           --------------------- Huevos ---------------------
         articles.add(ArticleJpa.builder()
                 .name("Huevos")
-                .category(ArticleCategory.DAIRY)
+                .category(ArticleCategory.LACTEO)
                 .provider(5L)
                 .priceUnit(200.0)
                 .precioCompra(350.0)
@@ -544,7 +544,7 @@ public class ArticleInitializerService {
         
         articles.add(ArticleJpa.builder()
                 .name("Palta")
-                .category(ArticleCategory.FRUITS)
+                .category(ArticleCategory.FRUTA)
                 .provider(4L)
                 .priceUnit(140.0)
                 .precioCompra(200.5)

@@ -6,6 +6,7 @@ import com.example.demo.repository.HistoryPurchasedRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -20,8 +21,8 @@ public class HistoryPurchasedService {
     public String addHistoryPurchase(HistoryPurchaseRequestDTO historyPurchaseDTO) {
 
         HistoryPurchased historyPurchased = HistoryPurchased.builder()
-                .provider(historyPurchaseDTO.providers())
-                .purchaseDate(historyPurchaseDTO.purchaseDate())
+                .provider(historyPurchaseDTO.provider())
+                .purchaseDate(LocalDate.now())
                 .itemsPurchased(historyPurchaseDTO.itemPurchased())
                 .build();
         historyPurchasedRepository.save(historyPurchased);
@@ -32,8 +33,8 @@ public class HistoryPurchasedService {
 
         Optional<HistoryPurchased> entityOptional = historyPurchasedRepository.findById(id);
         HistoryPurchased historyPurchased = entityOptional.get();
-        historyPurchased.setProvider(entity.providers());
-        historyPurchased.setPurchaseDate(entity.purchaseDate());
+        historyPurchased.setProvider(entity.provider());
+        historyPurchased.setPurchaseDate(LocalDate.now());
         historyPurchased.setItemsPurchased(entity.itemPurchased());
         return historyPurchasedRepository.save(historyPurchased);
     }

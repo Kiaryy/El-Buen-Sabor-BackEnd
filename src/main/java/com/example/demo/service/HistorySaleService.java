@@ -6,6 +6,7 @@ import com.example.demo.repository.HistorySaleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -22,7 +23,7 @@ public class HistorySaleService {
         HistorySale historySale = HistorySale.builder()
                 .nameofUser(historySaleDTO.nameofUser())
                 .cards(historySaleDTO.cards())
-                .dateSale(historySaleDTO.dateSale())
+                .dateSale(LocalDate.now())
                 .pedido(historySaleDTO.pedido())
                 .build();
         historySaleRepository.save(historySale);
@@ -34,7 +35,7 @@ public class HistorySaleService {
         HistorySale historySale = entityOptional.get();
         historySale.setNameofUser(entity.nameofUser());
         historySale.setCards(entity.cards());
-        historySale.setDateSale(entity.dateSale());
+        historySale.setDateSale(LocalDate.now());
         historySale.setPedido(entity.pedido());
         return historySaleRepository.save(historySale);
     }

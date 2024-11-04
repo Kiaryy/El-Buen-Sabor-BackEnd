@@ -1,6 +1,5 @@
 package com.example.demo.models;
 
-import com.example.demo.models.enums.Providers;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -19,7 +18,7 @@ public class HistoryPurchased {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private Providers provider;
+    private Long provider;
     private LocalDate purchaseDate;
     @ElementCollection
     private List<String> itemsPurchased;
