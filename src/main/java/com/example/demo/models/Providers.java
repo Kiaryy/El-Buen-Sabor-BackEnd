@@ -3,9 +3,10 @@ package com.example.demo.models;
 import java.time.LocalDate;
 import java.util.List;
 
+import com.example.demo.models.enums.ArticleCategory;
+
 import jakarta.persistence.CollectionTable;
 import jakarta.persistence.Column;
-import jakarta.persistence.Convert;
 import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -26,7 +27,7 @@ public class Providers {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
-    private String product;
+    private ArticleCategory product;
     private LocalDate lastShipment;
     private double shippingCost;
     private Long phoneNumber;

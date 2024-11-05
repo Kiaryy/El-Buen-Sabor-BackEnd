@@ -3,15 +3,15 @@ package com.example.demo.models.enums;
 public enum ArticleCategory {
     VEGETAL,
     PAN,
+    HARINA,
     CARNE,
     LACTEO,
+    QUESO,
     FRUTA,
-    HONGO,
-    LEGUMBRE,
+    MAICENA,
     SALSA,
     AZUCAR,
     ESPECIE,
-    DULCE_DE_LECHE,
     CEREAL,
     ADEREZO
 }
