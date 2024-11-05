@@ -27,7 +27,7 @@ public class Providers {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
-    private ArticleCategory product;
+    private List<ArticleCategory> product;
     private LocalDate lastShipment;
     private double shippingCost;
     private Long phoneNumber;
