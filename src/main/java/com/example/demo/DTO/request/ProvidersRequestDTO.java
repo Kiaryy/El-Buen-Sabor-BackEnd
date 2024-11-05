@@ -7,7 +7,7 @@ import com.example.demo.models.enums.ArticleCategory;
 
 public record ProvidersRequestDTO(
         String name,
-        ArticleCategory product,
+        List<ArticleCategory> product,
         Double shippingCost,
         Long phoneNumber,
         List<Long> articles
