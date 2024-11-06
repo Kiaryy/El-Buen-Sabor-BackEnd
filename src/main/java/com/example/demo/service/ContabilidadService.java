@@ -63,7 +63,7 @@ public class ContabilidadService {
     public List<Cuenta> getAllCuentas(){
         return cuentaRepository.findAll();
     }
-    
+    @Transactional
     public Cuenta crearCuenta(CuentaRequestDTO cuentaDTO) {
         // Verifica si la cuenta ya existe
         Optional<Cuenta> cuentaExistente = cuentaRepository.findByNombre(cuentaDTO.nombre());

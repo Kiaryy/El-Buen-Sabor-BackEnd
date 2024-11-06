@@ -4,6 +4,8 @@ import com.example.demo.DTO.request.BebidasRequestDTO;
 import com.example.demo.models.BebidasJpa;
 import com.example.demo.repository.BebidasRepository;
 
+import jakarta.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,7 +20,7 @@ public class BebidasService {
     public List<BebidasJpa> getAllBebidas() {
         return bebidasRepository.findAll();
     }
-
+    @Transactional
     public String addBebidas(BebidasRequestDTO bebidasDTO){
 
 

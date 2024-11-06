@@ -1,10 +1,12 @@
 package com.example.demo.controller;
 
 import com.example.demo.models.ArticleJpa;
+import com.example.demo.models.BebidasJpa;
 import com.example.demo.models.PlatoJpa;
 import com.example.demo.models.Providers;
 import com.example.demo.models.UsuarioJpa;
 import com.example.demo.service.ArticleInitializerService;
+import com.example.demo.service.BebidasInitializer;
 import com.example.demo.service.PlateInitializerService;
 import com.example.demo.service.ProviderInitializer;
 import com.example.demo.service.UserInitilizerService;
@@ -35,6 +37,8 @@ public class DataInitializerController {
     @Autowired
     ProviderInitializer providersService;
     
+    @Autowired
+    BebidasInitializer bebidasService;
     @GetMapping("createPlates")
     public List<PlatoJpa> createAllPlates(){
         return platoService.loadMenu();
@@ -67,6 +71,14 @@ public class DataInitializerController {
     @GetMapping("createProviders")
     public List<Providers> createAllProviders(){
         return providersService.loadProviders();
+    }
+    @GetMapping("createDrinks")
+    public List<BebidasJpa> createAllDrinks(){
+        return bebidasService.loadBebidas();
+    }
+    @GetMapping("deleteAllDrinks")
+    public String deleteAllDrinks(){
+        return bebidasService.deletedBebidas();
     }
 
 }

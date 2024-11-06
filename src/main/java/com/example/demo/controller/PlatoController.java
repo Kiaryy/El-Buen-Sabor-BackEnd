@@ -50,8 +50,8 @@ public class PlatoController{
         return ResponseEntity.status(HttpStatus.NO_CONTENT).body(platosService.delete(id));
     }
 
-    @GetMapping("purchasePlate")
-    public String purchasePlate(Long platoId, int quantity) {
-        return platosService.purchasePlate(platoId, quantity);
+    @PostMapping("/platos/purchasePlate/{id}/{quantity}")
+    public String purchasePlate(@PathVariable("id") Long id,@PathVariable("quantity") int quantity) {
+        return platosService.purchasePlate(id, quantity);
     }
 }
