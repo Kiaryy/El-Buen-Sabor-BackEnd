@@ -22,6 +22,7 @@ public class Promotions {
     @ElementCollection
     private List<DrinkReference> bebidas;
     private double precio;
+    private boolean available;
     @Lob
     @Column(name = "image_data", columnDefinition="MEDIUMBLOB")
     private byte[] imageData;

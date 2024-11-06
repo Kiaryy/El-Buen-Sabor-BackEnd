@@ -10,6 +10,7 @@ public record PromotionsRequestDTO(
         String name,
         Double precio,
         byte[] imageData,
+        boolean available,
         List<PlateReference> platos,
         List<DrinkReference> bebidas
 ) {

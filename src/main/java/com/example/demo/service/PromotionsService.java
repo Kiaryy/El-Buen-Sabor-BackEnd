@@ -43,6 +43,7 @@ public class PromotionsService {
                 .name(promotionsDTO.name())
                 .precio(promotionsDTO.precio())
                 .imageData(promotionsDTO.imageData())
+                .available(promotionsDTO.available())
                 .platos(promotionsDTO.platos())
                 .bebidas(promotionsDTO.bebidas())
                 .build();
@@ -56,6 +57,7 @@ public class PromotionsService {
         promotions.setName(entity.name());
         promotions.setPrecio(entity.precio());
         promotions.setImageData(entity.imageData());
+        promotions.setAvailable(entity.available());
         promotions.setBebidas(entity.bebidas());
         promotions.setPlatos(entity.platos());
         return promotionsRepository.save(promotions);
