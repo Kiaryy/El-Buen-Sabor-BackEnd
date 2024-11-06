@@ -4,7 +4,6 @@ import com.example.demo.models.enums.Tipo;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 //With Lombok
@@ -33,7 +32,7 @@ public class PlatoJpa {
     private int timesPurchased;
     
     @ElementCollection
-    private List<ArticleReference> articles = new ArrayList<>();
+    private List<ArticleReference> articles;
     
     public boolean getAvaliable(){
         return this.available;

@@ -33,7 +33,7 @@ public class Providers {
     private Long phoneNumber;
     
     @ElementCollection
-    @CollectionTable(name = "entity_long_list", joinColumns = @JoinColumn(name = "entity_id"))
+    @CollectionTable(name = "provider_articles", joinColumns = @JoinColumn(name = "article_id"))
     @Column(name = "long_value")
     private List<Long> articles;
     

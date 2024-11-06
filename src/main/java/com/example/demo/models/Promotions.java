@@ -17,9 +17,12 @@ public class Promotions {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
-    @ManyToMany
-    private List<PlatoJpa> platos;
-    @ManyToMany
-    private List<BebidasJpa> bebidas;
+    @ElementCollection
+    private List<PlateReference> platos;
+    @ElementCollection
+    private List<DrinkReference> bebidas;
     private double precio;
+    @Lob
+    @Column(name = "image_data", columnDefinition="MEDIUMBLOB")
+    private byte[] imageData;
 }

@@ -4,6 +4,7 @@ import com.example.demo.models.PlatoJpa;
 import com.example.demo.models.interfaces.PlatoProjection;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -20,4 +21,6 @@ public interface PlatoJpaRepository extends JpaRepository<PlatoJpa, Long> {
     boolean existsByName(@Param("producto") String producto);
     @Query("SELECT p FROM PlatoJpa p")
     List<PlatoProjection> findAllProjected();
+    @Query(value = "SELECT * FROM plato_jpa WHERE name=?",nativeQuery = true)
+        public Optional<PlatoJpa> findByName(String name);
 }

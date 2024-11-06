@@ -40,4 +40,9 @@ public class PromotionsController {
     public ResponseEntity<?> delete(@PathVariable("id") Long id){
         return ResponseEntity.status(HttpStatus.NO_CONTENT).body(promotionsService.delete(id));
     }
+    @PostMapping("/promotions/purchasePromotion/{id}/{quantity}")
+    public String purchasePromotion(@PathVariable("id") Long id, @PathVariable("quantity")int quantity) {
+        return promotionsService.purchasePromotion(id, quantity);
+    }
 }
+
