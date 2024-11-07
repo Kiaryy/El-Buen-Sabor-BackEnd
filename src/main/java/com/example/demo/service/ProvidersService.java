@@ -18,6 +18,8 @@ public class ProvidersService {
     private ProvidersRepository providersRepository;
     @Autowired
     private ArticleRepository articleRepository;
+    @Autowired
+    private HistoryPurchasedService historyPurchasedService;
 
     public List<Providers> getAllProviders() {
         return providersRepository.findAll();
@@ -49,6 +51,7 @@ public class ProvidersService {
             articleJpa.setLastPurchased(currentDate);
             articleRepository.save(articleJpa);
         }
+        historyPurchasedService.addHistoryPurchase(id);
         return "Articles Purchased";
     }
 

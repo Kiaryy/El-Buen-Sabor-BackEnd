@@ -1,6 +1,5 @@
 package com.example.demo.controller;
 
-import com.example.demo.DTO.request.HistoryPurchaseRequestDTO;
 import com.example.demo.models.HistoryPurchased;
 import com.example.demo.service.HistoryPurchasedService;
 import lombok.AllArgsConstructor;
@@ -21,8 +20,8 @@ public class HistoryPurchasedController {
     List<HistoryPurchased> findAll() {return historyPurchasedService.getAllHistoryPurchases();}
 
     @PostMapping("/historypurchased/{id}")
-    public ResponseEntity<?> update(@PathVariable("id") Long id, @RequestBody HistoryPurchaseRequestDTO historyPurchaseDTO) {
-        return ResponseEntity.status(HttpStatus.OK).body(historyPurchasedService.update(id, historyPurchaseDTO));
+    public ResponseEntity<?> addHistoryPurchase(@PathVariable("id") Long id) {
+        return ResponseEntity.status(HttpStatus.OK).body(historyPurchasedService.addHistoryPurchase(id));
     }
 
     @DeleteMapping("/historypurchased/{id}")

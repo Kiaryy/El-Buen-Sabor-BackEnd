@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class HistorySaleService {
@@ -20,23 +19,13 @@ public class HistorySaleService {
 
     public String addHistorySale(HistorySaleRequestDTO historySaleDTO) {
         HistorySale historySale = HistorySale.builder()
-                .nameofUser(historySaleDTO.nameofUser())
-                .cards(historySaleDTO.cards())
+                .userId(historySaleDTO.userId())
+                .card(historySaleDTO.card())
                 .dateSale(LocalDate.now())
                 .pedido(historySaleDTO.pedido())
                 .build();
         historySaleRepository.save(historySale);
         return "History Sale added";
-    }
-
-    public HistorySale update(Long id, HistorySaleRequestDTO entity) {
-        Optional<HistorySale> entityOptional = historySaleRepository.findById(id);
-        HistorySale historySale = entityOptional.get();
-        historySale.setNameofUser(entity.nameofUser());
-        historySale.setCards(entity.cards());
-        historySale.setDateSale(LocalDate.now());
-        historySale.setPedido(entity.pedido());
-        return historySaleRepository.save(historySale);
     }
 
     public boolean delete(Long id) {

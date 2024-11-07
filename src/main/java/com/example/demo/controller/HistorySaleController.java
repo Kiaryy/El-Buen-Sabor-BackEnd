@@ -20,9 +20,9 @@ public class HistorySaleController {
     @GetMapping("/historySale/findAll")
     List<HistorySale> findAll() {return historySaleService.getAllHistorySales();}
 
-    @PostMapping("/historySale/{id}")
-    public ResponseEntity<?> update(@PathVariable("id") Long id, @RequestBody HistorySaleRequestDTO historySaleDTO) {
-        return ResponseEntity.status(HttpStatus.OK).body(historySaleService.update(id, historySaleDTO));
+    @PostMapping("/historySale/addSale")
+    public ResponseEntity<?> addHistorySale(@RequestBody HistorySaleRequestDTO historySaleDTO) {
+        return ResponseEntity.status(HttpStatus.OK).body(historySaleService.addHistorySale(historySaleDTO));
     }
 
     @DeleteMapping("/historySale/{id}")
