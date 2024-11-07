@@ -27,7 +27,6 @@ public class ArticleService{
     public String addArticle(ArticleRequestDTO articleRequestDTO){
         ArticleJpa article = ArticleJpa.builder()
                 .name(articleRequestDTO.name())
-                .denominacion(articleRequestDTO.denominacion())
                 .category(articleRequestDTO.category())
                 .provider(articleRequestDTO.provider())
                 .priceUnit(articleRequestDTO.priceUnit())
@@ -44,7 +43,6 @@ public class ArticleService{
         Optional<ArticleJpa> entityOptional = articleInsumoRepository.findById(id);
         ArticleJpa article = entityOptional.get();
         article.setName(entity.name());
-        article.setDenominacion(entity.denominacion());
         article.setCategory(entity.category());
         article.setProvider(entity.provider());
         article.setPriceUnit(entity.priceUnit());

@@ -32,6 +32,7 @@ public class PlatosService {
     public List<PlatoJpa> getAllPlatos() {
         return platoJpaRepository.findAll();
     }
+    @Transactional
     public List<PlatoProjection> findAllProjected() {
     return platoJpaRepository.findAllProjected();
 }
