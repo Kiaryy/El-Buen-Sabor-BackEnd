@@ -20,30 +20,26 @@ public class BebidasService {
     public List<BebidasJpa> getAllBebidas() {
         return bebidasRepository.findAll();
     }
+    // Agrega bebida al repositorio en base al DTO
     @Transactional
     public String addBebidas(BebidasRequestDTO bebidasDTO){
-
-
         BebidasJpa bebidasJpa = BebidasJpa.builder()
                 .stock(bebidasDTO.stock())
                 .descripcion(bebidasDTO.descripcion())
                 .precio(bebidasDTO.precio())
                 .nombre(bebidasDTO.nombre())
                 .build();
-        // Here we save in dataBase
         bebidasRepository.save(bebidasJpa);
         return "Article Added";
     }
-
+    // Actualiza bebida en base al DTO
     public BebidasJpa updatedBebidas(Long id, BebidasRequestDTO entity){
         Optional<BebidasJpa> entityOptional = bebidasRepository.findById(id);
         BebidasJpa bebidasJpa = entityOptional.get();
-        // We convert the DTO entity to an object
         bebidasJpa.setDescripcion(entity.descripcion());
         bebidasJpa.setNombre(entity.nombre());
         bebidasJpa.setPrecio(entity.precio());
         bebidasJpa.setStock(entity.stock());
-        // Saves updated entity to database
         return bebidasRepository.save(bebidasJpa);
     }
 
