@@ -17,7 +17,6 @@ public class ArticleJpa{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long articleId;
     private String name;
-    private String denominacion;
     private ArticleCategory category;
     private Double priceUnit;
     private Double precioCompra;

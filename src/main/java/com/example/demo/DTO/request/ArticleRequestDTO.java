@@ -6,7 +6,6 @@ import com.example.demo.models.enums.ArticleCategory;
 
 public record ArticleRequestDTO(
         String name,
-        String denominacion,
         ArticleCategory category,
         Long provider,
         Double priceUnit,
