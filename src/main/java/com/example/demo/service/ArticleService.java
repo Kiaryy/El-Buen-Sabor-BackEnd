@@ -3,6 +3,9 @@ package com.example.demo.service;
 import com.example.demo.DTO.request.ArticleRequestDTO;
 import com.example.demo.models.ArticleJpa;
 import com.example.demo.repository.ArticleRepository;
+
+import jakarta.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,10 +22,9 @@ public class ArticleService{
     public List<ArticleJpa> getAllArticles() {
         return articleInsumoRepository.findAll();
     }
-
+    // Guarda un articulo en el repositorio en base al DTO
+    @Transactional
     public String addArticle(ArticleRequestDTO articleRequestDTO){
-
-
         ArticleJpa article = ArticleJpa.builder()
                 .name(articleRequestDTO.name())
                 .denominacion(articleRequestDTO.denominacion())
@@ -34,15 +36,13 @@ public class ArticleService{
                 .existencies(articleRequestDTO.existencies())
                 .lastPurchased(articleRequestDTO.lastPurchased())
                 .build();
-        // Here we save in dataBase
         articleInsumoRepository.save(article);
         return "Article Added";
     }
-
+    // Settea un articulo en base al DTO
     public ArticleJpa update(Long id, ArticleRequestDTO entity){
         Optional<ArticleJpa> entityOptional = articleInsumoRepository.findById(id);
         ArticleJpa article = entityOptional.get();
-        // We convert the DTO entity to an object
         article.setName(entity.name());
         article.setDenominacion(entity.denominacion());
         article.setCategory(entity.category());
@@ -52,7 +52,6 @@ public class ArticleService{
         article.setStockActual(entity.stockActual());
         article.setExistencies(entity.existencies());
         article.setLastPurchased(LocalDate.now());
-        // Saves updated entity to database
         return articleInsumoRepository.save(article);
     }
 

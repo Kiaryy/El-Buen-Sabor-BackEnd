@@ -23,8 +23,8 @@ public class ArticleInitializerService {
         repository.deleteAll(all);
         return "All articles deleted";
     }
-
-    public List<ArticleJpa> loadArticles() {
+        //  Esta funcion carga un set de articulos pre definidos
+        public List<ArticleJpa> loadArticles() {
         List <ArticleJpa> articles = new ArrayList<>();
 
         //           --------------------- Vegetales ---------------------//

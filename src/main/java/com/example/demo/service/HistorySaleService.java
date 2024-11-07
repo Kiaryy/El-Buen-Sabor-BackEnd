@@ -19,7 +19,6 @@ public class HistorySaleService {
     public List<HistorySale> getAllHistorySales() {return historySaleRepository.findAll();}
 
     public String addHistorySale(HistorySaleRequestDTO historySaleDTO) {
-
         HistorySale historySale = HistorySale.builder()
                 .nameofUser(historySaleDTO.nameofUser())
                 .cards(historySaleDTO.cards())

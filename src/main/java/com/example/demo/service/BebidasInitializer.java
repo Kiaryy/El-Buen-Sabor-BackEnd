@@ -21,9 +21,8 @@ public class BebidasInitializer {
         repository.deleteAll(all);
         return "All articles deleted";
     }
-
-    public List<BebidasJpa> loadBebidas() {
-
+        //  Esta funcion carga un set de bebidas pre definidas
+        public List<BebidasJpa> loadBebidas() {
         List<BebidasJpa> bebidas = new ArrayList<>();
 
         bebidas.add(BebidasJpa.builder()
