@@ -1,5 +1,7 @@
 package com.example.demo.models;
 
+import java.util.List;
+
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -14,11 +16,10 @@ public class Pedido {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long pedidoId;
     //private List<PlatoJpa> productos;
-    private String productos;
+    @ElementCollection
+    private List<PlateReference> productos;
     private String nombreDelivery;
     // private String idDelivery;
 
-    @ManyToOne
-    @JoinColumn(name= "user_id", nullable = false)
-    private UsuarioJpa user;
+    private String user;
 }

@@ -4,9 +4,11 @@ import lombok.Data;
 
 import java.util.List;
 
+import com.example.demo.models.PlateReference;
+
 @Data
 public class UsuarioPedidoRequest {
     private Long userId;
     private String deliveryName;
-    private List<PlatoRequestDTO> productos;
+    private List<PlateReference> productos;
 }
