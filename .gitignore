@@ -9,7 +9,7 @@
 /dataSources.local.xml
 # Idea
 .idea
-
+db
 .vscode
 # From https://github.com/github/gitignore/blob/master/Gradle.gitignore
 .gradle
