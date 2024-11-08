@@ -41,7 +41,7 @@ public class PedidoService {
                 .nombreDelivery(request.getDeliveryName())
                 .platos(request.getPlatos())
                 .bebidas(request.getBebidas())
-                .user(user.getName())
+                .user_name(user.getName())
                 .user_id(request.getUserId())
                 .date(LocalDate.now())
                 .build();
