@@ -20,7 +20,7 @@ public class UsuarioJpa extends Person {
     private List<Long> cards ;
     private String passWord;
 
-    @OneToMany(mappedBy = "user" ,cascade =CascadeType.ALL, orphanRemoval = true)
+    @ElementCollection
     private List<Pedido> pedido;
 
     @Builder

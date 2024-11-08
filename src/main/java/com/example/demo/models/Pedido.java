@@ -1,5 +1,6 @@
 package com.example.demo.models;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import jakarta.persistence.*;
@@ -20,6 +21,7 @@ public class Pedido {
     private List<PlateReference> productos;
     private String nombreDelivery;
     // private String idDelivery;
-
     private String user;
+    private LocalDate date;
+    private Long user_id;
 }

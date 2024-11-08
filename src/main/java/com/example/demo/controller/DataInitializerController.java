@@ -43,6 +43,14 @@ public class DataInitializerController {
     public List<PlatoJpa> createAllPlates(){
         return platoService.loadMenu();
     }
+    @GetMapping("initializeAll")
+    public String initializeAll(){
+        articleService.loadArticles();
+        bebidasService.loadBebidas();
+        providersService.loadProviders();
+        platoService.loadMenu();
+        return "Tables Initiliazed successfully";
+    }
     
     @GetMapping("createArticles")
     public List<ArticleJpa> createAllArticles(){
