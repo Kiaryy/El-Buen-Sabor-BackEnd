@@ -1,5 +1,6 @@
 package com.example.demo.controller;
 
+import com.example.demo.DTO.request.CuentaRequestDTO;
 import com.example.demo.models.ArticleJpa;
 import com.example.demo.models.BebidasJpa;
 import com.example.demo.models.PlatoJpa;
@@ -7,6 +8,7 @@ import com.example.demo.models.Providers;
 import com.example.demo.models.UsuarioJpa;
 import com.example.demo.service.ArticleInitializerService;
 import com.example.demo.service.BebidasInitializer;
+import com.example.demo.service.ContabilidadService;
 import com.example.demo.service.PlateInitializerService;
 import com.example.demo.service.ProviderInitializer;
 import com.example.demo.service.UserInitilizerService;
@@ -39,6 +41,9 @@ public class DataInitializerController {
     
     @Autowired
     BebidasInitializer bebidasService;
+    
+    @Autowired
+    ContabilidadService contabilidadService;
     @GetMapping("createPlates")
     public List<PlatoJpa> createAllPlates(){
         return platoService.loadMenu();
@@ -49,6 +54,10 @@ public class DataInitializerController {
         bebidasService.loadBebidas();
         providersService.loadProviders();
         platoService.loadMenu();
+        contabilidadService.crearCuenta(new CuentaRequestDTO("Mercaderia"));
+        contabilidadService.crearCuenta(new CuentaRequestDTO("Efectivo"));
+        contabilidadService.crearCuenta(new CuentaRequestDTO("Banco"));
+        contabilidadService.crearCuenta(new CuentaRequestDTO("Crypto"));
         return "Tables Initiliazed successfully";
     }
     
