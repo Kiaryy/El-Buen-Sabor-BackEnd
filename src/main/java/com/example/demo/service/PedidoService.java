@@ -1,5 +1,6 @@
 package com.example.demo.service;
 
+import com.example.demo.DTO.request.HistorySaleRequestDTO;
 import com.example.demo.DTO.request.PlatoRequestDTO;
 import com.example.demo.DTO.request.UsuarioPedidoRequest;
 import com.example.demo.models.Pedido;
@@ -25,6 +26,8 @@ public class PedidoService {
     private UsuarioJpaRepository usuarioJpaRepository;
     @Autowired
     private PedidoRepository pedidoRepository;
+    @Autowired
+    private HistorySaleService historySaleService;
     public String realizarPedido(UsuarioPedidoRequest request) {
         log.info(request);
         Optional<UsuarioJpa> userOpt =  usuarioJpaRepository.findById(request.getUserId());
@@ -36,7 +39,8 @@ public class PedidoService {
         UsuarioJpa user = userOpt.get();
         Pedido pedido = Pedido.builder()
                 .nombreDelivery(request.getDeliveryName())
-                .productos(request.getProductos())
+                .platos(request.getPlatos())
+                .bebidas(request.getBebidas())
                 .user(user.getName())
                 .user_id(request.getUserId())
                 .date(LocalDate.now())
@@ -46,6 +50,9 @@ public class PedidoService {
         log.info("User: ",user);
         pedidoRepository.save(pedido);
         usuarioJpaRepository.save(user);
+        // Registrar venta
+        HistorySaleRequestDTO historySaleDTO = new HistorySaleRequestDTO(request.getUserId(), user.getCards(), pedido);
+        historySaleService.addHistorySale(historySaleDTO);
 
         return "Pedido realizado con exito";
     }

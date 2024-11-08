@@ -18,7 +18,9 @@ public class Pedido {
     private Long pedidoId;
     //private List<PlatoJpa> productos;
     @ElementCollection
-    private List<PlateReference> productos;
+    private List<PlateReference> platos;
+    @ElementCollection
+    private List<DrinkReference> bebidas;
     private String nombreDelivery;
     // private String idDelivery;
     private String user;
