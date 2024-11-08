@@ -2,7 +2,6 @@ package com.example.demo.models;
 
 
 
-import java.io.Serializable;
 
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -17,7 +16,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 
-public class Base implements Serializable{
+public class Base{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
