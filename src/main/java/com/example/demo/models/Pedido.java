@@ -23,7 +23,7 @@ public class Pedido {
     private List<DrinkReference> bebidas;
     private String nombreDelivery;
     // private String idDelivery;
-    private String user;
+    private String user_name;
     private LocalDate date;
     private Long user_id;
 }
