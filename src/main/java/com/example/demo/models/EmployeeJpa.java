@@ -34,7 +34,7 @@ public class EmployeeJpa extends Person{
         this.absences = absences;
         this.charge = charge;
         this.state = state;
-        this.shift = shift;
+        this.shift = charge.getShift();
     }
     
     

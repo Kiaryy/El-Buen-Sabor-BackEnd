@@ -9,6 +9,7 @@ import com.example.demo.models.UsuarioJpa;
 import com.example.demo.service.ArticleInitializerService;
 import com.example.demo.service.BebidasInitializer;
 import com.example.demo.service.ContabilidadService;
+import com.example.demo.service.EmployeeInitializerService;
 import com.example.demo.service.PlateInitializerService;
 import com.example.demo.service.ProviderInitializer;
 import com.example.demo.service.UserInitilizerService;
@@ -43,6 +44,9 @@ public class DataInitializerController {
     BebidasInitializer bebidasService;
     
     @Autowired
+    EmployeeInitializerService employeeService;
+    
+    @Autowired
     ContabilidadService contabilidadService;
     @GetMapping("createPlates")
     public List<PlatoJpa> createAllPlates(){
@@ -54,6 +58,7 @@ public class DataInitializerController {
         bebidasService.loadBebidas();
         providersService.loadProviders();
         platoService.loadMenu();
+        employeeService.createEmployees();
         contabilidadService.crearCuenta(new CuentaRequestDTO("Mercaderia"));
         contabilidadService.crearCuenta(new CuentaRequestDTO("Efectivo"));
         contabilidadService.crearCuenta(new CuentaRequestDTO("Banco"));
