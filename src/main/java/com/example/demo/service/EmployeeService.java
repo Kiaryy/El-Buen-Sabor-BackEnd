@@ -58,7 +58,7 @@ public class EmployeeService {
         employee.setHourlySalary(entity.hourlySalary());
         employee.setAbsences(entity.absences());
         employee.setCharge(entity.charge());
-        employee.setShift(entity.name());
+        employee.setShift(entity.charge().getShift());
         employee.setState(entity.state());
         // Saves updated entity to database
         
