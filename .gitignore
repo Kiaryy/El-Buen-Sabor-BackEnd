@@ -14,7 +14,7 @@ db
 # From https://github.com/github/gitignore/blob/master/Gradle.gitignore
 .gradle
 /build/
-MENU
+
 # Ignore Gradle GUI config
 gradle-app.setting
 bin
