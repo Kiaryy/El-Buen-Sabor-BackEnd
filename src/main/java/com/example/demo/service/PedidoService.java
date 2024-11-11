@@ -13,9 +13,10 @@ import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
+import java.util.Random;
 import java.util.StringJoiner;
 
 @Service
@@ -43,7 +44,8 @@ public class PedidoService {
                 .bebidas(request.getBebidas())
                 .user_name(user.getName())
                 .user_id(request.getUserId())
-                .date(LocalDate.now())
+                .dateCreated(LocalDateTime.now())
+                .dateArrived(LocalDateTime.now().plusMinutes(new Random().nextInt(10 - 5 + 1) + 5))
                 .build();
         user.getPedido().add(pedido);
         log.info("Pedido: ",pedido);

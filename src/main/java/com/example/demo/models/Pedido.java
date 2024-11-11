@@ -1,6 +1,6 @@
 package com.example.demo.models;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 import jakarta.persistence.*;
@@ -24,6 +24,8 @@ public class Pedido {
     private String nombreDelivery;
     // private String idDelivery;
     private String user_name;
-    private LocalDate date;
+    private LocalDateTime dateCreated;
+    private LocalDateTime dateArrived;
+    
     private Long user_id;
 }
