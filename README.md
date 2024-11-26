@@ -1,5 +1,27 @@
-# El-Buen-Sabor
-Repositorio para el proyecto "El Buen Sabor"   
+# 🛒 **EL Buen Sabor - Ecommerce Ficticio(Parte del Back-end)**
+---
+link del front:https://github.com/Kiaryy/El-Buen-Sabor-FrontEnd
+---
+## 🚀 **Características Principales**
 
-![alt text](https://github.com/Kiaryy/yet-Another-FFPEG-Wrapper/blob/main/jinx-jinx-cat.gif)
+- **Corer la base de datos**  
+  Inicializador con datos ya puestos, imagens , platos , insumos
+
+- **H2**  
+  Tiene el sistema de base de datos H2
+---
+
+## 🛠️ **Tecnologías Utilizadas**
+
+### **Back-end:**
+- java, springboot, h2, jpa hibernate, Lombok
+
+
+### **Integraciones:**
+- **MercadoPago API** para la gestión de pagos.
+- Librerías para pagos con criptomonedas.
+
+---
+
+
 
