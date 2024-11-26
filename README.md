@@ -1,6 +1,6 @@
 # 🛒 **EL Buen Sabor - Ecommerce Ficticio(Parte del Back-end)**
 ---
-link del front:https://github.com/Kiaryy/El-Buen-Sabor-FrontEnd
+link del front-end :https://github.com/Kiaryy/El-Buen-Sabor-FrontEnd
 ---
 ## 🚀 **Características Principales**
 
